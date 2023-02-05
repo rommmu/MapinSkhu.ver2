@@ -1,0 +1,16 @@
+<h1>{{rooms.room}} Detail</h1>
+{% for classes in classes_list %}
+{% if rooms.room == classes.room %}
+        {{ classes.kind }} &nbsp;
+        {{ classes.code }} &nbsp;
+        {{ classes.class_name }} &nbsp;
+        {{ classes.prof }} &nbsp;
+        {{ classes.room }} &nbsp;
+        {{ classes.date1 }} &nbsp;
+        {{ classes.date2 }} &nbsp;
+        {{ classes.start }} &nbsp;
+        {{ classes.end }} &nbsp;
+        {{ classes.kwan_name }} &nbsp;
+        <br>
+{% endif %}
+{% endfor %}

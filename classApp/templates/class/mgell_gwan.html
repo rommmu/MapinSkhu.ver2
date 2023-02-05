@@ -1,0 +1,22 @@
+<h1>미가엘관</h1>
+{{ now_weekday}} {{ now_time }} <br><br>
+{% for rooms in rooms_list %}
+    {{ rooms.room }} {{rooms.type}} {{ rooms.room_type }} <br>
+    {% for classes in classes_list %}
+    {% if rooms.room == classes.room %}
+    <a href="{% url 'classroom' rooms.room rooms.id %}">
+        {{ classes.kind }}
+        {{ classes.code }}
+        {{ classes.class_name }}
+        {{ classes.prof }}
+        {{ classes.room }}
+        {{ classes.date1 }}
+        {{ classes.date2 }}
+        {{ classes.start }}
+        {{ classes.end }}
+        {{ classes.kwan_name }}
+        {% endif %}
+    </a>
+    {% endfor %}
+<br>
+{% endfor %}
