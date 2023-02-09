@@ -17,14 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings 
 from django.conf.urls.static import static
-import classApp.views
+import classApp.views, feedbackApp.views
 
 urlpatterns = [
     path('skhu21it4/', admin.site.urls),
+
     path('', classApp.views.index, name='index'),
-    path('feedback/', classApp.views.feedback, name='feedback'),
-    path('feedback_cp/', classApp.views.feedback_cp, name='feedback_cp'),
     path('introduce/', classApp.views.introduce, name='introduce'),
+    
     path('dormitory/', classApp.views.dormitory, name='dormitory'),
     path('gdin_gwan', classApp.views.gdin_gwan, name='gdin_gwan'),
     path('im_gwan/', classApp.views.im_gwan, name='im_gwan'),
@@ -38,4 +38,8 @@ urlpatterns = [
     path('sy_gwan/', classApp.views.sy_gwan, name='sy_gwan'),
     path('wd_gwan/', classApp.views.wd_gwan, name='wd_gwan'),
     path('classroom/<str:room>/<str:id>/', classApp.views.classroom, name='classroom'),
+
+    path('feedback/', feedbackApp.views.feedback, name='feedback'),
+    path('feedback_cp/', feedbackApp.views.feedback_cp, name='feedback_cp'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
