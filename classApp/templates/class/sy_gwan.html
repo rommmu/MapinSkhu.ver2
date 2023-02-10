@@ -20,3 +20,11 @@
     {% endfor %}
 <br>
 {% endfor %}
+
+{% for rooms in rooms_access %}
+    {{ rooms.room }} {{rooms.type}} {{ rooms.room_type }} <br>
+{% endfor %}
+<br>
+{% for rooms in rooms_unaccess %}
+    {{ rooms.room }} {{rooms.type}} {{ rooms.room_type }} <br>
+{% endfor %}

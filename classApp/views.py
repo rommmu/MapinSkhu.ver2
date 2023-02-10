@@ -4,6 +4,12 @@ from django.utils import timezone
 from django.db.models import Q, Case, When
 
 
+def index(request):
+    return render(request, 'index.html')
+
+def introduce(request):
+    return render(request, 'introduce.html')
+
 def kwan_fn(my_kwan):
     days = ['월', '화', '수', '목', '금', '토', '일']
     now = timezone.now()
@@ -18,9 +24,13 @@ def kwan_fn(my_kwan):
     rooms_list = []
     classes_list = []
 
+    rooms_access = []
+    rooms_unaccess = []
+
     for r in rooms:
         r.room_type = "사용가능"
         r.type = True
+        r.room_type = "사용가능"
         rooms_list.append(r)
         for c in classes:
             if r.room == c.room:
@@ -30,6 +40,9 @@ def kwan_fn(my_kwan):
                 classes_list.append(c)
                 if r.type == False:
                     r.room_type = "사용불가"
+                rooms_unaccess.append(r)
+        if r.type == True:
+            rooms_access.append(r)
 
     return {
         'now_date' : now_date, 
@@ -38,9 +51,10 @@ def kwan_fn(my_kwan):
         'rooms' : rooms, 
         'classes' : classes, 
         'rooms_list' : rooms_list, 
-        'classes_list' : classes_list
+        'classes_list' : classes_list,
+        'rooms_access': rooms_access,
+        'rooms_unaccess': rooms_unaccess,
     }
-
 
 # 1관 승연관
 def sy_gwan(request):
@@ -89,8 +103,6 @@ def sbdr_school(request):
 # 13관 행복기숙사
 def dormitory(request):
     return render(request, 'class/dormitory.html', kwan_fn(my_kwan = "행복기숙사"))
-
-
 
 # Classroom
 def classroom(request, room, id):
