@@ -124,6 +124,8 @@ LANGUAGE_CODE = 'ko-kr'
 
 TIME_ZONE = 'Asia/Seoul'
 
+# 'Etc/GMT+3'
+# 'Asia/Seoul'
 # 'UTC'
 
 USE_I18N = True
