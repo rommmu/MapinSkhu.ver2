@@ -17,13 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings 
 from django.conf.urls.static import static
-import classApp.views, feedbackApp.views
+import classApp.views, feedbackApp.views, baseApp.views
 
 urlpatterns = [
     path('skhu21it4/', admin.site.urls),
 
-    path('', classApp.views.index, name='index'),
-    path('introduce/', classApp.views.introduce, name='introduce'),
+    path('', baseApp.views.index, name='index'),
+    path('introduce/', baseApp.views.introduce, name='introduce'),
     
     path('dormitory/', classApp.views.dormitory, name='dormitory'),
     path('gdin_gwan', classApp.views.gdin_gwan, name='gdin_gwan'),
