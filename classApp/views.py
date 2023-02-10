@@ -9,12 +9,6 @@ def base(request):
 def index(request):
     return render(request, 'index.html')
 
-def feedback(request):
-    return render(request, 'feedback.html')
-
-def feedback_cp(request):
-    return render(request, 'feedback_cp.html')
-
 def introduce(request):
     return render(request, 'introduce.html')
 
