@@ -4,11 +4,6 @@ from django.utils import timezone
 from django.db.models import Q, Case, When
 
 
-def index(request):
-    return render(request, 'index.html')
-
-def introduce(request):
-    return render(request, 'introduce.html')
 
 def kwan_fn(my_kwan):
     days = ['월', '화', '수', '목', '금', '토', '일']
@@ -103,32 +98,3 @@ def sbdr_school(request):
 # 13관 행복기숙사
 def dormitory(request):
     return render(request, 'class/dormitory.html', kwan_fn(my_kwan = "행복기숙사"))
-
-# Classroom
-def classroom(request, room, id):
-    days = ['월', '화', '수', '목', '금', '토', '일']
-    now = timezone.now()
-    now_date = now.date()
-    now_time = now.time()
-    weekday = now.weekday()
-    now_weekday = days[weekday]
-
-    # 근데 여기가 필요한지는 잘 모루겟,,
-    date_list = ['월', '화', '수', '목', '금', '토']
-    preserved = Case(
-        *[When(date1 = date1,  then = pos) for pos, date1 in enumerate(date_list)], 
-        *[When(date2 = date2,  then = pos) for pos, date2 in enumerate(date_list)]
-    )
-    rooms = get_object_or_404(Room, room = room, id = id)
-    classes = Classes.objects.filter(Q(date1__in = date_list) | Q(date2__in = date_list)).order_by(preserved, 'start')
-
-    classes_list = []
-
-    for c in classes:
-        if c.date2 == None:
-            c.date2 = ""
-        classes_list.append(c)
-
-    return render(request, 'classroom.html', 
-    {'now_date':now_date, 'now_time':now_time, 'now_weekday':now_weekday,
-    'classes': classes, 'rooms': rooms, 'classes_list': classes_list})
