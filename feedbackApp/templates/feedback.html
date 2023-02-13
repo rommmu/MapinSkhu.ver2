@@ -1,1 +1,9 @@
 <h1>Feedback</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{feedback_form}}
+
+    <button type="submit">보내기</button>
+</form>

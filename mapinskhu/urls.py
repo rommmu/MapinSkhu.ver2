@@ -37,7 +37,7 @@ urlpatterns = [
     path('scn_gwan/', classApp.views.scn_gwan, name='scn_gwan'),
     path('sy_gwan/', classApp.views.sy_gwan, name='sy_gwan'),
     path('wd_gwan/', classApp.views.wd_gwan, name='wd_gwan'),
-    path('classroom/<str:room>/<str:id>/', classApp.views.classroom, name='classroom'),
+    # path('classroom/<str:room>/<str:id>/', classApp.views.classroom, name='classroom'),
 
     path('feedback/', feedbackApp.views.feedback, name='feedback'),
     path('feedback_cp/', feedbackApp.views.feedback_cp, name='feedback_cp'),
