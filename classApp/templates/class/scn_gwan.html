@@ -4,7 +4,7 @@
     {{ rooms.room }} {{rooms.type}} {{ rooms.room_type }} <br>
     {% for classes in classes_list %}
     {% if rooms.room == classes.room %}
-    <a href="{% url 'classroom' rooms.room rooms.id %}">
+    <a href="{% url 'classroom' rooms.room %}">
         {{ classes.kind }}
         {{ classes.code }}
         {{ classes.class_name }}
