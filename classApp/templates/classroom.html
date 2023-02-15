@@ -1,38 +1,28 @@
 <h1>{{my_room}} Detail</h1>
 
 <p>현재 -- 강의 중입니다.</p>
-
+오늘 요일 : {{now_weekday}}
 <!--현재 요일 번호와 템플릿 리스트 번호가 같으면 강조-->
-{% with list='0 1 2 3 4 5 6' %}
-        {% for n in list.split %}
+
 
                 {% for weekday in class_list %}
 
-                        <div style="margin: 10%; color:yellowgreen">
+                        <div style="margin: 10%; background-color:yellowgreen">
                         {% if weekday == 'empty' %}
                                 <p>오늘은 수업이 없습니다. </p>
                         {% else %}
                                 {% for class in weekday %}
                                         
-                                        {% if weekday == 5 or weekday == 6 %}
-                                                <p>주말입니다. 월요일을 먼저 보여주세요.</p>
-                                                {{class.start}} | 
-                                                {{class.end}}
-                                                <br>
-                                                {{class.kind}} |
-                                                {{class.class_name}} |
-                                                {{class.prof}}
-                                                <hr> 
-                                        {% elif now_weekday == n %}
-                                                <p>현재 요일 먼저 보여주세요.</p>
-                                                {{class.start}} | 
-                                                {{class.end}}
-                                                <br>
-                                                {{class.kind}} |
-                                                {{class.class_name}} |
-                                                {{class.prof}}
-                                                <hr> 
-                                        {% endif %}
+                                        <p>주말이면 월요일 먼저 보여주세요. 평일이면 현재 요일 먼저 보여주세요.</p>
+
+                                        {{class.date1}}, {{class.date2}} |
+                                        {{class.start}} | 
+                                        {{class.end}}
+                                        <br>
+                                        {{class.kind}} |
+                                        {{class.class_name}} |
+                                        {{class.prof}}
+                                        <hr> 
 
                                 {% endfor %}
                         {% endif %}
@@ -40,5 +30,3 @@
 
                 {% endfor %}
 
-        {% endfor %}
-{% endwith %}

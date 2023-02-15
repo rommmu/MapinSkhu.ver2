@@ -6,7 +6,7 @@ from django.db.models import Q, Case, When
 days = ['월', '화', '수', '목', '금', '토', '일']
 
 week_classes = [] #요일별 강의 쿼리셋으로 저장 후 리스트로 묶기(월:0 ~ 일:6)
-for w in range(len(days)):
+for w in range(len(days)-2):
     week_classes.append(
         Classes.objects.filter(Q(date1 = days[w]) | Q(date1 = days[w]))
     )
