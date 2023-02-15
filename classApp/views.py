@@ -5,8 +5,8 @@ from django.db.models import Q, Case, When
 
 days = ['월', '화', '수', '목', '금', '토', '일']
 
-week_classes = [] #요일별 강의 쿼리셋으로 저장 후 리스트로 묶기(월:0 ~ 일:6)
-for w in range(len(days)-2):
+week_classes = [] #요일별 강의 쿼리셋으로 저장 후 리스트로 묶기
+for w in range(len(days)-2): #(월:0 ~ 금:4)
     week_classes.append(
         Classes.objects.filter(Q(date1 = days[w]) | Q(date1 = days[w]))
     )
@@ -29,8 +29,8 @@ def classroom_fn(my_room):
 
     for w in range(len(week_classes)):
         extract_list = [] #object의 리스트
+
         for c in week_classes[w]:
-            print(c.room)
             if c.room == my_room:
                 extract_list.append(c)
         if len(extract_list) == 0:
@@ -40,7 +40,11 @@ def classroom_fn(my_room):
     
     return {
         'now_weekday' : now_weekday, 
-        'class_list' : class_list
+        'mon' : class_list[0],
+        'tue' : class_list[1],
+        'wed' : class_list[2],
+        'thur' : class_list[3],
+        'fri' : class_list[4]
     }
 
 

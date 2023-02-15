@@ -2,31 +2,12 @@
 
 <p>현재 -- 강의 중입니다.</p>
 오늘 요일 : {{now_weekday}}
+
+
 <!--현재 요일 번호와 템플릿 리스트 번호가 같으면 강조-->
-
-
-                {% for weekday in class_list %}
-
-                        <div style="margin: 10%; background-color:yellowgreen">
-                        {% if weekday == 'empty' %}
-                                <p>오늘은 수업이 없습니다. </p>
-                        {% else %}
-                                {% for class in weekday %}
-                                        
-                                        <p>주말이면 월요일 먼저 보여주세요. 평일이면 현재 요일 먼저 보여주세요.</p>
-
-                                        {{class.date1}}, {{class.date2}} |
-                                        {{class.start}} | 
-                                        {{class.end}}
-                                        <br>
-                                        {{class.kind}} |
-                                        {{class.class_name}} |
-                                        {{class.prof}}
-                                        <hr> 
-
-                                {% endfor %}
-                        {% endif %}
-                        </div>
-
-                {% endfor %}
+<div style="margin: 10%; background-color:yellowgreen">
+        {% for class in mon %}
+                {{class.date1}}, {{class.date2}}, {{class.class_name}}<br>
+        {% endfor %}
+</div>
 
