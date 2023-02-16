@@ -1,0 +1,63 @@
+<!-- Classroom form -->
+
+
+<div class="detail-radio-header">
+    <div class="radio-container">
+      <div class="radio-btn">
+        <!-- onchange="timetabletoggle()" -->
+        {% if now_weekday == '월' %}
+        <input type="radio" name="button" value="월" id="rdo-mon" checked>
+        {% else %}
+        <input type="radio" name="button" value="월" id="rdo-mon">
+        {% endif %}
+        <label for="rdo-mon" >월</label>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="detail-radio-container">
+    {% if now_weekday == '월' %}
+    <div class="radio-detail" id="mon" style="display: block;">
+    {% else %}
+    <div class="radio-detail" id="mon" style="display: none;">
+    {% endif %}
+        {% if mon_classes == '공강' %}
+        <div class="classes-item">
+            <div class="emptytime">
+              <i class="fa-solid fa-x" style="color: #ee3e54; font-size: 3rem;"></i>
+              <h1>월요일은 수업이 없습니다.</h1>
+            </div>
+        </div>
+        {% else %}
+            {% for classes in classes %}
+                {% if classroom.unit == classes.room_id.unit %}
+                {% if classes.date1 == "월" %}
+                <div class="classes-item">
+                    <div class="classes-time">
+                      <p>{{ classes.time1 }}</p>
+                      <p> ~ </p>
+                      <p>{{ classes.time2 }}</p>
+                    </div>
+                    <div class="classes-name">
+                      <h1>{{ classes.sub_id.name }}</h1>
+                      <h2>{{ classes.prof_id.name }}</h2>
+                      <div class="classes-inform">
+                          <div class="informblock">{{classes.sub_id.code}}</div>
+                          <div class="informblock">{{classes.sub_id.kind}}</div>
+                        </div>
+                    </div>
+  
+                </div>
+                <div class="empty-classes">
+                </div>
+                {% endif %}
+                {% endif %}
+            {% endfor %}    
+        {% endif %}
+    </div>
+  </div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="{% static 'js/timetabletoggle.js' %}"></script>

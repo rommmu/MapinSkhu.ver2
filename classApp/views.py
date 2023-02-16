@@ -18,7 +18,7 @@ def classroom_fn(my_room):
     -> 템플릿은 오늘 요일 시간표 먼저 보이기
     3. 사용자가 선택한 강의실 받기
     4. 해당 강의실의 강의만 week_classes에서 추출해서 템플릿에 전달
-    5. 해당 강의실의 강의 없는 경우 '공강' 전달
+    5. 해당 강의실의 강의 없는 경우 'empty' 전달
     '''
     print(my_room)
     now = timezone.now()
