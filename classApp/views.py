@@ -5,46 +5,42 @@ from django.db.models import Q, Case, When
 
 days = ['월', '화', '수', '목', '금', '토', '일']
 
-week_classes = [] #요일별 강의 쿼리셋으로 저장 후 리스트로 묶기
-for w in range(len(days)-2): #(월:0 ~ 금:4)
+# 요일별 강의 쿼리셋으로 추출 후 리스트로 묶기
+week_classes = [] # 인덱스 (월:0 ~ 금:4)
+for w in range(len(days)-2): 
     week_classes.append(
         Classes.objects.filter(Q(date1 = days[w]) | Q(date1 = days[w]))
     )
 
 def classroom_fn(my_room):
     '''
-    1. 요일별로 강의 묶기
-    2. 오늘 요일 템플릿에 알려주기 
-    -> 템플릿은 오늘 요일 시간표 먼저 보이기
-    3. 사용자가 선택한 강의실 받기
-    4. 해당 강의실의 강의만 week_classes에서 추출해서 템플릿에 전달
-    5. 해당 강의실의 강의 없는 경우 'empty' 전달
+    0. 요일별로 강의 묶어서 리스트로 저장해두기-> week_classes
+    1. 사용자가 선택한 강의실(my_room)의 강의만 week_classes에서 추출해서 템플릿에 전달
+    -> 요일을 key로, 요일의 수업리스트를 value로 저장한 딕셔너리 전달
+    2. 오늘 요일 템플릿에 전달
+    -> 템플릿에서 오늘 요일 시간표 먼저 보이기    
+    3. 해당 강의실에 강의 없는 경우 'empty' 전달
     '''
-    print(my_room)
     now = timezone.now()
     now_weekday = now.weekday() #월:0 ~ 일:6
 
-    # my_room = my_room #선택된 강의실
-    class_list = [] #object 리스트의 리스트
+    class_dict = {} # 요일(key)별로 my_room에서 진행되는 수업리스트(value)를 저장
 
-    for w in range(len(week_classes)):
-        extract_list = [] #object의 리스트
+    for w in range(len(week_classes)): #len:5
+        extract_list = [] # my_room 수업 저장
 
         for c in week_classes[w]:
             if c.room == my_room:
                 extract_list.append(c)
         if len(extract_list) == 0:
-            class_list.append('empty')
+            class_dict[w] = 'empty'
         else:
-            class_list.append(extract_list)
+            class_dict[w] = extract_list
     
     return {
+        'my_room' : my_room,
         'now_weekday' : now_weekday, 
-        'mon' : class_list[0],
-        'tue' : class_list[1],
-        'wed' : class_list[2],
-        'thur' : class_list[3],
-        'fri' : class_list[4]
+        'class_dict' : class_dict,
     }
 
 

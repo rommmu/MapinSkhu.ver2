@@ -1,13 +1,39 @@
-<h1>{{my_room}} Detail</h1>
+<h1>{{my_room}} 강의실</h1>
 
 <p>현재 -- 강의 중입니다.</p>
-오늘 요일 : {{now_weekday}}
 
-
-<!--현재 요일 번호와 템플릿 리스트 번호가 같으면 강조-->
-<div style="margin: 10%; background-color:yellowgreen">
-        {% for class in mon %}
-                {{class.date1}}, {{class.date2}}, {{class.class_name}}<br>
+<div> 
+        <!-- 
+        key : 요일 번호를 가짐(0~5) 
+        value : 요일에 해당하는 강의 리스트를 가짐
+        -->        
+        {% for key, value in class_dict.items %}
+                {% if key == now_weekday %} 
+                <!--현재 요일인 경우-->
+                        <div style="background-color: yellow; margin-bottom: 3%;">
+                        {% for class in value %}
+                                {% if value == 'empty' %}
+                                        오늘은 수업이 없습니다.<br>
+                                {% else %}
+                                        {{class.date1}}, {{class.date2}},  <!--이 줄은 나중에 지우기-->
+                                        {{class.start}} : {{class.end}}, {{class.prof}}-{{class.class_name}}<br>
+                                {% endif %}
+                                <div style="background-color: darkgray;">쉬는시간</div>
+                        {% endfor %}
+                        </div>
+                {% else %} 
+                <!--다른 요일인 경우-->
+                        <div style="background-color: yellowgreen; margin-bottom: 3%;">
+                        {% for class in value %}
+                                {% if value == 'empty' %}
+                                        계획된 수업이 없습니다.<br>
+                                {% else %}
+                                        {{class.date1}}, {{class.date2}},  <!--이 줄은 나중에 지우기-->
+                                        {{class.start}} : {{class.end}}, {{class.prof}}-{{class.class_name}}<br>
+                                {% endif %}
+                                <div style="background-color: darkgray;">쉬는시간</div>
+                        {% endfor %}
+                        </div>
+                {% endif %}
         {% endfor %}
 </div>
-
