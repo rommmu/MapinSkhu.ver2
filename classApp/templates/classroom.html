@@ -1,6 +1,10 @@
 <h1>{{my_room}} 강의실</h1>
 
-<p>현재 -- 강의 중입니다.</p>
+{% if now_class != 'empty' %}
+        <div style="background-color: forestgreen;">
+                <h4>현재 <strong>{{now_class}}</strong> 강의 중입니다.</h4>
+        </div>        
+{% endif %}
 
 <div> 
         <!-- 
