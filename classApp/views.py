@@ -1,12 +1,11 @@
 from django.shortcuts import render, get_object_or_404
+from django.conf import settings
 from .models import Classes, Room
 from django.utils import timezone
 from django.db.models import Q, Case, When
 
-
-
 def kwan_fn(my_kwan):
-    days = ['월', '화', '수', '목', '금', '토', '일']
+    days = ['수', '목', '금', '토', '일', '월', '화', ]
     now = timezone.now()
     now_date = now.date()
     now_time = now.time()
@@ -17,27 +16,22 @@ def kwan_fn(my_kwan):
     classes = Classes.objects.filter(Q(kwan_name = my_kwan) & (Q(date1 = now_weekday) | Q(date2 = now_weekday)) & (Q(start__lte = now_time) & Q(end__gte = now_time)))
 
     rooms_list = []
-    classes_list = []
 
     rooms_access = []
     rooms_unaccess = []
 
     for r in rooms:
         r.room_type = "사용가능"
-        r.type = True
-        r.room_type = "사용가능"
-        rooms_list.append(r)
+
         for c in classes:
             if r.room == c.room:
-                r.type = False
+                r.room_type = "사용불가"
                 if c.date2 == None:
                     c.date2 = ""
-                classes_list.append(c)
-                if r.type == False:
-                    r.room_type = "사용불가"
                 rooms_unaccess.append(r)
-        if r.type == True:
+        if r.room_type == "사용가능":
             rooms_access.append(r)
+        rooms_list.append(r)
 
     return {
         'now_date' : now_date, 
@@ -46,7 +40,6 @@ def kwan_fn(my_kwan):
         'rooms' : rooms, 
         'classes' : classes, 
         'rooms_list' : rooms_list, 
-        'classes_list' : classes_list,
         'rooms_access': rooms_access,
         'rooms_unaccess': rooms_unaccess,
     }
@@ -98,3 +91,31 @@ def sbdr_school(request):
 # 13관 행복기숙사
 def dormitory(request):
     return render(request, 'class/dormitory.html', kwan_fn(my_kwan = "행복기숙사"))
+
+# Classroom
+def classroom(request, room, id):
+    days = ['월', '화', '수', '목', '금', '토', '일']
+    now = timezone.now()
+    now_date = now.date()
+    now_time = now.time()
+    weekday = now.weekday()
+    now_weekday = days[weekday]
+
+    # 근데 여기가 필요한지는 잘 모루겟,,
+    date_list = ['월', '화', '수', '목', '금', '토']
+    preserved = Case(
+        *[When(date1 = date1,  then = pos) for pos, date1 in enumerate(date_list)], 
+        *[When(date2 = date2,  then = pos) for pos, date2 in enumerate(date_list)]
+    )
+    rooms = get_object_or_404(Room, room = room, id = id)
+    classes = Classes.objects.filter(Q(date1__in = date_list) | Q(date2__in = date_list)).order_by(preserved, 'start')
+    
+    classes_list = []
+    for c in classes:
+        if c.date2 == None:
+            c.date2 = ""
+        classes_list.append(c)
+
+    return render(request, 'classroom.html', 
+    {'now_date':now_date, 'now_time':now_time, 'now_weekday':now_weekday,
+    'classes': classes, 'rooms': rooms, 'classes_list': classes_list})
