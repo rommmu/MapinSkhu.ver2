@@ -43,7 +43,8 @@ def classroom_fn(my_room):
     '''
     now_time = now.time()
     now_class = 'empty'
-    if now_weekday != 5 or now_weekday != 6:
+    print(now_weekday)
+    if now_weekday != 5 and now_weekday != 6:
         now_class_list = class_dict.get(now_weekday) #dict.get(x) : key가 x인 value 추출
         
         for c in now_class_list:
