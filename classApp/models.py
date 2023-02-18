@@ -40,7 +40,6 @@ class Room(models.Model):
             ]
     ) 
     room_image = models.ImageField(upload_to='images/room', null=True, blank=True)
-    type = models.BooleanField(default=True)
-    room_type = models.CharField(max_length=100, default="사용가능")
+    room_type = models.CharField(max_length=100, null = True, blank=True)
     def __str__(self):
         return f'{self.room, self.room_type}'
