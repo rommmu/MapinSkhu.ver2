@@ -1,0 +1,25 @@
+<h1>"{{q}}" 의 검색 결과입니다.</h1>
+
+<b>{{ roomsResult }}</b> <br>
+{% for rooms in roomsList %}
+    <a href="{% url 'classroom' rooms.room rooms.id %}">
+        <img src="{{rooms.room_image.url}}" alt="{{rooms.room}}" style="width: 300px; height: 200px;" /> <br>
+        {{ rooms.room }} <br>
+    </a>
+{% endfor %}
+
+<b>{{ classesResult }}</b> <br>
+{% for rooms in roomsAll %}
+    {% for classes in classesList %}
+        {% if rooms.room == classes.room %}
+            <a href="{% url 'classroom' rooms.room rooms.id %}">
+                <img src="{{rooms.room_image.url}}" alt="{{rooms.room}}" style="width: 300px; height: 200px;" /> <br>
+                {{ rooms.room }} <br>
+                {{ classes.class_name }} <br>
+            </a>
+            <br>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+<b>{{ result | safe}}</b> <br>

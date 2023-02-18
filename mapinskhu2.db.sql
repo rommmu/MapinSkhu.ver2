@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS "classApp_classes" (
 	"room"	varchar(100),
 	"date1"	varchar(5),
 	"date2"	varchar(5),
-	"start"	varchar(10),
-	"end"	varchar(10),
+	"start"	time,
+	"end"	time,
 	"kwan_name"	varchar(50),
 	PRIMARY KEY("id" AUTOINCREMENT)
 );
@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS "classApp_room" (
 	"room"	varchar(100) NOT NULL,
 	"floor"	smallint NOT NULL,
 	"room_image"	varchar(100),
+	"room_type"	varchar(100),
 	PRIMARY KEY("id" AUTOINCREMENT)
 );
 INSERT INTO "classApp_classes" VALUES (0,'교필','AK00055','비아메디아채플(나와 타인 이해하기)','이남호','1505','월',NULL,'11:00','11:50','승연관');
@@ -190,7 +191,7 @@ INSERT INTO "classApp_classes" VALUES (146,'평교','AG00001','평생교육방�
 INSERT INTO "classApp_classes" VALUES (147,'평교','AG00002','평생교육개론','이소연','1502','화',NULL,'15:00','17:50','승연관');
 INSERT INTO "classApp_classes" VALUES (148,'평교','AG00003','평생교육실습','임정아','1502','금',NULL,'12:00','14:50','승연관');
 INSERT INTO "classApp_classes" VALUES (149,'평교','AG00006','지역사회교육론','정혜령','1502','수',NULL,'12:00','14:50','승연관');
-INSERT INTO "classApp_classes" VALUES (150,'교선','AJ00009','행복의 심리학','이현지','6110','월',NULL,'15:00','1750','정보과학관');
+INSERT INTO "classApp_classes" VALUES (150,'교선','AJ00009','행복의 심리학','이현지','6110','월',NULL,'15:00',1750,'정보과학관');
 INSERT INTO "classApp_classes" VALUES (151,'교선','AH00020','진로와 직업의 세계','한상진','7303','화',NULL,'15:00','16:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (152,'교선','AH00021','취업전략 및 역량강화','신지원','7305','화',NULL,'15:00','16:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (153,'교선','AH00034','소셜벤처 기업가정신','최우진','7304','월',NULL,'12:00','14:50','새천년관');
@@ -487,53 +488,53 @@ INSERT INTO "classApp_kwan" VALUES (5,6,'정보과학관',NULL);
 INSERT INTO "classApp_kwan" VALUES (6,'B','일만관',NULL);
 INSERT INTO "classApp_kwan" VALUES (7,5,'나눔관',NULL);
 INSERT INTO "classApp_kwan" VALUES (8,8,'중앙도서관',NULL);
-INSERT INTO "classApp_room" VALUES (0,'승연관','1505',5,NULL);
-INSERT INTO "classApp_room" VALUES (1,'월당관','3501',5,NULL);
-INSERT INTO "classApp_room" VALUES (2,'미가엘관','M301',3,NULL);
-INSERT INTO "classApp_room" VALUES (3,'월당관','3301',3,NULL);
-INSERT INTO "classApp_room" VALUES (4,'미가엘관','M406',4,NULL);
-INSERT INTO "classApp_room" VALUES (5,'성미가엘성당&피츠버그홀','9301',3,NULL);
-INSERT INTO "classApp_room" VALUES (6,'미가엘관','M407',4,NULL);
-INSERT INTO "classApp_room" VALUES (7,'새천년관','7205',2,NULL);
-INSERT INTO "classApp_room" VALUES (8,'월당관','3401',4,NULL);
-INSERT INTO "classApp_room" VALUES (9,'승연관','1503',5,NULL);
-INSERT INTO "classApp_room" VALUES (10,'미가엘관','M402',4,NULL);
-INSERT INTO "classApp_room" VALUES (11,'새천년관','7207',2,NULL);
-INSERT INTO "classApp_room" VALUES (12,'월당관','3402',4,NULL);
-INSERT INTO "classApp_room" VALUES (13,'새천년관','7204',2,NULL);
-INSERT INTO "classApp_room" VALUES (14,'새천년관','7206',2,NULL);
-INSERT INTO "classApp_room" VALUES (15,'새천년관','7202',2,NULL);
-INSERT INTO "classApp_room" VALUES (16,'새천년관','7304',3,NULL);
-INSERT INTO "classApp_room" VALUES (17,'새천년관','7305',3,NULL);
-INSERT INTO "classApp_room" VALUES (18,'새천년관','7306',3,NULL);
-INSERT INTO "classApp_room" VALUES (19,'새천년관','7307',3,NULL);
-INSERT INTO "classApp_room" VALUES (20,'정보과학관','6201',2,NULL);
-INSERT INTO "classApp_room" VALUES (21,'정보과학관','6404',4,NULL);
-INSERT INTO "classApp_room" VALUES (22,'정보과학관','6109',1,NULL);
-INSERT INTO "classApp_room" VALUES (23,'정보과학관','6405',4,NULL);
-INSERT INTO "classApp_room" VALUES (24,'승연관','1504',5,NULL);
-INSERT INTO "classApp_room" VALUES (25,'새천년관','7208',2,NULL);
-INSERT INTO "classApp_room" VALUES (26,'새천년관','7308',3,NULL);
-INSERT INTO "classApp_room" VALUES (27,'새천년관','7309',3,NULL);
-INSERT INTO "classApp_room" VALUES (28,'미가엘관','M401',4,NULL);
-INSERT INTO "classApp_room" VALUES (29,'월당관','3302',3,NULL);
-INSERT INTO "classApp_room" VALUES (30,'일만관','B105',1,NULL);
-INSERT INTO "classApp_room" VALUES (31,'월당관','3502',5,NULL);
-INSERT INTO "classApp_room" VALUES (32,'정보과학관','6110',1,NULL);
-INSERT INTO "classApp_room" VALUES (33,'미가엘관','M403',4,NULL);
-INSERT INTO "classApp_room" VALUES (34,'새천년관','7301',3,NULL);
-INSERT INTO "classApp_room" VALUES (35,'새천년관','7303',3,NULL);
-INSERT INTO "classApp_room" VALUES (36,'성미가엘성당&피츠버그홀','9101',1,NULL);
-INSERT INTO "classApp_room" VALUES (37,'나눔관','5C301',3,NULL);
-INSERT INTO "classApp_room" VALUES (38,'승연관','1502',5,NULL);
-INSERT INTO "classApp_room" VALUES (39,'미가엘관','M205',2,NULL);
-INSERT INTO "classApp_room" VALUES (40,'새천년관','7302',3,NULL);
-INSERT INTO "classApp_room" VALUES (41,'정보과학관','6403',4,NULL);
-INSERT INTO "classApp_room" VALUES (42,'정보과학관','6202',2,NULL);
-INSERT INTO "classApp_room" VALUES (43,'정보과학관','6406',4,NULL);
-INSERT INTO "classApp_room" VALUES (44,'정보과학관','6206',2,NULL);
-INSERT INTO "classApp_room" VALUES (45,'미가엘관','M404',4,NULL);
-INSERT INTO "classApp_room" VALUES (46,'승연관','1506',5,NULL);
-INSERT INTO "classApp_room" VALUES (47,'새천년관','7417',4,NULL);
-INSERT INTO "classApp_room" VALUES (48,'정보과학관','6402',4,NULL);
+INSERT INTO "classApp_room" VALUES (0,'승연관','1505',5,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (1,'월당관','3501',5,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (2,'미가엘관','M301',3,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (3,'월당관','3301',3,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (4,'미가엘관','M406',4,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (5,'성미가엘성당&피츠버그홀','9301',3,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (6,'미가엘관','M407',4,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (7,'새천년관','7205',2,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (8,'월당관','3401',4,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (9,'승연관','1503',5,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (10,'미가엘관','M402',4,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (11,'새천년관','7207',2,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (12,'월당관','3402',4,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (13,'새천년관','7204',2,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (14,'새천년관','7206',2,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (15,'새천년관','7202',2,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (16,'새천년관','7304',3,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (17,'새천년관','7305',3,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (18,'새천년관','7306',3,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (19,'새천년관','7307',3,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (20,'정보과학관','6201',2,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (21,'정보과학관','6404',4,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (22,'정보과학관','6109',1,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (23,'정보과학관','6405',4,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (24,'승연관','1504',5,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (25,'새천년관','7208',2,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (26,'새천년관','7308',3,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (27,'새천년관','7309',3,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (28,'미가엘관','M401',4,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (29,'월당관','3302',3,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (30,'일만관','B105',1,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (31,'월당관','3502',5,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (32,'정보과학관','6110',1,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (33,'미가엘관','M403',4,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (34,'새천년관','7301',3,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (35,'새천년관','7303',3,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (36,'성미가엘성당&피츠버그홀','9101',1,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (37,'나눔관','5C301',3,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (38,'승연관','1502',5,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (39,'미가엘관','M205',2,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (40,'새천년관','7302',3,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (41,'정보과학관','6403',4,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (42,'정보과학관','6202',2,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (43,'정보과학관','6406',4,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (44,'정보과학관','6206',2,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (45,'미가엘관','M404',4,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (46,'승연관','1506',5,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (47,'새천년관','7417',4,NULL,'사용가능');
+INSERT INTO "classApp_room" VALUES (48,'정보과학관','6402',4,NULL,'사용가능');
 COMMIT;
