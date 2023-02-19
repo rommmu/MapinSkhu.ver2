@@ -22,7 +22,7 @@ def classroom_fn(my_room):
     -> 템플릿에서 오늘 요일 시간표 먼저 보이기    
     3. 해당 강의실에 강의 없는 경우 'empty' 전달
     '''
-    now = timezone.now()
+    now = timezone.now() #형식: yyyy-mm-dd hh:mm:ss.ssssss
     now_weekday = now.weekday() #0~6
     now_weekday_str = days[now_weekday] #월~일
 
@@ -31,27 +31,29 @@ def classroom_fn(my_room):
     for index, value in enumerate(days[:5]): #value:월~금
         extract_list = [] # my_room 수업 저장
 
-        for c in week_classes[index]:
-            if c.room == my_room:
-                extract_list.append(c)
-        if len(extract_list) == 0:
-            class_dict[value] = 'empty'
+        for c in week_classes[index]: #요일별 수업리스트 돌면서
+            if c.room == my_room: #사용자가 선택한 강의실과 일치하면
+                extract_list.append(c) #리스트로 저장
+        if len(extract_list) == 0: #추출된 강의가 1도 없으면
+            class_dict[value] = 'empty' #해당요일 dict value에는 empty 저장
         else:
-            class_dict[value] = extract_list
+            class_dict[value] = extract_list #추출된 강의 있으면 그 리스트를 dict value로 저장
 
     '''
     현재 요일의 수업리스트에서 현재 시간과 비교 -> start~end에 현재시간이 있다면 그 수업을 템플릿에 전달
     '''
-    now_time = now.time()
-    now_class = 'empty'
+    now_time = now.time() #형식: hh:mm:ss.ssssss
+    now_class = 'empty' #현재 진행중인 수업 저장, 기본값은 empty
 
-    if now_weekday != 5 and now_weekday != 6:
-        now_class_list = class_dict.get(now_weekday_str) #dict.get(x) : key가 x인 value 추출
-        
-        for c in now_class_list:
-            if c.start <= now_time:
-                if now_time < c.end:
-                    now_class = c.class_name
+    if now_weekday != 5 and now_weekday != 6: #현재 요일이 토/일 아닌 경우
+        now_class_list = class_dict.get(now_weekday_str) #dict.get(x) : key가 x인 value 추출, 여기선 현재 요일 수업리스트 추출
+        if now_class_list != 'empty': #empty가 아니라면
+            
+            for c in now_class_list: #현재 요일 수업리스트 돌면서
+                print('시작 시간:',c.start)
+                if c.start <= now_time: #수업 시작시간이 현재 시간보다 크거나 같고
+                    if now_time < c.end: #수업 끝시간이 현재 시간보다 작으면 (등호는 곧 수업이 종료되기 때문에 뺌)
+                        now_class = c.class_name #그것이 바로 현재 진행중인 수업이로다
     
     return {
         'my_room' : my_room,
