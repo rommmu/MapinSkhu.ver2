@@ -1,5 +1,7 @@
 <h1>{{my_room}} 강의실</h1>
 
+오늘 요일 : {{now_weekday_str}} <!--나중에 지우기-->
+
 {% if now_class != 'empty' %}
         <div style="background-color: forestgreen;">
                 <h4>현재 <strong>{{now_class}}</strong> 강의 중입니다.</h4>
@@ -8,12 +10,24 @@
 
 <div> 
         <!-- 
-        key : 요일 번호를 가짐(0~5) 
+        key : 요일을 가짐(월~금) 
         value : 요일에 해당하는 강의 리스트를 가짐
         -->        
         {% for key, value in class_dict.items %}
-                {% if key == now_weekday %} 
+                {% if key == now_weekday_str %} 
                 <!--현재 요일인 경우-->
+
+                        <!-- 시간표 헤더 -->
+                        <div style="background-color: aqua;" class="radio-btn">
+                                {% if now_weekday_str == key %}
+                                <input type="radio" name="button" value="{{key}}" id="rdo-mon" checked>
+                                {% else %}
+                                <input type="radio" name="button" value="{{key}}" id="rdo-mon">
+                                {% endif %}
+                                <label for="rdo-mon" >{{key}}</label>
+                        </div>
+
+                        <!-- 시간표 바디 -->
                         <div style="background-color: yellow; margin-bottom: 3%;">
                         {% for class in value %}
                                 {% if value == 'empty' %}
@@ -25,8 +39,21 @@
                                 <div style="background-color: darkgray;">쉬는시간</div>
                         {% endfor %}
                         </div>
+
                 {% else %} 
                 <!--다른 요일인 경우-->
+
+                        <!-- 시간표 헤더 -->
+                        <div style="background-color: aqua;" class="radio-btn">
+                                {% if now_weekday_str == key %}
+                                <input type="radio" name="button" value="{{key}}" id="rdo-mon" checked>
+                                {% else %}
+                                <input type="radio" name="button" value="{{key}}" id="rdo-mon">
+                                {% endif %}
+                                <label for="rdo-mon" >{{key}}</label>
+                        </div>
+
+                        <!-- 시간표 바디 -->
                         <div style="background-color: yellowgreen; margin-bottom: 3%;">
                         {% for class in value %}
                                 {% if value == 'empty' %}

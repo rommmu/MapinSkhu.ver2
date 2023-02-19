@@ -22,30 +22,30 @@ def classroom_fn(my_room):
     3. 해당 강의실에 강의 없는 경우 'empty' 전달
     '''
     now = timezone.now()
-    print('현재 시간 :', now)
-    now_weekday = now.weekday() #월:0 ~ 일:6
+    now_weekday = now.weekday() #0~6
+    now_weekday_str = days[now_weekday] #월~일
 
     class_dict = {} # 요일(key)별로 my_room에서 진행되는 수업리스트(value)를 저장
 
-    for w in range(len(week_classes)): #len:5
+    for index, value in enumerate(days[:5]): #value:월~금
         extract_list = [] # my_room 수업 저장
 
-        for c in week_classes[w]:
+        for c in week_classes[index]:
             if c.room == my_room:
                 extract_list.append(c)
         if len(extract_list) == 0:
-            class_dict[w] = 'empty'
+            class_dict[value] = 'empty'
         else:
-            class_dict[w] = extract_list
+            class_dict[value] = extract_list
 
     '''
     현재 요일의 수업리스트에서 현재 시간과 비교 -> start~end에 현재시간이 있다면 그 수업을 템플릿에 전달
     '''
     now_time = now.time()
     now_class = 'empty'
-    print(now_weekday)
+
     if now_weekday != 5 and now_weekday != 6:
-        now_class_list = class_dict.get(now_weekday) #dict.get(x) : key가 x인 value 추출
+        now_class_list = class_dict.get(now_weekday_str) #dict.get(x) : key가 x인 value 추출
         
         for c in now_class_list:
             if c.start <= now_time:
@@ -55,7 +55,7 @@ def classroom_fn(my_room):
     return {
         'my_room' : my_room,
         'now_class' : now_class,
-        'now_weekday' : now_weekday, 
+        'now_weekday_str' : now_weekday_str, 
         'class_dict' : class_dict,
     }
 
