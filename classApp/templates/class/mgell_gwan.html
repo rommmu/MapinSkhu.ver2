@@ -4,187 +4,279 @@
 
 {% block content %}
 <div class="build-container">
-    <!-- 건물이름이랑 층 정보 나오는 곳 -->
-  <div class="build-informwrap">
+  <!-- 건물이름이랑 층 정보 나오는 곳 -->
+<div class="build-informwrap">
+  <div class="build-titleqna">
+    <!-- 건물 이름 -->
       <div class="build-title">
-          <div></div>
-          <h1> 미가엘관 </h1>
-
+        <div></div>
+        <h1> 미가엘관 </h1>
       </div>
+      <!-- QNA -->
       <div class="build-qna">
-        <div class="build-qna-item">
-          <input type="radio" name="button" value="강의실 읽는 법" id="howto_read">
-          <label for="howto_read">강의실 읽는 법</label>
-        </div>
-        <div class="build-qna-item">
-          <input type="radio" name="button" value="사용불가란" id="howto_notav">
-          <label for="howto_notav">사용불가란</label>
-        </div>
-      </div>
-      <div class="detail-radio-container">
-        <div class="radio-detail build-detail" id="read">
-          <p><b>강의실 번호의 가장 앞자리는 강의실 건물, 두 번째 자리는 강의실 건물의 층을 의미합니다.</b> <br>
-            <span>ex ) 6202 -> 6(정보과학관), 2층, 02 강의실</span> <br>
-            간혹 건물 번호를 영어로 사용할 때가 있습니다. <br>
-            <strong>A = 승연관, B = 일만관, C = 월당관, EC or 5C = 나눔관, F = 정보과학관, G = 새천년관, 
-              I = 피츠버그홀, M = 미가엘관
-            </strong></p>
-        </div>
-        <div class="radio-detail build-detail" id="noav">
-          <p>현재 시각을 기준으로 강의가 진행 되는지에 대한 여부에 따라 '사용불가' 표시가 나타납니다.<br>
-            사용불가가 아닐 시에는 해당 강의실 페이지에서 예약이 가능합니다. </p>
-        </div>
+          <div class="build-qna-container">
+            <div class="build-qna-item">
+              <input type="radio" name="button" value="강의실 읽는 법" id="howto_read" checked>
+              <label for="howto_read">강의실 읽는 법</label>
+            </div>
+            <div class="build-qna-item">
+              <input type="radio" name="button" value="사용불가란" id="howto_notav">
+              <label for="howto_notav">사용가능/불가능 표시</label>
+            </div>
+          </div>
+          <!-- QNA 답변 -->
+          <div class="detail-radio-container">
+            <div class="radio-detail build-detail" id="read">
+              <p><b>강의실 번호의 가장 앞자리는 강의실 건물, 두 번째 자리는 강의실 건물의 층을 의미합니다.</b> <br>
+                <span>ex ) 6202 -> 6(정보과학관), 2층, 02 강의실</span> <br>
+                간혹 건물 번호를 영어로 사용할 때가 있습니다. <br>
+                <b>A = 승연관, B = 일만관, C = 월당관, EC or 5C = 나눔관, F = 정보과학관, G = 새천년관, 
+                  I = 피츠버그홀, M = 미가엘관
+                </b></p>
+            </div>
+            <div class="radio-detail build-detail" id="noav" style="display: none;">
+              <p>현재 시각을 기준으로 해당 강의실에서 특정 강의가 진행 되는지에 대한 여부에 따라 '사용가능' 또는 '사용불가' 표시가 나타납니다.<br>
+                사용불가가 아닐 시에는 해당 강의실을 개인적으로 사용할 수 있고, 강의실 예약이 가능합니다. </p>
+            </div>
+          </div>
+
       </div>
   </div>
-    
-    <!-- 층별로 정보나오도록 -->
-    <div class="build-lectureinfo-wrap">
-      <div class="floorinfo" id="floor-first">
-          <h2>1층</h2>
-      </div>
+  <div class="build-image">
+    <div class="img-wrap">
+      <img src="{% static 'images/gwan/jg.jpg' %}" alt="정보과학관">
+    </div>
+  </div>
 
+</div>
+<div class="enable-toggle">
+  <div class="toggleSwitch_wrap">
+    <span>사용 가능한 강의실만 보기</span>
+    <label for="switchInput" class="toggleSwitch">
+      <input type="checkbox" id="switchInput" class="switchInput">
+      <div class="toggleSwitch_ball"></div>
+    </label>
+  </div>
+</div>
+  <!-- 층별로 정보나오도록 -->
+<div class="build-lectureinfo-wrap" id="all_tog">
+  <div class="build-floor-container">
+    <div class="floorinfo">
+        <h2>F1</h2>
+    </div>
+
+    <div class="lectureinfo-container">
       <h1 style="font-size: 1.7rem;">밥풀 한식당, 헬스장 멋짐이 존재합니다. </h1>
+    </div>
+  </div>
 
-      <div class="floorinfo" id="floor-second">
-          <h2>2층</h2>
+  <div class="build-floor-container">
+    <div class="floorinfo">
+        <h2>F2</h2>
+    </div>
+
+    <div class="lectureinfo-container">
+      
+      {% for rooms in rooms_list %}
+      {% if rooms.floor == 2 %}
+          <a href="{% url 'classroom' rooms.room rooms.id %}" class="lectureinfo-box">
+            <div class="lecture-img">
+              <img class="img-src" src = "{{rooms.room_image.url}}" alt="{{rooms.room}}">
+            </div>
+            <div class="lectureinfo">
+            <h1>{{ rooms.room }}</h1>
+
+                {% if rooms.room_type == '사용가능' %}
+                <div class="lecturecon poss">
+                    <span>{{ rooms.room_type }}</span>
+                </div>
+                {% else %}
+                <div class="lecturecon imposs">
+                    <span>{{ rooms.room_type }}</span>
+                </div>
+                {% endif %}
+            </div>
+          </a>
+      {% endif %}
+      {% endfor %}
+
+    </div>
+  </div>
+
+  <div class="build-floor-container">
+    <div class="floorinfo">
+        <h2>F3</h2>
+    </div>
+    <div class="lectureinfo-container">
+      
+      {% for rooms in rooms_list %}
+      {% if rooms.floor == 3 %}
+          <a href="{% url 'classroom' rooms.room rooms.id %}" class="lectureinfo-box">
+            <div class="lecture-img">
+              <img class="img-src" src = "{{rooms.room_image.url}}" alt="{{rooms.room}}">
+            </div>
+            <div class="lectureinfo">
+            <h1>{{ rooms.room }}</h1>
+
+                {% if rooms.room_type == '사용가능' %}
+                <div class="lecturecon poss">
+                    <span>{{ rooms.room_type }}</span>
+                </div>
+                {% else %}
+                <div class="lecturecon imposs">
+                    <span>{{ rooms.room_type }}</span>
+                </div>
+                {% endif %}
+            </div>
+          </a>
+      {% endif %}
+      {% endfor %}
+
+    </div>
+  </div>
+
+  <div class="build-floor-container">
+    <div class="floorinfo">
+        <h2>F4</h2>
+    </div>
+    <div class="lectureinfo-container">
+      {% for rooms in rooms_list %}
+      {% if rooms.floor == 4 %}
+          <a href="{% url 'classroom' rooms.room rooms.id %}" class="lectureinfo-box">
+            <div class="lecture-img">
+              <img class="img-src" src = "{{rooms.room_image.url}}" alt="{{rooms.room}}">
+            </div>
+            <div class="lectureinfo">
+            <h1>{{ rooms.room }}</h1>
+
+                {% if rooms.room_type == '사용가능' %}
+                <div class="lecturecon poss">
+                    <span>{{ rooms.room_type }}</span>
+                </div>
+                {% else %}
+                <div class="lecturecon imposs">
+                    <span>{{ rooms.room_type }}</span>
+                </div>
+                {% endif %}
+            </div>
+          </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- 사용가능 필터 -->
+  <div class="build-lectureinfo-wrap" id="enable_tog" style="display: none;">
+    <div class="build-floor-container">
+      <div class="floorinfo">
+          <h2>F1</h2>
       </div>
-
+  
+      <div class="lectureinfo-container">
+        <h1 style="font-size: 1.7rem;">밥풀 한식당, 헬스장 멋짐이 존재합니다. </h1>
+      </div>
+    </div>
+  
+    <div class="build-floor-container">
+      <div class="floorinfo">
+          <h2>F2</h2>
+      </div>
+  
       <div class="lectureinfo-container">
         
         {% for rooms in rooms_list %}
         {% if rooms.floor == 2 %}
-          <a href="{% url 'classroom' rooms.room rooms.id %}" class="lectureinfo-box">
-            <div class="lecture-img">
-              <img class="img-src" src="{{rooms.room_image.url}}" alt="{{rooms.room}}">
-            </div>
-            <h1>{{ rooms.room }}</h1>
-
-            <div class="lectureinfo">
-                {% if rooms.room_type == '사용가능' %}
-                <div class="lecturecon poss">
-                    <span>{{ rooms.room_type }}</span>
-                </div>
-                {% else %}
-                <div class="lecturecon imposs">
-                    <span>{{ rooms.room_type }}</span>
-                </div>
-                {% endif %}
-            </div>
-
-          </a>
+            <a href="{% url 'classroom' rooms.room rooms.id %}" class="lectureinfo-box">
+              <div class="lecture-img">
+                <img class="img-src" src = "{{rooms.room_image.url}}" alt="{{rooms.room}}">
+              </div>
+              <div class="lectureinfo">
+              <h1>{{ rooms.room }}</h1>
+  
+                  {% if rooms.room_type == '사용가능' %}
+                  <div class="lecturecon poss">
+                      <span>{{ rooms.room_type }}</span>
+                  </div>
+                  {% else %}
+                  <div class="lecturecon imposs">
+                      <span>{{ rooms.room_type }}</span>
+                  </div>
+                  {% endif %}
+              </div>
+            </a>
         {% endif %}
         {% endfor %}
+  
       </div>
-
-      <div class="floorinfo" id="floor-third">
-        <h2>3층</h2>
+    </div>
+  
+    <div class="build-floor-container">
+      <div class="floorinfo">
+          <h2>F3</h2>
       </div>
-
       <div class="lectureinfo-container">
         
         {% for rooms in rooms_list %}
         {% if rooms.floor == 3 %}
-          <a href="{% url 'classroom' rooms.room rooms.id %}" class="lectureinfo-box">
-            <div class="lecture-img">
-              <img class="img-src" src="{{rooms.room_image.url}}" alt="{{rooms.room}}">
-            </div>
-            <h1>{{ rooms.room }}</h1>
-
-            <div class="lectureinfo">
-                {% if rooms.room_type == '사용가능' %}
-                <div class="lecturecon poss">
-                    <span>{{ rooms.room_type }}</span>
-                </div>
-                {% else %}
-                <div class="lecturecon imposs">
-                    <span>{{ rooms.room_type }}</span>
-                </div>
-                {% endif %}
-            </div>
-
-          </a>
+            <a href="{% url 'classroom' rooms.room rooms.id %}" class="lectureinfo-box">
+              <div class="lecture-img">
+                <img class="img-src" src = "{{rooms.room_image.url}}" alt="{{rooms.room}}">
+              </div>
+              <div class="lectureinfo">
+              <h1>{{ rooms.room }}</h1>
+  
+                  {% if rooms.room_type == '사용가능' %}
+                  <div class="lecturecon poss">
+                      <span>{{ rooms.room_type }}</span>
+                  </div>
+                  {% else %}
+                  <div class="lecturecon imposs">
+                      <span>{{ rooms.room_type }}</span>
+                  </div>
+                  {% endif %}
+              </div>
+            </a>
         {% endif %}
         {% endfor %}
+  
       </div>
-
-      <div class="floorinfo fourth" id="floor-fourth">
-        <h2>4층</h2>
+    </div>
+  
+    <div class="build-floor-container">
+      <div class="floorinfo">
+          <h2>F4</h2>
       </div>
-
       <div class="lectureinfo-container">
-        
         {% for rooms in rooms_list %}
         {% if rooms.floor == 4 %}
-          <a href="{% url 'classroom' rooms.room rooms.id %}" class="lectureinfo-box">
-            <div class="lecture-img">
-              <img class="img-src" src="{{rooms.room_image.url}}" alt="{{rooms.room}}">
-            </div>
-            <h1>{{ rooms.room }}</h1>
-
-            <div class="lectureinfo">
-                {% if rooms.room_type == '사용가능' %}
-                <div class="lecturecon poss">
-                    <span>{{ rooms.room_type }}</span>
-                </div>
-                {% else %}
-                <div class="lecturecon imposs">
-                    <span>{{ rooms.room_type }}</span>
-                </div>
-                {% endif %}
-            </div>
-
-          </a>
+            <a href="{% url 'classroom' rooms.room rooms.id %}" class="lectureinfo-box">
+              <div class="lecture-img">
+                <img class="img-src" src = "{{rooms.room_image.url}}" alt="{{rooms.room}}">
+              </div>
+              <div class="lectureinfo">
+              <h1>{{ rooms.room }}</h1>
+  
+                  {% if rooms.room_type == '사용가능' %}
+                  <div class="lecturecon poss">
+                      <span>{{ rooms.room_type }}</span>
+                  </div>
+                  {% else %}
+                  <div class="lecturecon imposs">
+                      <span>{{ rooms.room_type }}</span>
+                  </div>
+                  {% endif %}
+              </div>
+            </a>
         {% endif %}
         {% endfor %}
       </div>
-
     </div>
-    <div class="floor-anchor">
-      <ul>
-        <li class="floanchor"><button type="button" onclick="icontoggle()"><i id="icon" class="fa-solid fa-xmark"></i></button></li>
-        <li class="floor active fade-in-bottom"><a href="#floor-first">1</a></li>
-        <li class="floor active fade-in-bottom"><a href="#floor-second">2</a></li>
-        <li class="floor active fade-in-bottom"><a href="#floor-third">3</a></li>
-        <li class="floor active fade-in-bottom" ><a href="#floor-fourth">4</a></li>
-      </ul>
-
-    </div>
+  </div>
 </div>
-
-<script>
-// 층 클릭하는 곳
-var stairs = document.getElementById("icon");
-var floor = document.getElementsByClassName("floor");
-var floanchor = document.getElementsByClassName("floanchor")[0];
-function icontoggle(){
-  stairs.classList.toggle("fa-xmark");
-  stairs.classList.toggle("fa-stairs");
-  for(i=floor.length-1;i >= 0; i--){
-    floor[i].classList.toggle("active");
-  }
-
-}
-</script>
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="{% static 'js/informtoggle.js' %}"></script>
 <script src="{% static 'js/scroll.js' %}"></script>
-
+<script src="{% static 'js/accesstoggle.js' %}"></script>
 {% endblock %} 
-
-
-<!-- 사용불가/가능 표시 -->
-<br>
-{% for rooms in rooms_access %}
-    <a href="{% url 'classroom' rooms.room rooms.id %}">
-        <img src="{{rooms.room_image.url}}" alt="{{rooms.room}}" style="width: 300px; height: 200px;" />
-        {{ rooms.room }} {{rooms.type}} {{ rooms.room_type }} <br>
-    </a>
-{% endfor %}
-<br>
-{% for rooms in rooms_unaccess %}
-    <a href="{% url 'classroom' rooms.room rooms.id %}">
-        <img src="{{rooms.room_image.url}}" alt="{{rooms.room}}" style="width: 300px; height: 200px;" />
-        {{ rooms.room }} {{rooms.type}} {{ rooms.room_type }} <br>
-    </a>
-{% endfor %}

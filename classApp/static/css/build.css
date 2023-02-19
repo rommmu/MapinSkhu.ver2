@@ -120,12 +120,11 @@ a {
     display: flex;
     padding-right: 1vw;
     /* padding: 0 1vw 0 1vw; */
-    background-color: var(--new-main-color);
+    background-color: #fff;
     position: fixed;
     height: 60px;
     width: 100%;
     z-index: 1;
-    border-bottom: 1px solid #eee;
 }
 .nav1 {
     display: inline-flex;
@@ -163,7 +162,7 @@ a {
     position: absolute;
     width: inherit;
     height: 2px;
-    background-color: white;
+    background-color: var(--nav-color);
     transition: transform 0.5s;
 }
 .line-main::before {
@@ -182,19 +181,19 @@ a {
   }
   #checkbox:checked ~ .line-main::before {
     transform: rotate(45deg);
-    background-color: black;
+    background-color: var(--nav-color);
   }
   #checkbox:checked ~ .line-main::after {
     transform: rotate(-45deg);
-    background-color: black;
+    background-color: var(--nav-color);
   }
   #checkbox:checked~.line-split::before{
     opacity: 0;
-    background-color: black;
+    background-color: var(--nav-color);
   }
   #checkbox:checked~.line-split::after{
     opacity: 0;
-    background-color: black;
+    background-color: var(--nav-color);
   }
 #menu__box {
     position: fixed;
@@ -257,39 +256,70 @@ a {
     background: var(--new-sub-color);
 }
 .build-container {
-    width: 1728px;
+    width: 1400px;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 .build-informwrap {
     display: flex;
-    flex-direction: column;
     margin-top: 10rem;
-    gap: 3rem;
+    gap: 30px;
+    justify-content: space-between;
+    height: 350px;
+}
+.build-titleqna {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-between;
+}
+.build-image {
+    display: flex;
+    width: 40%;
+    margin: 0 auto;
+}
+.img-wrap {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, .4) 0px 4px 10px 0px;
+}
+.img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 30px;
 }
 .build-qna {
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
+}
+.build-qna-container {
+    display: flex;
+    gap: 5px;
+    height: 50px;
 }
 .build-qna-item {
     display: inline-block;
     cursor: pointer;
     width: 150px;
     height: 50px;
-    border-radius: 30px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
     font-size: 1.5rem;
     overflow: hidden;
-    box-shadow: -15px -15px 15px rgba(255, 255, 255, 0.2),
-    15px 15px 15px rgba(0,0,0,0.1),
-    inset -50px -50px 50px rgba(255, 255, 255, 0.2),
-    inset 50px 50px 50px rgba(0,0,0,0.1);
+    background: #eee;
 }
 .build-qna-item label {
     display: flex;
     height: 100%;
     width: 100%;
     cursor: pointer;
-    border-radius: 30px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
     justify-content: center;
     align-items: center;
 }
@@ -300,14 +330,8 @@ a {
 
 .build-qna-item > input[type=radio]:checked + label {
     background: var(--new-sub-color);
-    color: #fff;
-    box-shadow: -15px -15px 15px rgba(255, 255, 255, 0.2),
-    15px 15px 15px rgba(0,0,0,0.1),
-    inset -50px -50px 50px rgba(255, 255, 255, 0.2),
-    inset 50px 50px 50px rgba(0,0,0,0.1);
-}
-.build-detail {
-    display: none;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 .build-detail p {
     font-size: 1.5rem;
@@ -316,26 +340,35 @@ a {
 .build-detail span {
     color: gray;
 }
-.build-detail strong {
-    background-color: var(--new-sub-color);
+
+.build-lectureinfo-wrap, .build-floor-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.build-lectureinfo-wrap {
+    gap: 50px;
 }
 
 .floorinfo {
     width: 100%;
-    padding-top: 6rem;
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 30px;
+    color: var(--new-main-color);
 }
 
 .lectureinfo-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 1%;
+    gap: 10px;
+    background: #eee;
+    padding: 30px;
+    border-top: 5px var(--new-main-color) solid;
 }
 
 .lectureinfo-box {
     text-decoration: none;
     color: #000;
+    background: #fff;
     /* display: flex; */
     flex-direction: column;
     width: 24%;
@@ -373,10 +406,10 @@ a {
     object-fit: cover;
 }
 .lectureinfo {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    display: flex;
     font-size: 1.4rem;
-    margin: 5%;
+    align-items: center;
+    justify-content: space-between;
 }
 .lecturecon {
     width: 60px;
@@ -388,6 +421,7 @@ a {
     font-size: 0.9rem;
     border-radius: 4px;
     color: #fff;
+    margin-right: 20px;
 }
 .imposs {
     background-color: #ee3e54;
@@ -395,6 +429,66 @@ a {
 .poss {
     background-color: var(--new-sub-color);
     color: #000;
+}
+
+/* 사용 가능한 강의실만 보기 */
+.enable-toggle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.toggleSwitch_wrap {
+    display: flex;
+    width: 300px;
+    gap: 20px;
+    align-items: center;
+}
+.toggleSwitch_wrap span {
+    display: block;
+    font-size: 20px;
+    height: 100%;
+}
+.toggleSwitch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+.toggleSwitch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.toggleSwitch_ball {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #eee;
+    transition: .4s;
+    border-radius: 20px;
+}
+.toggleSwitch_ball:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background: #fff;
+    transition: .4s;
+    border-radius: 20px;
+}
+.switchInput:checked + .toggleSwitch_ball {
+    background: var(--new-sub-color);
+}
+.switchInput:focus + .toggleSwitch_ball {
+    box-shadow: 0 0 1px #eee;
+}
+.switchInput:checked + .toggleSwitch_ball:before {
+    transform: translateX(26px);
 }
 
 /* 메뉴사이드바 */
@@ -491,53 +585,6 @@ a {
     font-size: 1.3rem;
 }
 
-/* 층 앵커 */
-.floor-anchor {
-    position: sticky;
-    bottom: 10%;
-    left: 0;
-    top: 0;
-    display: inline-block;
-    float: right;
-    right: 0;
-    width: 50px;
-}
-.floor-anchor ul {
-    display: flex;
-    flex-direction: column-reverse;
-}
-.floor-anchor li {
-
-    height: 50px;
-}
-.floor-anchor button, .floor-anchor a {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    text-decoration: none;
-    background-color: var(--new-sub-color);
-    color: #fff;
-    box-shadow: rgba(0, 0, 0, .4) 0px 2px 10px 0px;
-}
-.floor-anchor button {
-    cursor: pointer;
-    border: none;
-    position: relative;
-}
-.floor {
-    display: none;
-    opacity: 0;
-}
-.active {
-    display: block;
-    opacity: 1;
-}
-.active.fade-in-bottom {
-    animation: fade-in-bottom 0.2s cubic-bezier(0.39, 0.58, 0.57, 1) both;
-}
 /* feedback.html */
 .feedback-container {
     width: 1728px;
@@ -1017,11 +1064,11 @@ a {
 }
 
 .detail-radio-container {
-    width: 90%;
+    width: 100%;
     box-shadow: rgba(0, 0, 0, .4) 0px 2px 10px 0px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2rem;
+    border: 10px var(--new-sub-color) solid;
+    box-sizing: border-box;
+    height: 180px;
 }
 .radio-detail {
     width: 95%;
@@ -1312,6 +1359,15 @@ a {
     .dev__social a{
         font-size: 1.5rem;
     }
+    .build-image {
+        display: none;
+    }
+    .build-titleqna {
+        width: 100%;
+    }
+    .lectureinfo-box h1 {
+        font-size: 2rem;
+    }
 }
 
 @media (max-width: 1065px){
@@ -1487,6 +1543,10 @@ a {
     .pscheck-wrap button {
         width: 20%;
     }
+    .lectureinfo-container {
+        padding: 10px;
+        gap: 5px;
+    }
 }
 
 
@@ -1573,5 +1633,7 @@ a {
     .menu_list {
         width: 80%;
     }
-    
+    .floorinfo {
+        font-size: 20px;
+    }
 }
