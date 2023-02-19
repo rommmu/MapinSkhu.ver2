@@ -24,9 +24,9 @@ def index(request):
                     with fs.open(static_file_png) as static_file:
                         r.room_image.save(f'{r.room}.png', static_file, save=True)
                 if not fs.exists(static_file_png):
-                    static_file_cat = f'classApp/static/images/classroom/cat.JPG'
-                    with fs.open(static_file_cat) as static_file:
-                        r.room_image.save(f'cat_{r.room}.JPG', static_file, save=True)
+                    static_file_wait = f'classApp/static/images/classroom/imagewait.png'
+                    with fs.open(static_file_wait) as static_file:
+                        r.room_image.save(f'imagewait_{r.room}.JPG', static_file, save=True)
 
     return render(request, 'index.html')
 
