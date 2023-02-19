@@ -50,7 +50,6 @@ def classroom_fn(my_room):
         if now_class_list != 'empty': #empty가 아니라면
             
             for c in now_class_list: #현재 요일 수업리스트 돌면서
-                print('시작 시간:',c.start)
                 if c.start <= now_time: #수업 시작시간이 현재 시간보다 크거나 같고
                     if now_time < c.end: #수업 끝시간이 현재 시간보다 작으면 (등호는 곧 수업이 종료되기 때문에 뺌)
                         now_class = c.class_name #그것이 바로 현재 진행중인 수업이로다
