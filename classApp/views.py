@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Classes, Room, Kwan
+from django.conf import settings
+from .models import Classes, Room
 from django.utils import timezone
 from django.db.models import Q, Case, When
 
@@ -61,6 +62,7 @@ def classroom_fn(my_room):
 
 
 def kwan_fn(my_kwan):
+    days = ['수', '목', '금', '토', '일', '월', '화', ]
     now = timezone.now()
     now_date = now.date()
     now_time = now.time()
@@ -73,26 +75,22 @@ def kwan_fn(my_kwan):
     # kwan_img_url = get_object_or_404(Kwan, kwan_image = my_kwan)
 
     rooms_list = []
-    classes_list = []
 
     rooms_access = []
     rooms_unaccess = []
 
     for r in rooms:
         r.room_type = "사용가능"
-        r.type = True
-        rooms_list.append(r)
+
         for c in classes:
             if r.room == c.room:
-                r.type = False
+                r.room_type = "사용불가"
                 if c.date2 == None:
                     c.date2 = ""
-                classes_list.append(c)
-                if r.type == False:
-                    r.room_type = "사용불가"
                 rooms_unaccess.append(r)
-        if r.type == True:
+        if r.room_type == "사용가능":
             rooms_access.append(r)
+        rooms_list.append(r)
 
     return {
         'now_date' : now_date, 
@@ -101,7 +99,6 @@ def kwan_fn(my_kwan):
         'rooms' : rooms, 
         'classes' : classes, 
         'rooms_list' : rooms_list, 
-        'classes_list' : classes_list,
         'rooms_access': rooms_access,
         'rooms_unaccess': rooms_unaccess,
         # 'kwan_img_url' : kwan_img_url,

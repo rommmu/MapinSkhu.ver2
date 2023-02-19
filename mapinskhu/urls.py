@@ -24,6 +24,7 @@ urlpatterns = [
 
     path('', baseApp.views.index, name='index'),
     path('introduce/', baseApp.views.introduce, name='introduce'),
+    path('search/', baseApp.views.search, name = 'search'),
     
     path('dormitory/', classApp.views.dormitory, name='dormitory'),
     path('gdin_gwan/', classApp.views.gdin_gwan, name='gdin_gwan'),
