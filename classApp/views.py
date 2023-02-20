@@ -156,9 +156,13 @@ def dormitory(request):
     return render(request, 'class/dormitory.html', kwan_fn(my_kwan = "행복기숙사"))
 
 # 강의실 디테일 페이지
-def classroom(request, room_id, room):
-    return render(
-        request, 
-        'classroom.html',
-        classroom_fn(my_room = room)
-    )
+def classroom(request, room):
+    try:
+        get_room = Room.objects.get(room=room)
+        return render(
+            request, 
+            'classroom.html',
+            classroom_fn(my_room = room)
+        )
+    except:
+        return render(request, 'index.html')
