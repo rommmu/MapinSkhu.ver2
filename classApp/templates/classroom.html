@@ -38,7 +38,7 @@
                                 오늘은 수업이 없습니다.<br>     
                         {% else %}
                                 {% for class in value %}
-                                        {{class.date1}}, {{class.date2}},  <!--이 줄은 나중에 지우기-->
+                                        {{class.date1}} {{class.date2}}  <!--이 줄은 나중에 지우기-->
                                         {{class.start}} : {{class.end}}, {{class.prof}}-{{class.class_name}}<br>
                                         <div style="background-color: darkgray;">쉬는시간</div>
                                 {% endfor %}
@@ -64,7 +64,7 @@
                                 계획된 수업이 없습니다.<br>     
                         {% else %}
                                 {% for class in value %}
-                                        {{class.date1}}, {{class.date2}},  <!--이 줄은 나중에 지우기-->
+                                        {{class.date1}} {{class.date2}}  <!--이 줄은 나중에 지우기-->
                                         {{class.start}} : {{class.end}}, {{class.prof}}-{{class.class_name}}<br>
                                         <div style="background-color: darkgray;">쉬는시간</div>
                                 {% endfor %}
