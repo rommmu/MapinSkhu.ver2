@@ -27,7 +27,7 @@ urlpatterns = [
     path('search/', baseApp.views.search, name = 'search'),
     
     path('dormitory/', classApp.views.dormitory, name='dormitory'),
-    path('gdin_gwan', classApp.views.gdin_gwan, name='gdin_gwan'),
+    path('gdin_gwan/', classApp.views.gdin_gwan, name='gdin_gwan'),
     path('im_gwan/', classApp.views.im_gwan, name='im_gwan'),
     path('jg_gwan/', classApp.views.jg_gwan, name='jg_gwan'),
     path('library/', classApp.views.library, name='library'),
@@ -38,7 +38,7 @@ urlpatterns = [
     path('scn_gwan/', classApp.views.scn_gwan, name='scn_gwan'),
     path('sy_gwan/', classApp.views.sy_gwan, name='sy_gwan'),
     path('wd_gwan/', classApp.views.wd_gwan, name='wd_gwan'),
-    path('classroom/<str:room>/<str:id>/', classApp.views.classroom, name='classroom'),
+    path('classroom/<str:room>/', classApp.views.classroom, name='classroom'),
 
     path('feedback/', feedbackApp.views.feedback, name='feedback'),
     path('feedback_cp/', feedbackApp.views.feedback_cp, name='feedback_cp'),

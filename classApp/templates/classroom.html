@@ -1,16 +1,75 @@
-<h1>{{rooms.room}} Detail</h1>
-{% for classes in classes_list %}
-{% if rooms.room == classes.room %}
-        {{ classes.kind }} &nbsp;
-        {{ classes.code }} &nbsp;
-        {{ classes.class_name }} &nbsp;
-        {{ classes.prof }} &nbsp;
-        {{ classes.room }} &nbsp;
-        {{ classes.date1 }} &nbsp;
-        {{ classes.date2 }} &nbsp;
-        {{ classes.start }} &nbsp;
-        {{ classes.end }} &nbsp;
-        {{ classes.kwan_name }} &nbsp;
-        <br>
+<h1>{{my_room}} 강의실</h1>
+
+{% if now_class != 'empty' %}
+        <div style="background-color: forestgreen;">
+                <h4>현재 <strong>{{now_class}}</strong> 강의 중입니다.</h4>
+        </div>        
 {% endif %}
-{% endfor %}
+
+런서버 먼저 해서 확인하면 코드 이해 빠를듯 -> http://127.0.0.1:8000/classroom/42/6202/ <br>
+-아쿠아색 : 시간표 헤더 부분<br>
+-노란색 : 현재 요일 수업<br>
+-연두색 : 다른 요일 수업<br>
+-회색 : 쉬는시간<br>
+
+
+<div> 
+        <!-- 
+        key : 요일을 가짐(월~금) 
+        value : 요일에 해당하는 강의 리스트를 가짐
+        -->        
+        {% for key, value in class_dict.items %}
+                {% if key == now_weekday_str %} 
+                <!--현재 요일인 경우-->
+
+                        <!-- 시간표 헤더 -->
+                        <div style="background-color: aqua;" class="radio-btn">
+                                {% if now_weekday_str == key %}
+                                <input type="radio" name="button" value="{{key}}" id="rdo-mon" checked>
+                                {% else %}
+                                <input type="radio" name="button" value="{{key}}" id="rdo-mon">
+                                {% endif %}
+                                <label for="rdo-mon" >{{key}}</label>
+                        </div>
+
+                        <!-- 시간표 바디 -->
+                        <div style="background-color: yellow; margin-bottom: 3%;">
+                        {% if value == 'empty' %}
+                                오늘은 수업이 없습니다.<br>     
+                        {% else %}
+                                {% for class in value %}
+                                        {{class.date1}} {{class.date2}}  <!--이 줄은 나중에 지우기-->
+                                        {{class.start}} : {{class.end}}, {{class.prof}}-{{class.class_name}}<br>
+                                        <div style="background-color: darkgray;">쉬는시간</div>
+                                {% endfor %}
+                        {% endif %}                                   
+                        </div>
+
+                {% else %} 
+                <!--다른 요일인 경우-->
+
+                        <!-- 시간표 헤더 -->
+                        <div style="background-color: aqua;" class="radio-btn">
+                                {% if now_weekday_str == key %}
+                                <input type="radio" name="button" value="{{key}}" id="rdo-mon" checked>
+                                {% else %}
+                                <input type="radio" name="button" value="{{key}}" id="rdo-mon">
+                                {% endif %}
+                                <label for="rdo-mon" >{{key}}</label>
+                        </div>
+
+                        <!-- 시간표 바디 -->
+                        <div style="background-color: yellowgreen; margin-bottom: 3%;">
+                        {% if value == 'empty' %}
+                                계획된 수업이 없습니다.<br>     
+                        {% else %}
+                                {% for class in value %}
+                                        {{class.date1}} {{class.date2}}  <!--이 줄은 나중에 지우기-->
+                                        {{class.start}} : {{class.end}}, {{class.prof}}-{{class.class_name}}<br>
+                                        <div style="background-color: darkgray;">쉬는시간</div>
+                                {% endfor %}
+                        {% endif %} 
+                        </div>
+                {% endif %}
+        {% endfor %}
+</div>
