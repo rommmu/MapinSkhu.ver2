@@ -191,7 +191,7 @@ INSERT INTO "classApp_classes" VALUES (146,'평교','AG00001','평생교육방�
 INSERT INTO "classApp_classes" VALUES (147,'평교','AG00002','평생교육개론','이소연','1502','화',NULL,'15:00','17:50','승연관');
 INSERT INTO "classApp_classes" VALUES (148,'평교','AG00003','평생교육실습','임정아','1502','금',NULL,'12:00','14:50','승연관');
 INSERT INTO "classApp_classes" VALUES (149,'평교','AG00006','지역사회교육론','정혜령','1502','수',NULL,'12:00','14:50','승연관');
-INSERT INTO "classApp_classes" VALUES (150,'교선','AJ00009','행복의 심리학','이현지','6110','월',NULL,'15:00',1750,'정보과학관');
+INSERT INTO "classApp_classes" VALUES (150,'교선','AJ00009','행복의 심리학','이현지','6110','월',NULL,'15:00','17:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (151,'교선','AH00020','진로와 직업의 세계','한상진','7303','화',NULL,'15:00','16:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (152,'교선','AH00021','취업전략 및 역량강화','신지원','7305','화',NULL,'15:00','16:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (153,'교선','AH00034','소셜벤처 기업가정신','최우진','7304','월',NULL,'12:00','14:50','새천년관');
