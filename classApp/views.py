@@ -10,7 +10,7 @@ days = ['월', '화', '수', '목', '금', '토', '일']
 week_classes = [] # 인덱스 (월:0 ~ 금:4)
 for w in range(len(days)-2): 
     week_classes.append(
-        Classes.objects.filter(Q(date1 = days[w]) | Q(date1 = days[w]))
+        Classes.objects.filter(Q(date1 = days[w]) | Q(date1 = days[w])).order_by('-start')
     )
 
 def classroom_fn(my_room):
@@ -30,9 +30,10 @@ def classroom_fn(my_room):
 
     for index, value in enumerate(days[:5]): #value:월~금
         extract_list = [] # my_room 수업 저장
-
         for c in week_classes[index]: #요일별 수업리스트 돌면서
             if c.room == my_room: #사용자가 선택한 강의실과 일치하면
+                if c.date2 == None:
+                    c.date2 = ""
                 extract_list.append(c) #리스트로 저장
         if len(extract_list) == 0: #추출된 강의가 1도 없으면
             class_dict[value] = 'empty' #해당요일 dict value에는 empty 저장
@@ -63,7 +64,7 @@ def classroom_fn(my_room):
 
 
 def kwan_fn(my_kwan):
-    days = ['수', '목', '금', '토', '일', '월', '화', ]
+    days = ['월', '화', '수', '목', '금', '토', '일']
     now = timezone.now()
     now_date = now.date()
     now_time = now.time()
@@ -156,9 +157,15 @@ def dormitory(request):
     return render(request, 'class/dormitory.html', kwan_fn(my_kwan = "행복기숙사"))
 
 # 강의실 디테일 페이지
-def classroom(request, room_id, room):
-    return render(
-        request, 
-        'classroom.html',
-        classroom_fn(my_room = room)
-    )
+def classroom(request, room):
+    try:
+        Room.objects.get(room = room)
+
+        return render(
+            request, 
+            'classroom.html',
+            classroom_fn(my_room = room)
+        )
+
+    except:
+        return render(request, 'index.html')
