@@ -10,7 +10,7 @@ days = ['월', '화', '수', '목', '금', '토', '일']
 week_classes = [] # 인덱스 (월:0 ~ 금:4)
 for w in range(len(days)-2): 
     week_classes.append(
-        Classes.objects.filter(Q(date1 = days[w]) | Q(date1 = days[w]))
+        Classes.objects.filter(Q(date1 = days[w]) | Q(date2 = days[w])).order_by('end')
     )
 
 def classroom_fn(my_room):
@@ -158,7 +158,7 @@ def dormitory(request):
 # 강의실 디테일 페이지
 def classroom(request, room):
     try:
-        get_room = Room.objects.get(room=room)
+        Room.objects.get(room=room)
         return render(
             request, 
             'classroom.html',
