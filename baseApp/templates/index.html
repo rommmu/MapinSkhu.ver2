@@ -1,5 +1,9 @@
 <h1>Map in SKHU</h1>
 
+{% for test in tests %}
+    {{test.kwan_name}}, {{test.room}}
+{% endfor %}
+
 <form class="sea" action="{% url 'search' %}" method="GET">
     <input type="text" name="q" value="{{ q }}"/>
     <input type="submit" value="검색" />

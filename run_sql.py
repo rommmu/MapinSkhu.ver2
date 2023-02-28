@@ -12,4 +12,4 @@ def custom_sql(sql_file_name):
         sql_as_string = sql_file.read()
         cursor.executescript(sql_as_string)
 
-custom_sql("mapinskhu2.db.sql")
+custom_sql("new-mapinskhu.db.sql")
