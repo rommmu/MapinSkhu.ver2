@@ -31,7 +31,7 @@ def classroom_fn(my_room):#단순 room 문자열 아닌 room 객체 받기
     for index, value in enumerate(days[:5]): #value:월~금
         extract_list = [] # my_room 수업 저장
         for c in week_classes[index]: #요일별 수업리스트 돌면서
-            if c.room == my_room: #사용자가 선택한 강의실과 일치하면
+            if c.room == my_room.room: #사용자가 선택한 강의실과 일치하면
                 if c.date2 == None:
                     c.date2 = ""
                 extract_list.append(c) #리스트로 저장
