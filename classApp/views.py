@@ -31,7 +31,7 @@ def classroom_fn(my_room):
     for index, value in enumerate(days[:5]): #value:월~금
         extract_list = [] # my_room 수업 저장
         for c in week_classes[index]: #요일별 수업리스트 돌면서
-            if c.room == my_room: #사용자가 선택한 강의실과 일치하면
+            if c.room == my_room.room: #사용자가 선택한 강의실과 일치하면
                 if c.date2 == None:
                     c.date2 = ""
                 extract_list.append(c) #리스트로 저장
@@ -138,7 +138,7 @@ def library(request):
 
 # 9관 피츠버그홀
 def pb_hall(request):
-    return render(request, 'class/pb_hall.html', kwan_fn(my_kwan = "피츠버그홀"))
+    return render(request, 'class/pb_hall.html', kwan_fn(my_kwan = "성미가엘성당&피츠버그홀"))
 
 # 10관 구두인관
 def gdin_gwan(request):
@@ -159,12 +159,12 @@ def dormitory(request):
 # 강의실 디테일 페이지
 def classroom(request, room):
     try:
-        Room.objects.get(room = room) #디비에 room 존재하지 않으면 back(index로)
+        my_room = Room.objects.get(room = room) #디비에 room 존재하지 않으면 back(index로)
 
         return render(
             request, 
             'classroom.html',
-            classroom_fn(my_room = room)
+            classroom_fn(my_room = my_room)
         )
 
     except:
