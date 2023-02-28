@@ -20,13 +20,8 @@ class Classes(models.Model):
         return f'{self.kind, self.code, self.class_name, self.prof, self.room, self.date1, self.date2, self.start, self.end, self.kwan_name}'
 
 class Kwan(models.Model):
-    kwan_num = models.SmallIntegerField(
-        validators=[
-            MinValueValidator(1), MaxValueValidator(13)
-            ]
-    ) 
-    kwan_name = models.CharField(max_length=50, null=True)
-    kwan_image = models.ImageField(upload_to='images/kwan', null=True, blank=True)
+    kwan_num = models.CharField(max_length=10)
+    kwan_name = models.CharField(max_length=50)
 
     def __str__(self):
         return f'{self.kwan_name}'

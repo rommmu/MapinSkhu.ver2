@@ -4,19 +4,20 @@
 {% block title %} 소개 {% endblock %}
 
 {% block content %}
-<div class="intro-container">
-  <div class="mainwrap">
-    <!-- 지도 아이콘과 문구 -->
-    <div class="main__img">
-      <img src="{% static 'img/biglogo.png' %}">
-    </div>
-    <div class="main__head">
-      <h2>Find Your Space,</h2>
-      <h1>Map in Skhu.</h1>
-      <span class="letter-overlay"></span>
-    </div>
-  </div>
+<div class="mainwrap">
+	<div class="main__img">
+		<img class="intro_img_web" src="{% static 'img/introduce/introduce_web.png' %}">
+		<img class="intro_img_web_min" src="{% static 'img/introduce/introduce_web_min.png' %}">
+		<img class="intro_img_mobile" src="{% static 'img/introduce/introduce_mobile.png' %}">
+	</div>
+	<div class="main__head">
+		<h2>Find Your Space,</h2>
+		<h1>Map in Skhu.</h1>
+		<span class="letter-overlay"></span>
+	</div>
+</div>
 
+<div class="intro-container">
   <div class="sub-con">
     <div class="subwrap">
       <div class="sub__img js-scroll fade-in-bottom">
