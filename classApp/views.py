@@ -139,7 +139,7 @@ def library(request):
 
 # 9관 피츠버그홀
 def pb_hall(request):
-    return render(request, 'class/pb_hall.html', kwan_fn(my_kwan = "피츠버그홀"))
+    return render(request, 'class/pb_hall.html', kwan_fn(my_kwan = "성미가엘성당&피츠버그홀"))
 
 # 10관 구두인관
 def gdin_gwan(request):
