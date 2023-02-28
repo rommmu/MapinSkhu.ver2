@@ -28,9 +28,7 @@ def index(request):
                     with fs.open(static_file_wait) as static_file:
                         r.room_image.save(f'imagewait_{r.room}.JPG', static_file, save=True)
 
-    tests = Room.objects.filter(kwan_name = '정보과학관')
-
-    return render(request, 'index.html', {'tests':tests})
+    return render(request, 'index.html')
 
 def introduce(request):
     return render(request, 'introduce.html')

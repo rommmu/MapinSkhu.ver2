@@ -22,7 +22,6 @@ def classroom_fn(my_room):#단순 room 문자열 아닌 room 객체 받기
     -> 템플릿에서 오늘 요일 시간표 먼저 보이기    
     3. 해당 강의실에 강의 없는 경우 'empty' 전달
     '''
-    print(my_room)
 
     now = timezone.now() #형식: yyyy-mm-dd hh:mm:ss.ssssss
     now_weekday = now.weekday() #0~6
@@ -161,9 +160,7 @@ def dormitory(request):
 # 강의실 디테일 페이지
 def classroom(request, room):
     try:
-        print('r',room)
         my_room = Room.objects.get(room = room) #디비에 room 존재하지 않으면 back(index로)
-        print(my_room)
         return render(
             request, 
             'classroom.html',
