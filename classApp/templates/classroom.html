@@ -1,75 +1,93 @@
-<h1>{{my_room}} 강의실</h1>
-
-{% if now_class != 'empty' %}
-        <div style="background-color: forestgreen;">
-                <h4>현재 <strong>{{now_class}}</strong> 강의 중입니다.</h4>
-        </div>        
-{% endif %}
-
-런서버 먼저 해서 확인하면 코드 이해 빠를듯 -> http://127.0.0.1:8000/classroom/6202/ <br>
--아쿠아색 : 시간표 헤더 부분<br>
--노란색 : 현재 요일 수업<br>
--연두색 : 다른 요일 수업<br>
--회색 : 쉬는시간<br>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{my_room.room}} {% endblock %}
 
 
-<div> 
-        <!-- 
-        key : 요일을 가짐(월~금) 
-        value : 요일에 해당하는 강의 리스트를 가짐
-        -->        
-        {% for key, value in class_dict.items %}
-                {% if key == now_weekday_str %} 
-                <!--현재 요일인 경우-->
+{% block content %}
+<div class="detail-container">
+	<div class="detail-header">
+		<div class="dtlecture-img">
+			<!--해당 강의실 이미지를 띄워야 함-->
+			<img src="{{my_room.room_image.url}}" alt="{{rooms.room}}" />
+		</div>
+		<div class="dtlecture-title">
+			<h2>#{{my_room.kwan_name}}</h2>
+			<h1>{{my_room.room}}</h1>
+		</div>
+		<!--얘도 강의실 이미지 나오면 최종 수정을 거쳐야할듯-->
+		<span class="closebtn" onclick="history.back();">&times;</span>
+	
+		{% if now_class != 'empty' %}
+		<div class="detail-status">
+			<p><i class="fa-solid fa-ban"></i></p>
+			<p></i>현재 <strong>{{now_class}}</strong> 강의 중입니다.</p>
+		</div>
+		{% endif %}
+	</div>
 
-                        <!-- 시간표 헤더 -->
-                        <div style="background-color: aqua;" class="radio-btn">
-                                {% if now_weekday_str == key %}
-                                <input type="radio" name="button" value="{{key}}" id="rdo-mon" checked>
-                                {% else %}
-                                <input type="radio" name="button" value="{{key}}" id="rdo-mon">
-                                {% endif %}
-                                <label for="rdo-mon" >{{key}}</label>
-                        </div>
-
-                        <!-- 시간표 바디 -->
-                        <div style="background-color: yellow; margin-bottom: 3%;">
-                        {% if value == 'empty' %}
-                                오늘은 수업이 없습니다.<br>     
-                        {% else %}
-                                {% for class in value %}
-                                        {{class.date1}} {{class.date2}}  <!--이 줄은 나중에 지우기-->
-                                        {{class.start}} : {{class.end}}, {{class.prof}}-{{class.class_name}}<br>
-                                        <div style="background-color: darkgray;">쉬는시간</div>
-                                {% endfor %}
-                        {% endif %}                                   
-                        </div>
-
-                {% else %} 
-                <!--다른 요일인 경우-->
-
-                        <!-- 시간표 헤더 -->
-                        <div style="background-color: aqua;" class="radio-btn">
-                                {% if now_weekday_str == key %}
-                                <input type="radio" name="button" value="{{key}}" id="rdo-mon" checked>
-                                {% else %}
-                                <input type="radio" name="button" value="{{key}}" id="rdo-mon">
-                                {% endif %}
-                                <label for="rdo-mon" >{{key}}</label>
-                        </div>
-
-                        <!-- 시간표 바디 -->
-                        <div style="background-color: yellowgreen; margin-bottom: 3%;">
-                        {% if value == 'empty' %}
-                                계획된 수업이 없습니다.<br>     
-                        {% else %}
-                                {% for class in value %}
-                                        {{class.date1}} {{class.date2}}  <!--이 줄은 나중에 지우기-->
-                                        {{class.start}} : {{class.end}}, {{class.prof}}-{{class.class_name}}<br>
-                                        <div style="background-color: darkgray;">쉬는시간</div>
-                                {% endfor %}
-                        {% endif %} 
-                        </div>
-                {% endif %}
-        {% endfor %}
+<div class="detail-sub-con">
+    <div class="reserve_btn">
+		<a href="https://tis.skhu.ac.kr/app-nexa/index.html" target= "_blank">강의실 예약</a>
+    </div>
 </div>
+
+<!-- key : 요일을 가짐(월~금) /  value : 요일에 해당하는 강의 리스트를 가짐 -->
+<!-- 시간표 헤더 -->
+<div class="detail-radio-header">
+	<div class="radio-container">
+		{% for key, value in class_dict.items %}
+		<div class="radio-btn">
+			{% if key == now_weekday_str %}<!--현재 요일인 경우-->
+			<input type="radio" name="button" value="{{key}}" id="rdo-{{key}}" checked>
+			{% else %}
+			<input type="radio" name="button" value="{{key}}" id="rdo-{{key}}">
+			{% endif %}
+			<label for="rdo-{{key}}">{{key}}</label>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+<!-- 시간표 바디 -->
+<div class="detail-radio-body">
+	{% for key, value in class_dict.items %}
+	{% if key == now_weekday_str %}
+	<div class="radio-detail" id="{{key}}" style="display: block;">
+		{% else %}
+		<div class="radio-detail" id="{{key}}" style="display: none;">
+			{% endif %}
+			{% if value == 'empty' %}
+			<div class="classes-item">
+				<div class="emptytime">
+					<i class="fa-solid fa-x" style="color: #ee3e54; font-size: 3rem;"></i>
+					<h1>{{key}}요일은 수업이 없습니다.</h1>
+				</div>
+			</div>
+			{% else %}
+			{% for class in value %}
+			<div class="classes-item">
+				<div class="classes-time">
+					<p>{{class.start}}</p>
+					<p> ~ </p>
+					<p>{{class.end}}</p>
+				</div>
+				<div class="classes-name">
+					<h1>{{class.class_name}}</h1>
+					<h2>{{class.prof}}</h2>
+					<div class="classes-inform">
+						<div class="informblock">{{class.code}}</div>
+						<div class="informblock">{{class.kind}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="empty-classes"></div>
+			{% endfor %}
+			{% endif %}
+			<br>
+		</div>
+		{% endfor %}
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="{% static 'js/timetabletoggle.js' %}"></script>
+{% endblock %}
