@@ -1,317 +1,93 @@
-<h1>{{rooms.room}} Detail</h1>
-{% for classes in classes_list %}
-{% if rooms.room == classes.room %}
-        {{ classes.kind }} &nbsp; 
-        {{ classes.code }} &nbsp;
-        {{ classes.class_name }} &nbsp;
-        {{ classes.prof }} &nbsp;
-        {{ classes.room }} &nbsp;
-        {{ classes.date1 }} &nbsp;
-        {{ classes.date2 }} &nbsp;
-        {{ classes.start }} &nbsp;
-        {{ classes.end }} &nbsp;
-        {{ classes.kwan_name }} &nbsp;
-        <br>
-{% endif %}
-{% endfor %}
-
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} {{ classroom.unit }} {% endblock %}
-
-<!-- 강의실 detail -->
+{% block title %} {{my_room.room}} {% endblock %}
 
 
 {% block content %}
 <div class="detail-container">
-  <div class="detail-header">
-    <div class="dtlecture-img">
-      <img src="{% url 'classroom' rooms.room rooms.id %}">
-    </div>
-    <div class="dtlecture-title">
-      <h2>#관이름</h2>
-      <h1>{{ rooms.room }}</h1>
-    </div>
-      <span class="closebtn" onclick="history.back();">&times;</span>
-    {% for classes in classes %}
-    {% if classroom.unit == classes.room_id.unit %}
-    {% if classes.date1 == now_weekday or classes.date2 == now_weekday %}
-    {% if now_time >= classes.time1 and classes.time2 >= now_time %}
-    <div class="detail-status">
-        <p><i class="fa-solid fa-ban"></i></p>
+	<div class="detail-header">
+		<div class="dtlecture-img">
+			<!--해당 강의실 이미지를 띄워야 함-->
+			<img src="{{my_room.room_image.url}}" alt="{{rooms.room}}" />
+		</div>
+		<div class="dtlecture-title">
+			<h2>#{{my_room.kwan_name}}</h2>
+			<h1>{{my_room.room}}</h1>
+		</div>
+		<!--얘도 강의실 이미지 나오면 최종 수정을 거쳐야할듯-->
+		<span class="closebtn" onclick="history.back();">&times;</span>
+	
+		{% if now_class != 'empty' %}
+		<div class="detail-status">
+			<p><i class="fa-solid fa-ban"></i></p>
+			<p></i>현재 <strong>{{now_class}}</strong> 강의 중입니다.</p>
+		</div>
+		{% endif %}
+	</div>
 
-        <p></i>현재 <strong>{{ classes.sub_id.name }}</strong> 강의 중입니다.</p>
-
-    </div>
-
-    {% endif %}
-    {% endif %}
-    {% endif %}
-{% endfor %}
-  </div>
-
-  <div class="detail-sub-con">
+<div class="detail-sub-con">
     <div class="reserve_btn">
-      <a href="https://tis.skhu.ac.kr/app-nexa/index.html" target= "_blank">강의실 예약</a>
+		<a href="https://tis.skhu.ac.kr/app-nexa/index.html" target= "_blank">강의실 예약</a>
     </div>
-  </div>
-  
-  <div class="detail-radio-header">
-    <div class="radio-container">
-      <div class="radio-btn">
-        <!-- onchange="timetabletoggle()" -->
-        {% if now_weekday == '월' %}
-        <input type="radio" name="button" value="월" id="rdo-mon" checked>
-        {% else %}
-        <input type="radio" name="button" value="월" id="rdo-mon">
-        {% endif %}
-        <label for="rdo-mon" >월</label>
-      </div>
-      <div class="radio-btn">
-        {% if now_weekday == '화' %}
-        <input type="radio" name="button" value="화" id="rdo-tue" checked>
-        {% else %}
-        <input type="radio" name="button" value="화" id="rdo-tue">
-        {% endif %}
-        <label for="rdo-tue">화</label>
-      </div>
-      <div class="radio-btn">
-        {% if now_weekday == '수' %}
-        <input type="radio" name="button" value="수" id="rdo-wed" checked>
-        {% else %}
-        <input type="radio" name="button" value="수" id="rdo-wed">
-        {% endif %}
-        <label for="rdo-wed">수</label>
-      </div>
-      <div class="radio-btn">
-        {% if now_weekday == '목' %}
-        <input type="radio" name="button" value="목" id="rdo-thu" checked>
-        {% else %}
-        <input type="radio" name="button" value="목" id="rdo-thu">
-        {% endif %}
-        <label for="rdo-thu">목</label>
-      </div>
-      
-      <div class="radio-btn">
-        {% if now_weekday == '금' %}
-        <input type="radio" name="button" value="금" id="rdo-fri" checked>
-        {% else %}
-        <input type="radio" name="button" value="금" id="rdo-fri">
-        {% endif %}
-        <label for="rdo-fri">금</label>
-      </div>
-    </div>
-  </div>
-  <div class="detail-radio-container">
-    {% if now_weekday == '월' %}
-    <div class="radio-detail" id="mon" style="display: block;">
-    {% else %}
-    <div class="radio-detail" id="mon" style="display: none;">
-    {% endif %}
-        {% if mon_classes == '공강' %}
-        <div class="classes-item">
-            <div class="emptytime">
-              <i class="fa-solid fa-x" style="color: #ee3e54; font-size: 3rem;"></i>
-              <h1>월요일은 수업이 없습니다.</h1>
-            </div>
-          </div>
-        {% else %}
-            {% for classes in classes %}
-                {% if classroom.unit == classes.room_id.unit %}
-    
-                {% if classes.date1 == "월" %}
-                <div class="classes-item">
-                    <div class="classes-time">
-                      <p>{{ classes.time1 }}</p>
-                      <p> ~ </p>
-                      <p>{{ classes.time2 }}</p>
-                    </div>
-                    <div class="classes-name">
-                      <h1>{{ classes.sub_id.name }}</h1>
-                      <h2>{{ classes.prof_id.name }}</h2>
-                      <div class="classes-inform">
-                          <div class="informblock">{{classes.sub_id.code}}</div>
-                          <div class="informblock">{{classes.sub_id.kind}}</div>
-                        </div>
-                    </div>
-  
-                  </div>
-                  <div class="empty-classes">
-                  </div>
-                {% endif %}
-                {% endif %}
-            {% endfor %}    
-        {% endif %}
-    </div>
-    
-    {% if now_weekday == '화' %}
-    <div class="radio-detail" id="tue" style="display: block;">
-    {% else %}
-    <div class="radio-detail" id="tue" style="display: none;">
-    {% endif %}
+</div>
 
-        {% if tue_classes == '공강' %}
-            <div class="classes-item">
-              <div class="emptytime">
-                <i class="fa-solid fa-x" style="color: #ee3e54; font-size: 3rem;"></i>
-                <h1>화요일은 수업이 없습니다.</h1>
-              </div>
-            </div>
-        {% else %}
-            {% for classes in classes %}
-                {% if classroom.unit == classes.room_id.unit %}
-    
-                {% if classes.date1 == "화" %}
-                <div class="classes-item">
-                    <div class="classes-time">
-                      <p>{{ classes.time1 }}</p>
-                      <p> ~ </p>
-                      <p>{{ classes.time2 }}</p>
-                    </div>
-                    <div class="classes-name">
-                      <h1>{{ classes.sub_id.name }}</h1>
-                      <h2>{{ classes.prof_id.name }}</h2>
-                      <div class="classes-inform">
-                          <div class="informblock">{{classes.sub_id.code}}</div>
-                          <div class="informblock">{{classes.sub_id.kind}}</div>
-                        </div>
-                    </div>
-  
-                  </div>
-                  <div class="empty-classes">
-                  </div>
-                {% endif %}
-                {% endif %}
-            {% endfor %}    
-        {% endif %}
-            <br>
-    </div>
-    
-    {% if now_weekday == '수' %}
-    <div class="radio-detail" id="wed" style="display: block;">
-    {% else %}
-    <div class="radio-detail" id="wed" style="display: none;">
-    {% endif %}
-        {% if wed_classes == '공강' %}
-        <div class="classes-item">
-            <div class="emptytime">
-              <i class="fa-solid fa-x" style="color: #ee3e54; font-size: 3rem;"></i>
-              <h1>수요일은 수업이 없습니다.</h1>
-            </div>
-          </div>
-        {% else %}
-            {% for classes in classes %}
-                {% if classroom.unit == classes.room_id.unit %}
-    
-                {% if classes.date1 == "수" or classes.date2 == "수" %}
-                <div class="classes-item">
-                    <div class="classes-time">
-                      <p>{{ classes.time1 }}</p>
-                      <p> ~ </p>
-                      <p>{{ classes.time2 }}</p>
-                    </div>
-                    <div class="classes-name">
-                      <h1>{{ classes.sub_id.name }}</h1>
-                      <h2>{{ classes.prof_id.name }}</h2>
-                      <div class="classes-inform">
-                          <div class="informblock">{{classes.sub_id.code}}</div>
-                          <div class="informblock">{{classes.sub_id.kind}}</div>
-                        </div>
-                    </div>
-  
-                  </div>
-                  <div class="empty-classes">
-                  </div>
-                {% endif %}
-                {% endif %}
-            {% endfor %}    
-        {% endif %}
-            <br>
-    </div>
-    
-    {% if now_weekday == '목' %}
-    <div class="radio-detail" id="thu" style="display: block;">
-    {% else %}
-    <div class="radio-detail" id="thu" style="display: none;">
-    {% endif %}
-        {% if thu_classes == '공강' %}
-        <div class="classes-item">
-            <div class="emptytime">
-              <i class="fa-solid fa-x" style="color: #ee3e54; font-size: 3rem;"></i>
-              <h1>목요일은 수업이 없습니다.</h1>
-            </div>
-          </div>
-        {% else %}
-            {% for classes in classes %}
-                {% if classroom.unit == classes.room_id.unit %}
-    
-                {% if classes.date1 == "목" or classes.date2 == "목" %}
-                <div class="classes-item">
-                    <div class="classes-time">
-                      <p>{{ classes.time1 }}</p>
-                      <p> ~ </p>
-                      <p>{{ classes.time2 }}</p>
-                    </div>
-                    <div class="classes-name">
-                      <h1>{{ classes.sub_id.name }}</h1>
-                      <h2>{{ classes.prof_id.name }}</h2>
-                      <div class="classes-inform">
-                          <div class="informblock">{{classes.sub_id.code}}</div>
-                          <div class="informblock">{{classes.sub_id.kind}}</div>
-                        </div>
-                    </div>
-  
-                  </div>
-                  <div class="empty-classes">
-                  </div>
-                {% endif %}
-                {% endif %}
-            {% endfor %}    
-        {% endif %}
-        <br>
-    </div>
-    
-    {% if now_weekday == '금' %}
-    <div class="radio-detail" id="fri" style="display: block;">
-    {% else %}
-    <div class="radio-detail" id="fri" style="display: none;">
-    {% endif %}
-        {% if fri_classes == '공강' %}
-        <div class="classes-item">
-            <div class="emptytime">
-              <i class="fa-solid fa-x" style="color: #ee3e54; font-size: 3rem;"></i>
-              <h1>금요일은 수업이 없습니다.</h1>
-            </div>
-          </div>
-        {% else %}
-            {% for classes in classes %}
-                {% if classroom.unit == classes.room_id.unit %}
-                {% if classes.date1 == "금" or classes.date2 == "금" %}
-                <div class="classes-item">
-                  <div class="classes-time">
-                    <p>{{ classes.time1 }}</p>
-                    <p> ~ </p>
-                    <p>{{ classes.time2 }}</p>
-                  </div>
-                  <div class="classes-name">
-                    <h1>{{ classes.sub_id.name }}</h1>
-                    <h2>{{ classes.prof_id.name }}</h2>
-                    <div class="classes-inform">
-                        <div class="informblock">{{classes.sub_id.code}}</div>
-                        <div class="informblock">{{classes.sub_id.kind}}</div>
-                      </div>
-                  </div>
+<!-- key : 요일을 가짐(월~금) /  value : 요일에 해당하는 강의 리스트를 가짐 -->
+<!-- 시간표 헤더 -->
+<div class="detail-radio-header">
+	<div class="radio-container">
+		{% for key, value in class_dict.items %}
+		<div class="radio-btn">
+			{% if key == now_weekday_str %}<!--현재 요일인 경우-->
+			<input type="radio" name="button" value="{{key}}" id="rdo-{{key}}" checked>
+			{% else %}
+			<input type="radio" name="button" value="{{key}}" id="rdo-{{key}}">
+			{% endif %}
+			<label for="rdo-{{key}}">{{key}}</label>
+		</div>
+		{% endfor %}
+	</div>
+</div>
 
-                </div>
-                <div class="empty-classes">
-                </div>
-                {% endif %}
-                {% endif %}
-            {% endfor %}    
-        {% endif %}
-        
-    </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<!-- 시간표 바디 -->
+<div class="detail-radio-body">
+	{% for key, value in class_dict.items %}
+	{% if key == now_weekday_str %}
+	<div class="radio-detail" id="{{key}}" style="display: block;">
+		{% else %}
+		<div class="radio-detail" id="{{key}}" style="display: none;">
+			{% endif %}
+			{% if value == 'empty' %}
+			<div class="classes-item">
+				<div class="emptytime">
+					<i class="fa-solid fa-x" style="color: #ee3e54; font-size: 3rem;"></i>
+					<h1>{{key}}요일은 수업이 없습니다.</h1>
+				</div>
+			</div>
+			{% else %}
+			{% for class in value %}
+			<div class="classes-item">
+				<div class="classes-time">
+					<p>{{class.start}}</p>
+					<p> ~ </p>
+					<p>{{class.end}}</p>
+				</div>
+				<div class="classes-name">
+					<h1>{{class.class_name}}</h1>
+					<h2>{{class.prof}}</h2>
+					<div class="classes-inform">
+						<div class="informblock">{{class.code}}</div>
+						<div class="informblock">{{class.kind}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="empty-classes"></div>
+			{% endfor %}
+			{% endif %}
+			<br>
+		</div>
+		{% endfor %}
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="{% static 'js/timetabletoggle.js' %}"></script>
 {% endblock %}

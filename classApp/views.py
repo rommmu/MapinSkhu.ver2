@@ -4,16 +4,77 @@ from .models import Classes, Room
 from django.utils import timezone
 from django.db.models import Q, Case, When
 
+days = ['월', '화', '수', '목', '금', '토', '일']
+
+# 요일별 강의 쿼리셋으로 추출 후 리스트로 묶기
+week_classes = [] # 인덱스 (월:0 ~ 금:4)
+for w in range(len(days)-2): 
+    week_classes.append(
+        Classes.objects.filter(Q(date1 = days[w]) | Q(date2 = days[w])).order_by('end','start')
+    )
+
+def classroom_fn(my_room):
+    '''
+    0. 요일별로 강의 묶어서 리스트로 저장해두기-> week_classes
+    1. 사용자가 선택한 강의실(my_room)의 강의만 week_classes에서 추출해서 템플릿에 전달
+    -> 요일을 key로, 요일의 수업리스트를 value로 저장한 딕셔너리 전달
+    2. 오늘 요일 템플릿에 전달
+    -> 템플릿에서 오늘 요일 시간표 먼저 보이기    
+    3. 해당 강의실에 강의 없는 경우 'empty' 전달
+    '''
+    now = timezone.now() #형식: yyyy-mm-dd hh:mm:ss.ssssss
+    now_weekday = now.weekday() #0~6
+    now_weekday_str = days[now_weekday] #월~일
+
+    class_dict = {} # 요일(key)별로 my_room에서 진행되는 수업리스트(value)를 저장
+
+    for index, value in enumerate(days[:5]): #value:월~금
+        extract_list = [] # my_room 수업 저장
+        for c in week_classes[index]: #요일별 수업리스트 돌면서
+            if c.room == my_room.room: #사용자가 선택한 강의실과 일치하면
+                if c.date2 == None:
+                    c.date2 = ""
+                extract_list.append(c) #리스트로 저장
+        if len(extract_list) == 0: #추출된 강의가 1도 없으면
+            class_dict[value] = 'empty' #해당요일 dict value에는 empty 저장
+        else:
+            class_dict[value] = extract_list #추출된 강의 있으면 그 리스트를 dict value로 저장
+
+    '''
+    현재 요일의 수업리스트에서 현재 시간과 비교 -> start~end에 현재시간이 있다면 그 수업을 템플릿에 전달
+    '''
+    now_time = now.time() #형식: hh:mm:ss.ssssss
+    now_class = 'empty' #현재 진행중인 수업 저장, 기본값은 empty
+
+    if now_weekday != 5 and now_weekday != 6: #현재 요일이 토/일 아닌 경우
+        now_class_list = class_dict.get(now_weekday_str) #dict.get(x) : key가 x인 value 추출, 여기선 현재 요일 수업리스트 추출
+        if now_class_list != 'empty': #empty가 아니라면
+            
+            for c in now_class_list: #현재 요일 수업리스트 돌면서
+                if c.start <= now_time: #수업 시작시간이 현재 시간보다 크거나 같고
+                    if now_time < c.end: #수업 끝시간이 현재 시간보다 작으면 (등호는 곧 수업이 종료되기 때문에 뺌)
+                        now_class = c.class_name #그것이 바로 현재 진행중인 수업이로다
+    
+    return {
+        'my_room' : my_room,
+        'now_class' : now_class,
+        'now_weekday_str' : now_weekday_str, 
+        'class_dict' : class_dict,
+    }
+
+
 def kwan_fn(my_kwan):
-    days = ['수', '목', '금', '토', '일', '월', '화', ]
+    days = ['월', '화', '수', '목', '금', '토', '일']
     now = timezone.now()
     now_date = now.date()
     now_time = now.time()
-    weekday = now.weekday()
+    weekday = now.weekday() #월:0 ~ 일:6
     now_weekday = days[weekday]
     
     rooms = Room.objects.filter(Q(kwan_name = my_kwan)).order_by('room')
     classes = Classes.objects.filter(Q(kwan_name = my_kwan) & (Q(date1 = now_weekday) | Q(date2 = now_weekday)) & (Q(start__lte = now_time) & Q(end__gte = now_time)))
+    
+    # kwan_img_url = get_object_or_404(Kwan, kwan_image = my_kwan)
 
     rooms_list = []
 
@@ -42,7 +103,10 @@ def kwan_fn(my_kwan):
         'rooms_list' : rooms_list, 
         'rooms_access': rooms_access,
         'rooms_unaccess': rooms_unaccess,
+        # 'kwan_img_url' : kwan_img_url,
     }
+
+
 
 # 1관 승연관
 def sy_gwan(request):
@@ -92,30 +156,16 @@ def sbdr_school(request):
 def dormitory(request):
     return render(request, 'class/dormitory.html', kwan_fn(my_kwan = "행복기숙사"))
 
-# Classroom
-def classroom(request, room, id):
-    days = ['월', '화', '수', '목', '금', '토', '일']
-    now = timezone.now()
-    now_date = now.date()
-    now_time = now.time()
-    weekday = now.weekday()
-    now_weekday = days[weekday]
+# 강의실 디테일 페이지
+def classroom(request, room):
+    try:
+        my_room = Room.objects.get(room = room) #디비에 room 존재하지 않으면 back(index로)
 
-    # 근데 여기가 필요한지는 잘 모루겟,,
-    date_list = ['월', '화', '수', '목', '금', '토']
-    preserved = Case(
-        *[When(date1 = date1,  then = pos) for pos, date1 in enumerate(date_list)], 
-        *[When(date2 = date2,  then = pos) for pos, date2 in enumerate(date_list)]
-    )
-    rooms = get_object_or_404(Room, room = room, id = id)
-    classes = Classes.objects.filter(Q(date1__in = date_list) | Q(date2__in = date_list)).order_by(preserved, 'start')
-    
-    classes_list = []
-    for c in classes:
-        if c.date2 == None:
-            c.date2 = ""
-        classes_list.append(c)
+        return render(
+            request, 
+            'classroom.html',
+            classroom_fn(my_room = my_room)
+        )
 
-    return render(request, 'classroom.html', 
-    {'now_date':now_date, 'now_time':now_time, 'now_weekday':now_weekday,
-    'classes': classes, 'rooms': rooms, 'classes_list': classes_list})
+    except:
+        return render(request, 'index.html')

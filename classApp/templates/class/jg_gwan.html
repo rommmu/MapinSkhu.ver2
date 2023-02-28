@@ -240,7 +240,6 @@
         </div>
 
         <div class="lectureinfo-container">
-          <h1 style="font-size: 20px;">테스트를해보자 </h1>
           {% for rooms in rooms_access %}
           {% if rooms.floor == 3 %}
               <a href="{% url 'classroom' rooms.room rooms.id %}" class="lectureinfo-box">

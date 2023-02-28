@@ -957,7 +957,7 @@ a {
 }
 .closebtn:hover,
 .closebtn:focus {
-    color: #000;
+    color: #ee3e54;;
     text-decoration: none;
     cursor: pointer;
 }
@@ -1063,6 +1063,8 @@ a {
     color: #fff;
 }
 
+
+/* 관 QnA */
 .detail-radio-container {
     width: 100%;
     box-shadow: rgba(0, 0, 0, .4) 0px 2px 10px 0px;
@@ -1070,6 +1072,16 @@ a {
     box-sizing: border-box;
     height: 180px;
 }
+
+/* 시간표 body */
+.detail-radio-body {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, .4) 0px 2px 10px 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+}
+
 .radio-detail {
     width: 95%;
     padding: 2rem;

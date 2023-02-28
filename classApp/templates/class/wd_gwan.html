@@ -44,7 +44,7 @@
   </div>
   <div class="build-image">
     <div class="img-wrap">
-      <img src="{% static 'images/gwan/jg.jpg' %}" alt="정보과학관">
+      <img src="{% static 'images/gwan/wd.jpg' %}" alt="월당관">
     </div>
   </div>
 
@@ -200,7 +200,7 @@
           <h2>F3</h2>
       </div>
       <div class="lectureinfo-container">
-        {% for rooms in rooms_list %}
+        {% for rooms in rooms_access %}
         {% if rooms.floor == 3 %}
             <a href="{% url 'classroom' rooms.room rooms.id %}" class="lectureinfo-box">
               <div class="lecture-img">
@@ -230,7 +230,7 @@
           <h2>F4</h2>
       </div>
       <div class="lectureinfo-container">
-        {% for rooms in rooms_list %}
+        {% for rooms in rooms_access %}
         {% if rooms.floor == 4 %}
             <a href="{% url 'classroom' rooms.room rooms.id %}" class="lectureinfo-box">
               <div class="lecture-img">
@@ -260,7 +260,7 @@
           <h2>F5</h2>
       </div>
       <div class="lectureinfo-container">
-        {% for rooms in rooms_list %}
+        {% for rooms in rooms_access %}
         {% if rooms.floor == 5 %}
             <a href="{% url 'classroom' rooms.room rooms.id %}" class="lectureinfo-box">
               <div class="lecture-img">
