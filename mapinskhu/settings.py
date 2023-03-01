@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+'''
 secret_file = os.path.join(BASE_DIR, 'secrets.json')
 
 with open(secret_file) as f:
@@ -34,7 +35,8 @@ def get_secret(secret_key, secrets=secrets):
         error_msg = "SecretKey Error"
         raise ImproperlyConfigured(error_msg)
 
-# SECRET_KEY = get_secret("SECRET_KEY")
+SECRET_KEY = get_secret("SECRET_KEY")
+'''
 SECRET_KEY = 'django-insecure-8#4jx$2xc4a#e09)6v-9$2&*9cgkz^g(!_$u4#zzy7)c#@62@_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
