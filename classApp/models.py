@@ -11,7 +11,7 @@ class Classes(models.Model):
 
     room = models.CharField(max_length=100, null=True) # 강의실
     date1 = models.CharField(max_length=5, null=True) # 첫째요일
-    date2 = models.CharField(max_length=5, null=True) # 둘째요일
+    date2 = models.CharField(max_length=5, null=True, blank=True) # 둘째요일
     start = models.TimeField(max_length=10, null=True) # 시작시간
     end = models.TimeField(max_length=10, null=True) # 끝시간
     kwan_name = models.CharField(max_length=50, null=True) # 강의관명
