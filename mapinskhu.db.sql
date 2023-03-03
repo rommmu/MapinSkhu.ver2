@@ -243,7 +243,7 @@ INSERT INTO "classApp_classes" VALUES (192,'전선','MC00017','국제경제론',
 INSERT INTO "classApp_classes" VALUES (193,'전선','LD00019','HSK연습','장엽','7306','화',NULL,'9:00','11:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (194,'교필','AC00012','대학생활세미나I(인문융합4반)','미지정','7307','금',NULL,'10:00','11:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (195,'교필','AC00012','대학생활세미나I(인문융합8반)','차피득','7307','금',NULL,'13:00','14:50','새천년관');
-INSERT INTO "classApp_classes" VALUES (196,'전필','MA00002','지역사회복지론','남일성','7308','금',NULL,'12:00','14:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (196,'전필','MA00002','지역사회복지론','남일성','7301','금',NULL,'12:00','14:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (197,'전탐','VH00007','기초영어다의어','권용현','7308','목',NULL,'9:00','11:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (198,'전탐','VH00015','영문학서사와장르:시와산문','박미정','7308','수',NULL,'9:00','11:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (199,'전탐','VS00003','경영학입문','박윤규','7308','월','수','12:00','13:15','새천년관');
