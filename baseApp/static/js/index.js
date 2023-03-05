@@ -534,6 +534,7 @@ function search_show() {
 	document.getElementsByClassName('container')[0].style.position = "fixed";
 	document.getElementsByClassName('container')[0].style.overflow = "scroll";
 	document.getElementsByClassName('container')[0].style.width = "100%";
+	document.getElementsByClassName('container')[0].style.height = "100%";
 }
 
 function search_hide() {
@@ -541,6 +542,7 @@ function search_hide() {
 	document.getElementsByClassName('container')[0].style.position = "";
 	document.getElementsByClassName('container')[0].style.overflow = "";
 	document.getElementsByClassName('container')[0].style.width = "";
+	document.getElementsByClassName('container')[0].style.height = "";
 }
 
 // 고친부분

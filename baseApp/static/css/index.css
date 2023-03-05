@@ -335,6 +335,10 @@ a {
 body {
 	background-color: #E6FDFF;
 	position: fixed;
+	/* 모바일 하단 잘림 현상 해결 */
+	min-height: 100vh;
+	min-height: -webkit-fill-available; 
+	/* 모바일 하단 잘림 현상 해결 */
 }
 
 .nav3 {
