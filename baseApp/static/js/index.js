@@ -549,3 +549,8 @@ function search_hide() {
 }
 
 // 고친부분
+const setVh = () => {
+	document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
+  };
+  window.addEventListener('resize', setVh);
+  setVh();
