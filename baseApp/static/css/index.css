@@ -1,3 +1,5 @@
+
+
 /* 순천체 볼드 */
 @font-face {
     font-family: 'SuncheonB';
@@ -333,12 +335,9 @@ a {
 /* ----------------여기서부터는 index css ---------------- */
 
 body {
-	background-color: #E6FDFF;
-	position: fixed;
-	/* 모바일 하단 잘림 현상 해결 */
-	min-height: 100vh;
-	min-height: -webkit-fill-available; 
-	/* 모바일 하단 잘림 현상 해결 */
+	height: 100%;
+	height: -webkit-fill-available;
+	height: fill-available;
 }
 
 .nav3 {
