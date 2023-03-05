@@ -23,3 +23,82 @@
 {% endfor %}
 
 <b>{{ result | safe}}</b> <br>
+<!--여긴 거의 다 고친부분 이라 따로 표시 안했어요-->
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 검색결과 {% endblock %}
+
+{% block content %}
+
+<div class="build-container">
+	<div class="build-informwrap_search">
+		<div class="build-titleqna">
+			<div class="build-title" id="build-title_s">
+				<div></div>
+				<h1 style="color:#218b21;">{{q}}</h1> <h1>의 검색 결과 </h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="build-lectureinfo-wrap" id="all_tog" style="margin-top: 50px;">
+		<div class="build-floor-container">
+			<div class="floorinfo" id="floorinfo_s">
+				<h2>강의실 검색결과</h2>
+			</div>
+			
+			<div class="lectureinfo-container">
+				{% for rooms in roomsList %}
+				<a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
+					<div class="lecture-img">
+						<img class="img-src" src="{{rooms.room_image.url}}" alt="{{rooms.room}}" />
+					</div>
+					<div class="lectureinfo">
+						<h1>{{ rooms.room }}</h1>
+						{% if rooms.room_type == '사용가능' %}
+						<div class="lecturecon poss">
+							<span>{{ rooms.room_type }}</span>
+						</div>
+						{% else %}
+						<div class="lecturecon imposs">
+							<span>{{ rooms.room_type }}</span>
+						</div>
+						{% endif %}
+					</div>
+				</a>
+				{% endfor %}
+				<h1 style="font-size: 1.7rem;">{{rooms_result}}</h1>
+			</div>
+		</div>
+	
+		<div class="build-floor-container">
+			<div class="floorinfo" id="floorinfo_s">
+				<h2>강의명 검색결과</h2>
+			</div>
+			<div class="lectureinfo-container">
+				{% for rooms in roomsAll %}
+				{% for classes in classesList %}
+				{% if rooms.room == classes.room %}
+				<a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
+					<div class="lecture-img">
+						<img class="img-src" src="{{rooms.room_image.url}}" alt="{{rooms.room}}" />
+					</div>
+	
+					<div class="lectureinfo">
+						<h3>{{ classes.class_name }}</h3>
+					</div>
+				</a>
+				{% endif %}
+				{% endfor %}
+				{% endfor %}
+				<h1 style="font-size: 1.7rem;">{{classes_result}}</h1>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="{% static 'js/informtoggle.js' %}"></script>
+<script src="{% static 'js/scroll.js' %}"></script>
+<script src="{% static 'js/accesstoggle.js' %}"></script>
+{% endblock %} 
