@@ -335,6 +335,7 @@ a {
 /* ----------------여기서부터는 index css ---------------- */
 
 body {
+	height: 100vh;
 	height: calc(var(--vh, 1vh) * 100);
 	background-color: #E6FDFF;
 	position: fixed;
