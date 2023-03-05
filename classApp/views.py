@@ -13,7 +13,7 @@ for w in range(len(days)-2):
         Classes.objects.filter(Q(date1 = days[w]) | Q(date2 = days[w])).order_by('end','start')
     )
 
-def classroom_fn(my_room):#단순 room 문자열 아닌 room 객체 받기
+def classroom_fn(my_room):
     '''
     0. 요일별로 강의 묶어서 리스트로 저장해두기-> week_classes
     1. 사용자가 선택한 강의실(my_room)의 강의만 week_classes에서 추출해서 템플릿에 전달
@@ -22,7 +22,6 @@ def classroom_fn(my_room):#단순 room 문자열 아닌 room 객체 받기
     -> 템플릿에서 오늘 요일 시간표 먼저 보이기    
     3. 해당 강의실에 강의 없는 경우 'empty' 전달
     '''
-
     now = timezone.now() #형식: yyyy-mm-dd hh:mm:ss.ssssss
     now_weekday = now.weekday() #0~6
     now_weekday_str = days[now_weekday] #월~일
@@ -55,7 +54,7 @@ def classroom_fn(my_room):#단순 room 문자열 아닌 room 객체 받기
                 if c.start <= now_time: #수업 시작시간이 현재 시간보다 크거나 같고
                     if now_time < c.end: #수업 끝시간이 현재 시간보다 작으면 (등호는 곧 수업이 종료되기 때문에 뺌)
                         now_class = c.class_name #그것이 바로 현재 진행중인 수업이로다
-
+    
     return {
         'my_room' : my_room,
         'now_class' : now_class,
@@ -161,6 +160,7 @@ def dormitory(request):
 def classroom(request, room):
     try:
         my_room = Room.objects.get(room = room) #디비에 room 존재하지 않으면 back(index로)
+
         return render(
             request, 
             'classroom.html',

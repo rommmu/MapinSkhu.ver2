@@ -51,19 +51,19 @@
 <!-- 시간표 바디 -->
 <div class="detail-radio-body">
 	{% for key, value in class_dict.items %}
-	{% if key == now_weekday_str %}
-	<div class="radio-detail" id="{{key}}" style="display: block;">
+		{% if key == now_weekday_str %}
+		<div class="radio-detail" id="{{key}}" style="display: block;">
 		{% else %}
 		<div class="radio-detail" id="{{key}}" style="display: none;">
-			{% endif %}
-			{% if value == 'empty' %}
-			<div class="classes-item">
-				<div class="emptytime">
-					<i class="fa-solid fa-x" style="color: #ee3e54; font-size: 3rem;"></i>
-					<h1>{{key}}요일은 수업이 없습니다.</h1>
-				</div>
+		{% endif %}
+		{% if value == 'empty' %}
+		<div class="classes-item">
+			<div class="emptytime">
+				<i class="fa-solid fa-x" style="color: #ee3e54; font-size: 3rem;"></i>
+				<h1>{{key}}요일은 수업이 없습니다.</h1>
 			</div>
-			{% else %}
+		</div>
+		{% else %}
 			{% for class in value %}
 			<div class="classes-item">
 				<div class="classes-time">
@@ -82,10 +82,10 @@
 			</div>
 			<div class="empty-classes"></div>
 			{% endfor %}
-			{% endif %}
-			<br>
+		{% endif %}
+		<br>
 		</div>
-		{% endfor %}
+	{% endfor %}
 	</div>
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
