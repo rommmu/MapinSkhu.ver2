@@ -61,6 +61,15 @@
 					<div class="lectureinfo">
 						<h1>{{ rooms.room }}</h1>
 					</div>
+					{% if rooms.room_type == '사용가능' %}
+					<div class="lecturecon poss">
+						<span>{{ rooms.room_type }}</span>
+					</div>
+					{% else %}
+					<div class="lecturecon imposs">
+						<span>{{ rooms.room_type }}</span>
+					</div>
+					{% endif %}
 				</a>
 				{% endfor %}
 				<h1 style="font-size: 1.7rem;">{{rooms_result}}</h1>

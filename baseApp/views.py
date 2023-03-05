@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.conf import settings
+from django.utils import timezone
 from classApp.models import Room, Classes
 from django.db.models import Q
 from django.core.files.storage import FileSystemStorage
@@ -34,6 +35,12 @@ def introduce(request):
     return render(request, 'introduce.html')
 
 def search(request):
+    days = ['월', '화', '수', '목', '금', '토', '일',]
+    now = timezone.now()
+    now_time = now.time()
+    weekday = now.weekday() #월:0 ~ 일:6
+    now_weekday = days[weekday]
+
     q = request.GET.get('q', '')
 
     roomsList = []
@@ -49,6 +56,12 @@ def search(request):
         classes = classesAll.filter(Q(class_name__icontains = q))
 
         for r in rooms:
+            r.room_type = "사용가능"
+
+            for c in classesAll.filter(Q(date1 = now_weekday) | Q(date2 = now_weekday)):
+                if c.start <= now_time and now_time <= c.end:
+                    if r.room == c.room:
+                        r.room_type = "사용불가"
             roomsList.append(r)
         
         for c in classes:
@@ -62,6 +75,8 @@ def search(request):
 
     return render(request, 'search.html',
     {'q': q,
+    'now_time': now_time,
+    'now_weekday': now_weekday,
     'roomsAll': roomsAll,
     'rooms': rooms,
     'classes': classes,
