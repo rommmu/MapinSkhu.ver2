@@ -154,6 +154,8 @@ a {
     bottom: 0;
     z-index: 10;
 }
+
+/* 고친부분 */
 .line-main::before,
 .line-main::after,
 .line-split::before,
@@ -162,7 +164,7 @@ a {
     position: absolute;
     width: inherit;
     height: 2px;
-    background-color: var(--nav-color);
+    background-color: var(--new-main-color);
     transition: transform 0.5s;
 }
 .line-main::before {
@@ -181,20 +183,22 @@ a {
   }
   #checkbox:checked ~ .line-main::before {
     transform: rotate(45deg);
-    background-color: var(--nav-color);
+    background-color: var(--new-main-color);
   }
   #checkbox:checked ~ .line-main::after {
     transform: rotate(-45deg);
-    background-color: var(--nav-color);
+    background-color: var(--new-main-color);
   }
   #checkbox:checked~.line-split::before{
     opacity: 0;
-    background-color: var(--nav-color);
+    background-color: var(--new-main-color);
   }
   #checkbox:checked~.line-split::after{
     opacity: 0;
-    background-color: var(--nav-color);
+    background-color: var(--new-main-color);
   }
+/* 고친부분 */
+
 #menu__box {
     position: fixed;
     top: 0;

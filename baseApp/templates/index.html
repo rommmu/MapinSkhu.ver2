@@ -53,6 +53,12 @@
 							<a href="{% url 'index' %}">
 								<img class="nav-img menu_img" src="{% static 'img/logo_ver1.png' %}">
 							</a>
+							<div class="search_item_frame">
+								<svg id="nav_search" onclick="search_show();" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+									<path d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z" />
+								</svg>
+							</div>
+							
 						</div>
 						<div class="menu_body">
 							<ul class="menu_list">
@@ -84,6 +90,24 @@
 
 		<img class="P_back" src="{% static 'img/main/P_back_dark.png' %}" alt="P_back">
 		<img class="M_back" src="{% static 'img/main/M_back.png' %}" alt="M_back">
+
+		<!--검색창-->
+		<div id="search">
+			<div class="main_top" onclick="search_hide();"></div>
+			<form method="GET" action="{% url 'search' %}" class="main_search">
+				{% csrf_token %}
+				<input class="main_input" type="text" spellcheck="false" name="q" placeholder="장소나 강의명을 검색해보세요">
+				<input type="submit" id="btnSubmit" style="display:none;" />
+				<label for="btnSubmit">
+					<svg id="search_item" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+						<path
+							d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z" />
+					</svg>
+				</label>
+			
+			</form>
+		</div>
+		
 
 		<div class="leo_school">
 			<!--맨 위에 있는 요소가 가장 아래에 위치하게 됨-->
@@ -214,8 +238,7 @@
 			<!--미가엘관 모달-->
 			<div id="modal_11" class="modal-overlay_11" style="z-index: 999;">
 				<div class="modal-window_11">
-					<div onclick="main_modal_11()" 
-					class="close-area_11">×</div>
+					<div onclick="main_modal_11()" class="close-area_11">×</div>
 					<div class="modal_content_11">
 						<img class="modal_img_11" src="{% static 'img/main/mgell_gwan_alone.png' %}" alt="미가엘관"><br>
 						<a class="qwan_button_11" href="{% url 'mgell_gwan' %}" style="text-decoration: none;">
@@ -224,7 +247,6 @@
 					</div>
 				</div>
 			</div>
-			
 		</div>
 	</div>
 
