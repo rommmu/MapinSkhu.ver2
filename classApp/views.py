@@ -72,9 +72,9 @@ def kwan_fn(my_kwan):
     weekday = now.weekday() #월:0 ~ 일:6
     now_weekday = days[weekday]
     
-    rooms = Room.objects.filter(Q(kwan_name = my_kwan)).order_by('room')
-    classes = Classes.objects.filter(Q(kwan_name = my_kwan) & (Q(date1 = now_weekday) | Q(date2 = now_weekday)) & (Q(start__lte = now_time) & Q(end__gte = now_time)))
-    
+    rooms = Room.objects.all().filter(Q(kwan_name = my_kwan)).order_by('room')
+    classes = Classes.objects.all().filter(Q(kwan_name = my_kwan))
+    classes = classes.filter((Q(date1 = now_weekday) | Q(date2 = now_weekday)))
     # kwan_img_url = get_object_or_404(Kwan, kwan_image = my_kwan)
 
     rooms_list = []
@@ -86,11 +86,10 @@ def kwan_fn(my_kwan):
         r.room_type = "사용가능"
 
         for c in classes:
-            if r.room == c.room:
-                r.room_type = "사용불가"
-                if c.date2 == None:
-                    c.date2 = ""
-                rooms_unaccess.append(r)
+            if c.start <= now_time and now_time <= c.end:
+                if r.room == c.room:
+                    r.room_type = "사용불가"
+                    rooms_unaccess.append(r)
         if r.room_type == "사용가능":
             rooms_access.append(r)
         rooms_list.append(r)

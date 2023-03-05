@@ -522,3 +522,27 @@ function mgellmodal_c() {
 	document.getElementById('modal_11').style.display = "none";
 	document.getElementsByClassName('modal-window_11')[0].style.display = "none";
 }
+
+
+
+// 고친부분
+
+// ---------- 검색창 ------------
+
+function search_show() {
+	document.getElementById('search').style.display = "block";
+	document.getElementsByClassName('container')[0].style.position = "fixed";
+	document.getElementsByClassName('container')[0].style.overflow = "scroll";
+	document.getElementsByClassName('container')[0].style.width = "100%";
+	document.getElementsByClassName('container')[0].style.height = "100%";
+}
+
+function search_hide() {
+	document.getElementById('search').style.display = "none";
+	document.getElementsByClassName('container')[0].style.position = "";
+	document.getElementsByClassName('container')[0].style.overflow = "";
+	document.getElementsByClassName('container')[0].style.width = "";
+	document.getElementsByClassName('container')[0].style.height = "";
+}
+
+// 고친부분
