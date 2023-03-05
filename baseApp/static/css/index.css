@@ -1,3 +1,10 @@
+@media only screen and (max-device-width: 640px) {
+	body {
+	   width: 100vh;
+	   height: calc(var(--var, 1vh)*100);
+	}
+ }
+
 /* 순천체 볼드 */
 @font-face {
     font-family: 'SuncheonB';

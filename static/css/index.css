@@ -1,3 +1,10 @@
+@media only screen and (max-device-width: 640px) {
+	body {
+	   width: 100vh;
+	   height: calc(var(--var, 1vh)*100);
+	}
+ }
+
 /* 순천체 볼드 */
 @font-face {
     font-family: 'SuncheonB';
@@ -336,8 +343,9 @@ body {
 	background-color: #E6FDFF;
 	position: fixed;
 	/* 모바일 하단 잘림 현상 해결 */
-	min-height: 100vh;
-	min-height: -webkit-fill-available; 
+	height: 100vh;
+	height: -webkit-fill-available;
+	height: fill-available;
 	/* 모바일 하단 잘림 현상 해결 */
 }
 
