@@ -339,9 +339,10 @@ body {
 	background-color: #E6FDFF;
 	position: fixed;
 	min-height: 100vh;
-	min-height: -webkit-fill-available; 
+	height: 100vh;
+	height: -webkit-fill-available;
+	height: fill-available;
 }
-
 .nav3 {
 	position: absolute;
 	top: 5vh;
