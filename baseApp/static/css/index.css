@@ -337,8 +337,10 @@ a {
 
 body {
 	background-color: #000000;
+	position: fixed;
 	height: 100vh;
 	height: -webkit-fill-available;
+	height: fill-available;
 }
 .nav3 {
 	position: absolute;
