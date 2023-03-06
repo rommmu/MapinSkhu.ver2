@@ -542,20 +542,3 @@ function search_hide() {
 	document.getElementsByClassName('container')[0].style.width = "";
 	document.getElementsByClassName('container')[0].style.height = "";
 }
-
-
-
-// ---------- 브라우저에 따라 잘리는 경우 존재 ------------
-
-let vh = 0;
-
-useEffect(() => {
-	vh = window.innerHeight * 0.01;
-	document.documentElement.style.setProperty('--vh', `${vh}px`);
-}, []);
-
-const setVh = () => {
-	document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
-};
-window.addEventListener('resize', setVh);
-setVh();

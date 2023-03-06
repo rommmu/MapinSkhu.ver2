@@ -337,22 +337,7 @@ a {
 
 body {
 	background-color: #E6FDFF;
-	/* position: fixed; */
-}
-
-html, 
-body {
-	height: 100vh;
-    height: var(--vh);
-}
-
-:root {
-	--vh: 100%;
-}
-.container {
-	height: 100vh;
-    height: var(--vh);
-	margin: 0 auto;
+	position: fixed;
 }
 
 .nav3 {
