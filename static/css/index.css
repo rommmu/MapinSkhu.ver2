@@ -340,6 +340,7 @@ body {
 	height: 100vh;
 	height: -webkit-fill-available;
 	height: fill-available;
+	overflow: hidden;
 }
 .nav3 {
 	position: absolute;
