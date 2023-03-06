@@ -364,6 +364,9 @@ body {
 .M_back {
 	display: none;
 	user-select: none;
+	/* 모바일 하단 잘림 현상 해결 시도 */
+	background-size: cover;
+	height: 100vh;
 }
 
 /* 고친부분 */
