@@ -336,11 +336,12 @@ a {
 /* ----------------여기서부터는 index css ---------------- */
 
 body {
-	background-color: #E6FDFF;
+	background-color: #000000;
 	position: fixed;
 	height: 100vh;
+	height: -webkit-fill-available;
+	height: fill-available;
 }
-
 .nav3 {
 	position: absolute;
 	top: 5vh;
