@@ -373,7 +373,7 @@ INSERT INTO "classApp_classes" VALUES (310,'교선','AK00049','한민족의역�
 과역사이야기)','심용환','6110','수',NULL,'9:00','11:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (311,'교선','AK00046','인간발달과심리','이현아','6110','월',NULL,'9:00','11:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (312,'교선','AJ00009','행복의심리학','이현지','6110','월',NULL,'15:00','17:50','정보과학관');
-INSERT INTO "classApp_classes" VALUES (313,'교선','AJ00009','행복의심리학/중복제거','이현지','6110','',NULL,'15:00','17:50','정보과학관');
+INSERT INTO "classApp_classes" VALUES (313,'교선','AJ00009','','','','',NULL,'','','');
 INSERT INTO "classApp_classes" VALUES (314,'교선','AE00019','국제질서의이해','이남주','6110','화','목','16:30','17:45','정보과학관');
 INSERT INTO "classApp_classes" VALUES (315,'전선, 전탐','PB00024','언론의역사','김서중','6110','화',NULL,'9:00','11:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (316,'교선','AE00001','영상시대의이해','강나영','6110','화',NULL,'12:00','14:50','정보과학관');
