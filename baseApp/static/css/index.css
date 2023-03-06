@@ -340,12 +340,19 @@ body {
 	/* position: fixed; */
 }
 
-.container {
-	/* 모바일 하단 잘림 현상 해결 */
+html, 
+body {
 	height: 100vh;
-	height: calc(var(--vh, 1vh) * 100);
+    height: var(--vh);
+}
+
+:root {
+	--vh: 100%;
+}
+.container {
+	height: 100vh;
+    height: var(--vh);
 	margin: 0 auto;
-	/* 모바일 하단 잘림 현상 해결 */
 }
 
 .nav3 {
