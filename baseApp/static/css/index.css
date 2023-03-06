@@ -337,7 +337,6 @@ a {
 
 body {
 	background-color: #E6FDFF;
-	position: fixed;
 	height: 100vh;
 	height: -webkit-fill-available;
 	height: fill-available;
