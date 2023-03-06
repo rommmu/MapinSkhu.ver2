@@ -73,6 +73,11 @@ def search(request):
         if len(classesList) == 0:
             classes_result = "강의명 검색 결과가 없습니다."
 
+    else:
+        rooms, classes = "", ""
+        rooms_result = "강의실 검색 결과가 없습니다."
+        classes_result = "강의명 검색 결과가 없습니다."
+
     return render(request, 'search.html',
     {'q': q,
     'now_time': now_time,
