@@ -338,6 +338,7 @@ a {
 body {
 	background-color: #E6FDFF;
 	position: fixed;
+	height: 100vh;
 }
 
 .nav3 {
