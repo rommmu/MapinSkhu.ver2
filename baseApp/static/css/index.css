@@ -336,8 +336,7 @@ a {
 /* ----------------여기서부터는 index css ---------------- */
 
 body {
-	background-color: #000000;
-	position: fixed;
+	background-color: #E6FDFF;
 	height: 100vh;
 	height: -webkit-fill-available;
 	height: fill-available;
