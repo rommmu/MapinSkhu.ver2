@@ -335,10 +335,10 @@ a {
 body {
 	background-color: #E6FDFF;
 	position: fixed;
-	/* 모바일 하단 잘림 현상 해결 */
+	/* 모바일 하단 잘림 현상 50% 해결 */
 	min-height: 100vh;
 	min-height: -webkit-fill-available; 
-	/* 모바일 하단 잘림 현상 해결 */
+	/* 모바일 하단 잘림 현상 50% 해결 */
 }
 
 .nav3 {
@@ -437,6 +437,14 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 	z-index: 999;
 	cursor: pointer;
 }
+
+@media (max-width: 700px){
+
+	#nav_search {
+		right: 40px;
+	}
+}
+
 
 /* 검색했던 기록 아래에 뜨는거 hover했을 때 input 색상 */
 #nav_search:hover {
