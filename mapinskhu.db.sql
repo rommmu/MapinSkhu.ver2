@@ -357,8 +357,8 @@ INSERT INTO "classApp_classes" VALUES (294,'교선','AK00052','바이오기술�
 INSERT INTO "classApp_classes" VALUES (295,'교선','AK00045','동물복지:인간과동물','최태규','3502','목',NULL,'15:00','17:50','월당관');
 INSERT INTO "classApp_classes" VALUES (296,'전탐','VH00003','문화코드로본현대중국','백원담','3502','월','수','15:00','16:15','월당관');
 INSERT INTO "classApp_classes" VALUES (297,'교선','AF00045','빅데이터의이해','박재영','3502','월',NULL,'12:00','14:50','월당관');
-INSERT INTO "classApp_classes" VALUES (298,'전선','LB00019','영어문장이해I','김성찬','3502','화',NULL,'9:00','11:50','월당관');
-INSERT INTO "classApp_classes" VALUES (299,'전탐','LB00019','영어문장이해I','김성찬','3502','화',NULL,'9:00','11;50','월당관');
+INSERT INTO "classApp_classes" VALUES (298,'전선, 전탐','LB00019','영어문장이해I','김성찬','3502','화',NULL,'9:00','11:50','월당관');
+INSERT INTO "classApp_classes" VALUES (299,'','','','','','',NULL,'','','');
 INSERT INTO "classApp_classes" VALUES (300,'교선','AK00025','현대사회와법1','이기덕','3502','화',NULL,'15:00','17:50','월당관');
 INSERT INTO "classApp_classes" VALUES (301,'교필','AC00015','데이터활용및분석','이해신','B105','금',NULL,'10:00','11:50','일만관');
 INSERT INTO "classApp_classes" VALUES (302,'교필','AC00015','데이터활용및분석','이해신','B105','금',NULL,'13:00','14:50','일만관');
