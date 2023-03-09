@@ -704,7 +704,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -719,7 +719,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 	}
@@ -740,7 +740,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 	}
 	
 	.modal_content_1 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -896,7 +896,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -911,7 +911,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 	}
@@ -932,7 +932,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 	}
 	
 	.modal_content_2 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -1087,7 +1087,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -1102,7 +1102,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 	}
@@ -1123,7 +1123,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 	}
 	
 	.modal_content_3 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -1278,7 +1278,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -1293,7 +1293,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 		padding-right: 5vw;
@@ -1315,7 +1315,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 	}
 	
 	.modal_content_5 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -1471,7 +1471,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -1486,7 +1486,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 		padding-left: 8%;
@@ -1508,7 +1508,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 	}
 	
 	.modal_content_6 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -1664,7 +1664,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -1679,7 +1679,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 		padding-right: 5vw;
@@ -1701,7 +1701,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 	}
 	
 	.modal_content_7 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -1857,7 +1857,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -1872,7 +1872,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 		padding-right: 5vw;
@@ -1894,7 +1894,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 	}
 	
 	.modal_content_8 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -2052,7 +2052,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -2067,7 +2067,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 		padding-right: 5vw;
@@ -2089,7 +2089,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 	}
 	
 	.modal_content_9 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -2246,7 +2246,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -2261,7 +2261,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 	}
@@ -2282,7 +2282,7 @@ input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
 	}
 	
 	.modal_content_11 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 10.7fr;
