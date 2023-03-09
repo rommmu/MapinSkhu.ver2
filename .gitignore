@@ -1,6 +1,8 @@
 venv
 myvenv
 secrets.json
+mapinskhu.db.sql
+settings.py
 
 # mac
 .DS_STORE
