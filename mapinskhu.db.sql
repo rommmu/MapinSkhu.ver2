@@ -121,7 +121,7 @@ INSERT INTO "classApp_classes" VALUES (86,'','','','','','',NULL,'','','');
 INSERT INTO "classApp_classes" VALUES (87,'교선','AE00101','창업의정석','이상윤','7204','목',NULL,'12:00','14:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (88,'전선, 전탐','MC00016','한국경제사','이상철','7204','수',NULL,'9:00','11:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (89,'전필','ME00003','경영정보시스템','박윤규','7204','월','수','15:00','16:15','새천년관');
-INSERT INTO "classApp_classes" VALUES (90,'','','','','','',,'','','');
+INSERT INTO "classApp_classes" VALUES (90,'','','','','','',NULL,'','','');
 INSERT INTO "classApp_classes" VALUES (91,'전선','ME00014','셀프리더십','염준규','7204','월',NULL,'12:00','14:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (92,'전선','ME00020','포트폴리오와투자관리','최우석','7204','화','목','15:00','16:15','새천년관');
 INSERT INTO "classApp_classes" VALUES (93,'전선','LD00001','중국사회와문화','장영석','7204','화','목','16:30','17:45','새천년관');
