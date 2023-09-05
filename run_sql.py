@@ -12,7 +12,7 @@ def custom_sql(sql_file_name):
         sql_as_string = sql_file.read()
         cursor.executescript(sql_as_string)
 
-custom_sql("mapinskhu.db.sql")
+custom_sql("db23_2.db.sql")
 
 '''
 python manage.py sqlmigrate 앱이름 0001
