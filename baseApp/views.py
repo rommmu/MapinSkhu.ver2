@@ -45,15 +45,18 @@ def search(request):
 
     roomsList = []
     classesList = []
+    professorsList = []
 
     roomsAll = Room.objects.all()
     classesAll = Classes.objects.all()
+    professorsAll = Classes.objects.all()
 
-    rooms_result, classes_result = "", ""
+    rooms_result, classes_result, professors_result = "", "", ""
 
     if q:
         rooms = roomsAll.filter((Q(room__icontains = q)))
         classes = classesAll.filter(Q(class_name__icontains = q))
+        professors = professorsAll.filter(Q(prof__icontains = q))
 
         for r in rooms:
             r.room_type = "사용가능"
@@ -67,26 +70,30 @@ def search(request):
         for c in classes:
             classesList.append(c)
         
+        for p in professors:
+            professorsList.append(p)
+        
         if len(roomsList) == 0:
             rooms_result = "강의실 검색 결과가 없습니다."
         
         if len(classesList) == 0:
             classes_result = "강의명 검색 결과가 없습니다."
-
+        
+        if len(professorsList) == 0:
+            professors_result = "해당 교수님이 진행하는 강의가 없습니다."
+    
     else:
-        rooms, classes = "", ""
+        rooms, classes, professors = "", "", ""
         rooms_result = "강의실 검색 결과가 없습니다."
         classes_result = "강의명 검색 결과가 없습니다."
+        professors_result = "해당 교수님이 진행하는 강의가 없습니다."
 
     return render(request, 'search.html',
     {'q': q,
     'now_time': now_time,
     'now_weekday': now_weekday,
     'roomsAll': roomsAll,
-    'rooms': rooms,
-    'classes': classes,
-    'roomsList': roomsList,
-    'classesList': classesList,
-    'rooms_result': rooms_result,
-    'classes_result': classes_result,
+    'rooms': rooms, 'classes': classes, 'professors': professors,
+    'roomsList': roomsList, 'classesList': classesList, 'professorsList': professorsList,
+    'rooms_result': rooms_result, 'classes_result': classes_result, 'professors_result': professors_result,
     })
