@@ -42,7 +42,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     ".ap-northeast-2.compute.amazonaws.com",
-    # "localhost",
+    "127.0.0.1",
     ".mapinskhu.com"
 ]
 

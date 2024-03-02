@@ -70,6 +70,31 @@
 				<h1 style="font-size: 1.7rem;">{{classes_result}}</h1>
 			</div>
 		</div>
+
+		<div class="build-floor-container">
+			<div class="floorinfo" id="floorinfo_s">
+				<h2>교수님 강의 검색결과</h2>
+			</div>
+			<div class="lectureinfo-container">
+				{% for rooms in roomsAll %}
+				{% for professors in professorsList %}
+				{% if rooms.room == professors.room %}
+				<a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
+					<div class="lecture-img">
+						<img class="img-src" src="{{rooms.room_image.url}}" alt="{{rooms.room}}" />
+					</div>
+	
+					<div class="lectureinfo_s">
+						<h2 style="align-items:first baseline; color: gray;">{{professors.room}}</h2>
+						<h3>{{ professors.class_name }}</h3>
+					</div>
+				</a>
+				{% endif %}
+				{% endfor %}
+				{% endfor %}
+				<h1 style="font-size: 1.7rem;">{{professors_result}}</h1>
+			</div>
+		</div>
 	</div>
 </div>
 
