@@ -80,13 +80,13 @@ def search(request):
             classes_result = "강의명 검색 결과가 없습니다."
         
         if len(professorsList) == 0:
-            professors_result = "해당 교수님이 진행하는 강의가 없습니다."
+            professors_result = "해당 교수님이 진행하는 강의 검색 결과가 없습니다."
     
     else:
         rooms, classes, professors = "", "", ""
         rooms_result = "강의실 검색 결과가 없습니다."
         classes_result = "강의명 검색 결과가 없습니다."
-        professors_result = "해당 교수님이 진행하는 강의가 없습니다."
+        professors_result = "해당 교수님이 진행하는 강의 검색 결과가 없습니다."
 
     return render(request, 'search.html',
     {'q': q,
