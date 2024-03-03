@@ -69,7 +69,7 @@
       
       {% for rooms in rooms_list %}
       {% if rooms.floor == 1 %}
-          <a href="{% url 'classroom' rooms.room rooms.id %}" class="lectureinfo-box">
+          <a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
             <div class="lecture-img">
               <img class="img-src" src = "{{rooms.room_image.url}}" alt="{{rooms.room}}">
             </div>
@@ -105,7 +105,7 @@
         
         {% for rooms in rooms_access %}
         {% if rooms.floor == 1 %}
-            <a href="{% url 'classroom' rooms.room rooms.id %}" class="lectureinfo-box">
+            <a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
               <div class="lecture-img">
                 <img class="img-src" src = "{{rooms.room_image.url}}" alt="{{rooms.room}}">
               </div>

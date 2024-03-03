@@ -1,3 +1,21 @@
+
+
+/* 순천체 볼드 */
+@font-face {
+    font-family: 'SuncheonB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 순천체 레귤러 */
+@font-face {
+    font-family: 'SuncheonR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonR.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 
@@ -55,6 +73,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	user-select: none;
 }
 ol, ul {
 	list-style: none;
@@ -318,9 +337,11 @@ a {
 
 body {
 	background-color: #E6FDFF;
-	position: fixed;
+	height: 100vh;
+	height: -webkit-fill-available;
+	height: fill-available;
+	overflow: hidden;
 }
-
 .nav3 {
 	position: absolute;
 	top: 5vh;
@@ -335,11 +356,151 @@ body {
 	position: relative;
 	display: flex;
 	justify-content: center;
+	user-select: none;
 }
 
 .M_back {
 	display: none;
+	user-select: none;
+	/* 모바일 하단 잘림 현상 해결 시도 */
+	background-size: cover;
+	height: 100vh;
 }
+
+/* 고친부분 */
+
+/* 검색 */
+#search {
+	display: none;
+}
+
+.main_top {
+	height: 100%;
+    width: 100%; /* 포지션이 absolute인지라 한쪽으로 쏠리는 바람에 */
+    position: absolute;
+    top: 0;
+	z-index: 1000;
+	background-color: #00000075;
+}
+
+.main_search {
+    display: flex;
+	width: 50vw;
+	margin-top: 15vw;
+	top: 0;
+	position: absolute;
+	z-index: 1001;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.main_input{
+	width: 100%;
+    height: 4.5vw;
+    background-color: #d3f0b1;
+	box-shadow: #218b215e 0px 4px 12px;
+    border: 0;
+    font-family: 'SuncheonR';
+    font-size: 1.8vw;
+    color: var(--new-main-color);
+    border-radius: 5vw;
+    padding: 0.3vw 5vw 0.3vw 2vw; /* pdding이든 margin이든 상우하좌로 시계방향 */
+}
+
+input:-webkit-autofill {
+	box-shadow: 0 0 0 1000px #d3f0b1 inset;
+}
+
+/* 검색 유도 문구 */
+.main_input::placeholder{ 
+    color: var(--new-main-color);
+}
+
+input:focus {outline: none;} /* input선택시 outline 테두리 없애기 */
+
+/* 검색창 돋보기 */
+#search_item {
+    fill: var(--new-main-color);
+    position: absolute;
+    width: 1.7vw;
+    right: 2vw;
+	top: 35%;
+	z-index: 999;
+	cursor: pointer;
+}
+
+/* nav 돋보기 */
+.search_item_frame {
+	background-color: #006600;
+}
+
+#nav_search {
+    fill: var(--new-main-color);
+    position: absolute;
+    width: 21px;
+	top: 22px;
+    right: 25px;
+	z-index: 999;
+	cursor: pointer;
+}
+
+@media (max-width: 700px){
+
+	#nav_search {
+		right: 30px;
+	}
+}
+
+
+/* 검색했던 기록 아래에 뜨는거 hover했을 때 input 색상 */
+#nav_search:hover {
+    fill: var(--new-sub-color);
+}
+
+@media (max-width: 1400px){
+
+	.main_search {
+		width: 60vw;
+	}
+
+	.main_input{
+		height: 6vw;
+		font-size: 2vw;
+		padding: 0.3vw 5vw 0.3vw 3vw; /* pdding이든 margin이든 상우하좌로 시계방향 */
+	}
+
+	#search_item {
+		width: 2.2vw;
+		right: 3vw;
+		top: 35%;
+	}
+}
+
+@media (max-width: 700px){
+
+	.main_search {
+		width: 80vw;
+		top: 20%;
+	}
+
+	.main_input{
+		border-radius: 10vw;
+		height: 13vw;
+		font-size: 4.2vw;
+		padding: 0.3vw 5vw 0.3vw 5vw; /* pdding이든 margin이든 상우하좌로 시계방향 */
+	}
+
+	#search_item {
+		width: 4.5vw;
+		right: 4.5vw;
+		top: 34%;
+	}
+}
+
+/* 고친부분 */
+
+
+/* 건물관련 */
 
 .leo_class {
 	margin-top: 20px;
@@ -543,7 +704,7 @@ body {
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -558,7 +719,7 @@ body {
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 	}
@@ -579,7 +740,7 @@ body {
 	}
 	
 	.modal_content_1 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -735,7 +896,7 @@ body {
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -750,7 +911,7 @@ body {
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 	}
@@ -771,7 +932,7 @@ body {
 	}
 	
 	.modal_content_2 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -926,7 +1087,7 @@ body {
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -941,7 +1102,7 @@ body {
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 	}
@@ -962,7 +1123,7 @@ body {
 	}
 	
 	.modal_content_3 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -1117,7 +1278,7 @@ body {
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -1132,7 +1293,7 @@ body {
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 		padding-right: 5vw;
@@ -1154,7 +1315,7 @@ body {
 	}
 	
 	.modal_content_5 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -1310,7 +1471,7 @@ body {
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -1325,7 +1486,7 @@ body {
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 		padding-left: 8%;
@@ -1347,7 +1508,7 @@ body {
 	}
 	
 	.modal_content_6 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -1503,7 +1664,7 @@ body {
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -1518,7 +1679,7 @@ body {
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 		padding-right: 5vw;
@@ -1540,7 +1701,7 @@ body {
 	}
 	
 	.modal_content_7 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -1696,7 +1857,7 @@ body {
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -1711,7 +1872,7 @@ body {
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 		padding-right: 5vw;
@@ -1733,7 +1894,7 @@ body {
 	}
 	
 	.modal_content_8 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -1891,7 +2052,7 @@ body {
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -1906,7 +2067,7 @@ body {
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 		padding-right: 5vw;
@@ -1928,7 +2089,7 @@ body {
 	}
 	
 	.modal_content_9 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 1fr;
@@ -2085,7 +2246,7 @@ body {
 			top: 90%;
 		}
 		to {
-			top: 30%;
+			top: 20%;
 		}
 	}
 	
@@ -2100,7 +2261,7 @@ body {
 		display: none;
 		width: 100%;
 		left: 0%;
-		top: 30%;
+		top: 20%;
 		height: 90vh;
 		justify-content: center;
 	}
@@ -2121,7 +2282,7 @@ body {
 	}
 	
 	.modal_content_11 {
-		top: 13%;
+		top: 17%;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 10.7fr;

@@ -4,155 +4,412 @@
 {% block title %} 소개 {% endblock %}
 
 {% block content %}
+<div class="mainwrap">
+	<div class="main__img">
+		<img class="intro_img_web" src="{% static 'img/introduce/introduce_web.png' %}">
+		<img class="intro_img_web_min" src="{% static 'img/introduce/introduce_web_min.png' %}">
+		<img class="intro_img_mobile" src="{% static 'img/introduce/introduce_mobile.png' %}">
+	</div>
+	<div class="main__head">
+		<h2>Find Your Space,</h2>
+		<h1>Map in Skhu.</h1>
+		<span class="letter-overlay"></span>
+	</div>
+</div>
+
 <div class="intro-container">
-  <div class="mainwrap">
-    <!-- 지도 아이콘과 문구 -->
-    <div class="main__img">
-      <img src="{% static 'img/biglogo.png' %}">
-    </div>
-    <div class="main__head">
-      <h2>Find Your Space,</h2>
-      <h1>Map in Skhu.</h1>
-      <span class="letter-overlay"></span>
-    </div>
-  </div>
+	<div class="sub-con">
+		<div class="subwrap">
+			<div class="sub__img js-scroll fade-in-bottom">
+				<img src="{% static 'img/subintro1.png' %}">
+			</div>
+			<div class="sub__content js-scroll slide-right">
+				<h1>Why?</h1>
+				<p>빈 강의실에서 녹화강의를 듣거나 공부할 장소를 찾는 분들을 위해, <br>
+					에브리타임에 올라온 강의실이 강의계획서와 다른 분들을 위해,<br>
+					아직도 강의실 번호를 읽을 줄 모르는 분들을 위해.</p>
+			</div>
+		</div>
+		<div class="subwrap">
+			<div class="sub__content js-scroll slide-left">
+				<h1>What/How ?</h1>
+				<p>강의실 시간표부터 각종 강의실 관련 정보 제공,<br>
+					강의실 사용 가능 여부 표시를 통한 빈 강의실 체크, <br>
+					깔끔하고 정돈된 3D맵으로 쉽게 위치 체크 가능. <br>
+				</p>
+			</div>
+			<div class="sub__img js-scroll fade-in-bottom">
+				<img src="{% static 'img/3dmodel.png' %}">
+			</div>
+		</div>
+		<div class="subwrap">
+			<div class="sub__img js-scroll fade-in-bottom">
+				<img src="{% static 'img/subintro3.png' %}">
+			</div>
+			<div class="sub__content js-scroll slide-right">
+				<h1>Who?</h1>
+				<p>오직 성공회대 학생들을 위한, <br>
+					성공회대 학생들에 의한, <br>
+					가장 빠르고 정확한 지도, <br>
+					Map in Skhu.
+				</p>
+			</div>
+		</div>
+	</div>
 
-  <div class="sub-con">
-    <div class="subwrap">
-      <div class="sub__img js-scroll fade-in-bottom">
-        <img src="{% static 'img/subintro1.png' %}">
-      </div>
-      <div class="sub__content js-scroll slide-right">
-        <h1>Why?</h1>
-        <p>빈 강의실에서 녹화강의를 듣거나 공부할 장소를 찾는 분들을 위해, <br> 
-        에브리타임에 올라온 강의실이 강의계획서와 다른 분들을 위해,<br>
-        아직도 강의실 번호를 읽을 줄 모르는 분들을 위해.</p>
-      </div>
-    </div> 
-    <div class="subwrap">
-        <div class="sub__content js-scroll slide-left">
-            <h1>What/How ?</h1>
-            <p>강의실 시간표부터 각종 강의실 관련 정보 제공,<br>
-                강의실 사용 가능 여부 표시를 통한 빈 강의실 체크, <br>
-                깔끔하고 정돈된 3D맵으로 쉽게 위치 체크 가능. <br> 
-            </p>  
-          </div>
-        <div class="sub__img js-scroll fade-in-bottom">
-          <img src="{% static 'img/3dmodel.png' %}">
-        </div>
-      </div>
-    <div class="subwrap">
-        <div class="sub__img js-scroll fade-in-bottom">
-          <img src="{% static 'img/subintro3.png' %}">
-        </div>
-        <div class="sub__content js-scroll slide-right">
-          <h1>Who?</h1>
-          <p>오직 성공회대 학생들을 위한, <br>
-            성공회대 학생들에 의한, <br>
-            가장 빠르고 정확한 지도, <br>
-            Map in Skhu.
-          </p>
-        </div>
-    </div>
-  </div>
+	<div class="history-container js-scroll fade-in-bottom">
+		<div class="sub-con">
+			<h1 class="sub_title">History</h1>
+			<div class="tabs">
+				<div class="tab_content">
+					<!--0.0.0-->
+					<div class="version-button" onclick="outside(this);">
+						<div class="toggle-circle">
+							<img class="toggle-arrow" src="{% static 'img/introduce/introduce_arrow.png' %}">
+						</div>
+						<p class="big_version">0.0.0 [SkhuGether]</p>
+					</div>
+					<div class="left-line" style="z-index: 988;">
+						<div class="version-items">
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">0.1.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;프로젝트 데이터베이스 구상<br />
+									• &nbsp;22년도 1학기 강의관/강의실/강의 데이터 적재<br />
+									• &nbsp;Django 프레임워크를 통한 맵인스쿠 백엔드 구현<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">0.2.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;SkhuGether 로고 디자인<br />
+									• &nbsp;관 페이지 이동 가능한 네브바 디자인<br />
+									• &nbsp;메인 페이지 웹 / 모바일 디자인<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">0.3.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;메인 페이지 적응형 웹 구현<br />
+									• &nbsp;관 페이지 백엔드 구현<br />
+									• &nbsp;관 페이지 디자인 및 프론트엔드 구현<br />
+									• &nbsp;관 페이지 이동 가능한 네브바 구현<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">0.4.0 [2022.06.05]</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;강의실 페이지 백엔드 구현<br />
+									• &nbsp;강의실 페이지 디자인 및 프론트엔드 구현<br />
+								</p>
+							</div>
+						</div>
+					</div>
 
-  <div class="footer-con js-scroll fade-in-bottom">
-    <h1>Developer</h1>
-    <div class="footerwrap">
-      <div class="develop__wrap">
+					<!--1.0.0-->
+					<div class="version-button" onclick="outside(this);">
+						<div class="toggle-circle">
+							<img class="toggle-arrow" src="{% static 'img/introduce/introduce_arrow.png' %}">
+						</div>
+						<p class="big_version">ver 1.0.0 [MapinSkhu]</p>
+					</div>
+					<div class="left-line" style="z-index: 989;">
+						<div class="version-items">
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">1.1.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;22년도 2학기 강의관/강의실/강의 데이터 적재<br />
+									• &nbsp;강의관/강의실/강의/피드백/분실물 모델 및 백엔드 구현<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">1.2.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;로고 디자인 및 전반적인 서비스 색상 리뉴얼<br />
+									• &nbsp;메인 페이지 디자인 전반 리뉴얼<br />
+									• &nbsp;관 페이지 디자인 리뉴얼<br />
+									• &nbsp;로딩 페이지 디자인 리뉴얼<br />
+									• &nbsp;소개 페이지 디자인 리뉴얼<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">1.3.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;메인 페이지 반응형 웹/모바일 구현<br />
+									• &nbsp;관 페이지 ‘사용불가’ 강의실 표시 기능 추가 <br />
+									• &nbsp;강의실 페이지 시간표 기능 추가<br />
+									• &nbsp;강의실 페이지 내 금일 시간표 먼저 띄우기 기능 추가<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">1.4.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;강의실 페이지 시간표 기능 추가<br />
+									• &nbsp;강의실 페이지 내 금일 시간표 먼저 띄우기 기능 추가<br />
+									• &nbsp;강의실 내 현재 수업중인 강의 띄우기 기능 추가<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">1.5.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;리뉴얼된 관 페이지 프론트엔드 구현<br />
+									• &nbsp;리뉴얼된 강의실 페이지 프론트엔드 구현<br />
+									• &nbsp;분실물 등록 페이지 디자인<br />
+									• &nbsp;피드백 페이지 디자인<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">1.6.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;분실물 등록 페이지 프론트엔드&백엔드 구현<br />
+									• &nbsp;피드백 페이지 프론트엔드&백엔드 구현<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">1.7.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;Heroku 배포<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">1.8.0 [2022.10.31]</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;강의실 페이지 ‘사용불가’ 오류 수정<br />
+									• &nbsp;분실물 페이지 게시글 등록 오류 이슈 수정<br />
+									• &nbsp;카카오톡 이미지 디자인 및 적용<br />
+									• &nbsp;Heroku → AWS EC2 http 재배포<br />
+								</p>
+							</div>
+						</div>
+					</div>
 
-        <!-- 개인 프로필 -->
-        <div class="develop__itemcon">
-          <div class="profile__img">
-            <img src="{% static 'img/gracekim.png' %}">
-          </div>
-          <div class="developer__profile">
-            <h1>김은혜 | Front-End</h1>
-            <h2>컴퓨터공학, 소프트웨어공학 복수전공</h2>
-            <div class="dev__social">
-              <a href="https://github.com/GraceKim527">
-                <i class="fa-brands fa-github"></i>
-                <span>gracekim527</span>
-              </a>
-            </div>
-            <div class="dev__social">
-              <a href="#" style="cursor:default;">
-                <i class="fa-regular fa-envelope"></i>
-                <span>lemonherb0323@naver.com</span>
-              </a>
-            </div>
-          </div>
-        </div>
 
-        <div class="develop__itemcon">
-            <div class="profile__img">
-              <img src="{% static 'img/minjung.png' %}">
-            </div>
-            <div class="developer__profile">
-              <h1>강민정 | Front-End</h1>
-              <h2>컴퓨터공학, 소프트웨어공학 복수전공</h2>
-              <div class="dev__social">
-                <a href="https://github.com/staccato20">
-                  <i class="fa-brands fa-github"></i>
-                  <span>staccato20</span>
-                </a>
-              </div>
-              <div class="dev__social">
-                <a href="#" style="cursor:default;">
-                  <i class="fa-regular fa-envelope"></i>
-                  <span>staccato189@gmail.com</span>
-                </a>
-              </div>
-            </div>
-          </div>
 
-          <div class="develop__itemcon">
-            <div class="profile__img">
-              <img src="{% static 'img/sujin.png' %}">
-            </div>
-            <div class="developer__profile">
-              <h1>김수진 | Back-End</h1>
-              <h2>컴퓨터공학, 인공지능 복수전공</h2>
-              <div class="dev__social">
-                <a href="https://github.com/sujeengim">
-                  <i class="fa-brands fa-github"></i>
-                  <span>sujeengim</span>
-                </a>
-              </div>
-              <div class="dev__social">
-                <a href="#" style="cursor:default;">
-                  <i class="fa-regular fa-envelope"></i>
-                  <span>ksj030120@gmail.com</span>
-                </a>
-              </div>
-            </div>
-          </div>
+					<!--2.0.0-->
+					<div class="version-button" onclick="outside(this);">
+						<div class="toggle-circle">
+							<img class="toggle-arrow" src="{% static 'img/introduce/introduce_arrow.png' %}">
+						</div>
+						<p class="big_version">2.0.0 [MapinSkhu.ver2]</p>
+					</div>
+					<div class="before-final-line" style="z-index: 990;">
+						<div class="version-items">
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">2.1.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;23년도 1학기 강의 데이터베이스 업데이트<br />
+									• &nbsp;모바일 디바이스별 반응형 디자인 수정<br />
+									• &nbsp;관 페이지 디자인 재 리뉴얼<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">2.2.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;관 페이지 코드 업데이트 및<br />
+									• &nbsp;관 페이지 내 ‘사용가능 / 불가능’ 강의실 표시 기능 추가<br />
+									• &nbsp;관 페이지 내 ‘사용가능’ 강의실 필터링 기능 추가 및 구현<br />
+									• &nbsp;리뉴얼된 관 페이지 구현<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">2.3.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;강의실 페이지 내 요일별 시간표 코드 업데이트 <br />
+									• &nbsp;강의실 페이지 프론트엔드 코드 리뉴얼<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">2.4.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;검색창, 검색결과 페이지 웹/모바일 반응형 디자인<br />
+									• &nbsp;강의 및 강의실 검색 기능 추가<br />
+									• &nbsp;검색창 및 검색 결과 페이지 구현<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">2.5.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;소개 페이지 디자인 리뉴얼 및 구현<br />
+									• &nbsp;카카오톡 이미지 디자인 리뉴얼<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">2.6.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;MapinSkhu.ver2 http 배포<br />
+									• &nbsp;리뉴얼된 카카오톡 이미지 적용<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">2.7.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;MapinSkhu.ver2 https 배포<br />
+								</p>
+							</div>
+							<button type="button" class="item-button" onclick="collapse(this);">
+								<p class="small_version">2.8.0</p>
+							</button>
+							<div class="content">
+								<p>
+									• &nbsp;23년도 2학기 강의 데이터베이스 업데이트<br />
+								</p>
+							</div>
+						</div>
+					</div>
 
-          <div class="develop__itemcon">
-            <div class="profile__img">
-              <img src="{% static 'img/youngbeen.png' %}">
-            </div>
-            <div class="developer__profile">
-              <h1>주영빈 | Back-End</h1>
-              <h2>컴퓨터공학, 소프트웨어공학 복수전공</h2>
-              <div class="dev__social">
-                <a href="https://github.com/Rommmu">
-                  <i class="fa-brands fa-github"></i>
-                  <span>Rommmu</span>
-                </a>
-              </div>
-              <div class="dev__social">
-                <a href="#" style="cursor:default;">
-                  <i class="fa-regular fa-envelope"></i>
-                  <span>tonty1222@naver.com</span>
-                </a>
-              </div>
-            </div>
-          </div>
+					<!--이번꺼 추가하고 그 밑에 둘거-->
+					<div class="version-button" id="final-version">
+						<div class="toggle-circle">
+							<img class="toggle-arrow" src="{% static 'img/introduce/introduce_arrow.png' %}">
+						</div>
+						<p class="big_version">What's next?</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
-      </div>
-    </div>
-  </div>
+	</div>
+
+</div>
+</div>
+</div>
+
+<div class="footer-con js-scroll fade-in-bottom">
+	<h1>Developer</h1>
+	<div class="footerwrap">
+		<div class="develop__wrap">
+
+			<!-- 개인 프로필 -->
+			<div class="develop__itemcon">
+				<div class="profile__img">
+					<img src="{% static 'img/gracekim.png' %}">
+				</div>
+				<div class="developer__profile">
+					<h1>김은혜 | Front-End</h1>
+					<h2>컴퓨터공학, 소프트웨어공학 복수전공</h2>
+					<div class="dev__social">
+						<a href="https://github.com/GraceKim527">
+							<i class="fa-brands fa-github"></i>
+							<span>gracekim527</span>
+						</a>
+					</div>
+					<div class="dev__social">
+						<a href="#" style="cursor:default;">
+							<i class="fa-regular fa-envelope"></i>
+							<span>lemonherb0323@naver.com</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="develop__itemcon">
+				<div class="profile__img">
+					<img src="{% static 'img/minjung.png' %}">
+				</div>
+				<div class="developer__profile">
+					<h1>강민정 | Front-End</h1>
+					<h2>컴퓨터공학, 소프트웨어공학 복수전공</h2>
+					<div class="dev__social">
+						<a href="https://github.com/staccato20">
+							<i class="fa-brands fa-github"></i>
+							<span>staccato20</span>
+						</a>
+					</div>
+					<div class="dev__social">
+						<a href="#" style="cursor:default;">
+							<i class="fa-regular fa-envelope"></i>
+							<span>staccato189@gmail.com</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="develop__itemcon">
+				<div class="profile__img">
+					<img src="{% static 'img/sujin.png' %}">
+				</div>
+				<div class="developer__profile">
+					<h1>김수진 | Back-End</h1>
+					<h2>컴퓨터공학, 인공지능 복수전공</h2>
+					<div class="dev__social">
+						<a href="https://github.com/sujeengim">
+							<i class="fa-brands fa-github"></i>
+							<span>sujeengim</span>
+						</a>
+					</div>
+					<div class="dev__social">
+						<a href="#" style="cursor:default;">
+							<i class="fa-regular fa-envelope"></i>
+							<span>ksj030120@gmail.com</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="develop__itemcon">
+				<div class="profile__img">
+					<img src="{% static 'img/youngbeen.png' %}">
+				</div>
+				<div class="developer__profile">
+					<h1>주영빈 | Back-End</h1>
+					<h2>컴퓨터공학, 소프트웨어공학 복수전공</h2>
+					<div class="dev__social">
+						<a href="https://github.com/Rommmu">
+							<i class="fa-brands fa-github"></i>
+							<span>Rommmu</span>
+						</a>
+					</div>
+					<div class="dev__social">
+						<a href="#" style="cursor:default;">
+							<i class="fa-regular fa-envelope"></i>
+							<span>tonty1222@naver.com</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
 </div>
 <script src="{% static 'js/scroll.js' %}"></script>
+<script src="{% static 'js/Toggle.js' %}"></script>
 {% endblock %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.conf import settings
+from django.utils import timezone
 from classApp.models import Room, Classes
 from django.db.models import Q
 from django.core.files.storage import FileSystemStorage
@@ -34,42 +35,65 @@ def introduce(request):
     return render(request, 'introduce.html')
 
 def search(request):
+    days = ['월', '화', '수', '목', '금', '토', '일',]
+    now = timezone.now()
+    now_time = now.time()
+    weekday = now.weekday() #월:0 ~ 일:6
+    now_weekday = days[weekday]
+
     q = request.GET.get('q', '')
 
     roomsList = []
     classesList = []
+    professorsList = []
 
     roomsAll = Room.objects.all()
     classesAll = Classes.objects.all()
+    professorsAll = Classes.objects.all()
 
-    roomsResult, classesResult, result = "", "", ""
+    rooms_result, classes_result, professors_result = "", "", ""
 
     if q:
         rooms = roomsAll.filter((Q(room__icontains = q)))
         classes = classesAll.filter(Q(class_name__icontains = q))
+        professors = professorsAll.filter(Q(prof__icontains = q))
 
         for r in rooms:
+            r.room_type = "사용가능"
+
+            for c in classesAll.filter(Q(date1 = now_weekday) | Q(date2 = now_weekday)):
+                if c.start <= now_time and now_time <= c.end:
+                    if r.room == c.room:
+                        r.room_type = "사용불가"
             roomsList.append(r)
         
         for c in classes:
             classesList.append(c)
         
-        if len(roomsList) != 0:
-            roomsResult = "강의실 검색 결과"
+        for p in professors:
+            professorsList.append(p)
         
-        if len(classesList) != 0:
-            classesResult = "강의명 검색 결과"
+        if len(roomsList) == 0:
+            rooms_result = "강의실 검색 결과가 없습니다."
         
-        if len(roomsList) == 0 and len(classesList) == 0:
-            result = "강의실 검색 결과 <br> \"" + q + "\"에 해당하는 강의실이 존재하지 않습니다. <br> 강의명 검색 결과 <br> \"" + q + "\"에 해당하는 강의명이 존재하지 않습니다."
+        if len(classesList) == 0:
+            classes_result = "강의명 검색 결과가 없습니다."
+        
+        if len(professorsList) == 0:
+            professors_result = "해당 교수님이 진행하는 강의가 없습니다."
+    
+    else:
+        rooms, classes, professors = "", "", ""
+        rooms_result = "강의실 검색 결과가 없습니다."
+        classes_result = "강의명 검색 결과가 없습니다."
+        professors_result = "해당 교수님이 진행하는 강의가 없습니다."
 
     return render(request, 'search.html',
     {'q': q,
+    'now_time': now_time,
+    'now_weekday': now_weekday,
     'roomsAll': roomsAll,
-    'rooms': rooms,
-    'classes': classes,
-    'roomsList': roomsList,
-    'classesList': classesList,
-    'roomsResult': roomsResult,
-    'classesResult': classesResult,
-    'result': result})
+    'rooms': rooms, 'classes': classes, 'professors': professors,
+    'roomsList': roomsList, 'classesList': classesList, 'professorsList': professorsList,
+    'rooms_result': rooms_result, 'classes_result': classes_result, 'professors_result': professors_result,
+    })
