@@ -15,28 +15,43 @@
         <!-- QNA -->
         <div class="build-qna">
             <div class="build-qna-container">
-              <div class="build-qna-item">
+              <div class="build-qna-item" id="con_read">
                 <input type="radio" name="button" value="강의실 읽는 법" id="howto_read" checked>
-                <label for="howto_read">강의실 읽는 법</label>
+                <label for="howto_read"><span>강의실 읽는 법</span></label>
               </div>
-              <div class="build-qna-item">
+              <div class="build-qna-item" id="con_notav">
                 <input type="radio" name="button" value="사용불가란" id="howto_notav">
-                <label for="howto_notav">사용가능/불가능 표시</label>
+                <label for="howto_notav"><span>사용가능/불가능 표시</span></label>
               </div>
             </div>
             <!-- QNA 답변 -->
             <div class="detail-radio-container">
               <div class="radio-detail build-detail" id="read">
-                <p><b>강의실 번호의 가장 앞자리는 강의실 건물, 두 번째 자리는 강의실 건물의 층을 의미합니다.</b> <br>
+                <p id="detail_web"><b>강의실 번호의 가장 앞자리는 강의실 건물, 두 번째 자리는 강의실 건물의 층을 의미합니다.</b> <br>
                   <span>ex ) 6202 -> 6(정보과학관), 2층, 02 강의실</span> <br>
-                  간혹 건물 번호를 영어로 사용할 때가 있습니다. <br>
-                  <b>A = 승연관, B = 일만관, C = 월당관, EC or 5C = 나눔관, F = 정보과학관, G = 새천년관, 
+                  <b>간혹 건물 번호를 영어로 사용할 때가 있습니다.</b> <br>
+                  A = 승연관, B = 일만관, C = 월당관, EC or 5C = 나눔관, F = 정보과학관, G = 새천년관, 
                     I = 피츠버그홀, M = 미가엘관
-                  </b></p>
+                  </p>
+                <p id="detail_mobile">
+                  <b>강의실 번호의 가장 앞자리는 강의실 건물, 두 번째 자리는 <br/>
+                  강의실 건물의 층을 의미합니다.</b><br/>
+                  <span>ex ) 6202 -> 6(정보과학관), 2층, 02 강의실</span> <br/>
+                  <b>간혹 건물 번호를 영어로 사용할 때가 있습니다.</b><br/>
+                  A = 승연관, B = 일만관, C = 월당관, EC or 5C = 나눔관, <br/>
+                  F = 정보과학관, G = 새천년관, I = 피츠버그홀, M = 미가엘관
+                </p>
               </div>
               <div class="radio-detail build-detail" id="noav" style="display: none;">
-                <p>현재 시각을 기준으로 해당 강의실에서 특정 강의가 진행 되는지에 대한 여부에 따라 '사용가능' 또는 '사용불가' 표시가 나타납니다.<br>
-                  사용불가가 아닐 시에는 해당 강의실을 개인적으로 사용할 수 있고, 강의실 예약이 가능합니다. </p>
+                <p id="detail_web">현재 시각을 기준으로 해당 강의실에서의 강의 진행 여부에 따라<br/>
+                  <b>'사용가능'</b> 또는 <b>'사용불가'</b> 표시가 나타납니다.<br/>
+                  <b>사용가능</b>일 시에 해당 강의실의 예약 여부를 확인하신 뒤, <br />
+                  예약이 없다면 자유롭게 이용 가능합니다. </p>
+                <p id="detail_mobile">현재 시각을 기준으로 해당 강의실에서의
+                  <br/> 강의 진행 여부에 따라<br/>
+                  <b>'사용가능'</b> 또는 <b>'사용불가'</b> 표시가 나타납니다.<br/>
+                  <b>사용가능</b>일 시에 해당 강의실의 예약 여부를 확인하신 뒤, <br />
+                  예약이 없다면 자유롭게 이용 가능합니다. </p>
               </div>
             </div>
 
