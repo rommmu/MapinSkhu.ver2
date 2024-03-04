@@ -281,7 +281,7 @@ a {
   position: fixed;
   height: 60px;
   width: 100%;
-  z-index: 1;
+  z-index: 5;
 }
 .nav1 {
   display: inline-flex;
@@ -412,9 +412,14 @@ a {
   align-items: center;
 }
 .build-title div {
+  display: none;
   height: 5rem;
   width: 10px;
   background: var(--new-sub-color);
+}
+
+.build-title h1 {
+  font-size: 5rem;
 }
 .build-container {
   width: 1400px;
@@ -426,16 +431,15 @@ a {
 }
 .build-informwrap {
   display: flex;
-  margin-top: 10rem;
+  margin-top: 12rem;
   gap: 30px;
   justify-content: space-between;
-  height: 350px;
 }
 .build-titleqna {
   display: flex;
   flex-direction: column;
   width: 50%;
-  justify-content: space-between;
+  gap: 40px;
 }
 .build-image {
   display: flex;
@@ -460,27 +464,27 @@ a {
 }
 .build-qna-container {
   display: flex;
-  gap: 5px;
-  height: 50px;
+  height: 40px;
 }
 .build-qna-item {
   display: inline-block;
   cursor: pointer;
-  width: 150px;
-  height: 50px;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+  min-width: 100px;
+  height: 40px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   font-size: 1.5rem;
   overflow: hidden;
   background: #eee;
+  
 }
 .build-qna-item label {
   display: flex;
   height: 100%;
   width: 100%;
   cursor: pointer;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   justify-content: center;
   align-items: center;
 }
@@ -490,13 +494,24 @@ a {
 }
 
 .build-qna-item > input[type="radio"]:checked + label {
-  background: var(--new-sub-color);
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+  background: #D5F4B4;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
+
+.build-qna-item span {
+  padding: 10px 20px;
+  color: #000;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+}
+
 .build-detail p {
   font-size: 1.5rem;
   line-height: 150%;
+  font-weight: 400;
 }
 .build-detail span {
   color: gray;
@@ -1308,6 +1323,10 @@ textarea {
   .before-final-line {
     margin-left: 12px;
   }
+
+  .build-title div {
+    display: block;
+  }
 }
 
 .sub-con {
@@ -1623,9 +1642,11 @@ textarea {
 /* 관 QnA */
 .detail-radio-container {
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px;
-  border: 10px var(--new-sub-color) solid;
+  box-shadow: 0px -5px 7px 0px rgba(0, 0, 0, 0.08);
+  border: 10px #D5F4B4 solid;
+  border-radius: 0px 10px 10px 10px;
   box-sizing: border-box;
+  z-index: 1;
   height: 180px;
 }
 
@@ -1639,8 +1660,7 @@ textarea {
 }
 
 .radio-detail {
-  width: 95%;
-  padding: 2rem;
+  padding: 20px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1868,6 +1888,16 @@ textarea {
 .inputform select {
   width: 200px;
 }
+
+#con_read {
+  box-shadow: rgba(0, 0, 0, 0.08) 5px -5px 7px 0px;
+  z-index: 2;
+}
+
+#detail_mobile {
+  display: none;
+}
+
 /* 모바일 버전 */
 @media (max-width: 1919px) {
   .build-container {
@@ -2031,7 +2061,7 @@ textarea {
     width: 25%;
   }
   .radio-detail {
-    padding: 1rem;
+    padding: 15px;
   }
   .classes-name h1 {
     font-size: 1.5rem;
@@ -2093,15 +2123,14 @@ textarea {
     font-size: 5rem;
   }
   .build-qna-item {
-    width: 100px;
-    height: 50px;
-    font-size: 1rem;
+    min-width: 100px;
+
   }
   .build-detail p {
     font-size: 1rem;
   }
-  .build-title {
-    font-size: 2rem;
+  .build-title h1{
+    font-size: 3.5rem;
   }
   .empty-classes {
     height: 25px;
@@ -2133,6 +2162,10 @@ textarea {
   .lectureinfo-container {
     padding: 10px;
     gap: 5px;
+  }
+
+  .detail-radio-container {
+    max-height: 150px;
   }
 }
 
@@ -2190,9 +2223,6 @@ textarea {
   .classes-name h2 {
     font-size: 1rem;
   }
-  .radio-detail {
-    padding: 1rem;
-  }
   .emptytime {
     font-size: 0.8rem;
     justify-content: center;
@@ -2226,9 +2256,6 @@ textarea {
   .lectureinfo-container h1 {
     font-size: 15px !important;
   }
-  .detail-radio-container {
-    height: 140px;
-  }
   .toggleSwitch_wrap span {
     font-size: 15px;
   }
@@ -2240,7 +2267,10 @@ textarea {
     height: 15px;
     font-size: 0.7rem;
   }
-  .build-informwrap {
-    height: 280px;
+  #detail_web {
+    display: none;
+  }
+  #detail_mobile {
+    display: block;
   }
 }
