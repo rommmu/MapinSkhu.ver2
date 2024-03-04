@@ -8,11 +8,10 @@
 
 <div class="build-container">
 	<div class="build-informwrap_search">
-		<div class="build-titleqna">
-			<div class="build-title" id="build-title_s">
-				<div></div>
-				<h1 style="color:#218b21;">{{q}}</h1> <h1>의 검색 결과 </h1>
-			</div>
+		<div class="build-title" id="build-title_s">
+			<div></div>
+			<h1 style="color:#218b21;">{{q}}</h1>
+			<h1 class="visible">의 검색 결과 </h1>
 		</div>
 	</div>
 
@@ -21,7 +20,7 @@
 			<div class="floorinfo" id="floorinfo_s">
 				<h2>강의실 검색결과</h2>
 			</div>
-			
+
 			<div class="lectureinfo-container">
 				{% for rooms in roomsList %}
 				<a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
@@ -45,7 +44,7 @@
 				<h1 style="font-size: 1.7rem;">{{rooms_result}}</h1>
 			</div>
 		</div>
-	
+
 		<div class="build-floor-container">
 			<div class="floorinfo" id="floorinfo_s">
 				<h2>강의명 검색결과</h2>
@@ -58,7 +57,7 @@
 					<div class="lecture-img">
 						<img class="img-src" src="{{rooms.room_image.url}}" alt="{{rooms.room}}" />
 					</div>
-	
+
 					<div class="lectureinfo_s">
 						<h2 style="align-items:first baseline; color: gray;">{{classes.room}}</h2>
 						<h3>{{ classes.class_name }}</h3>
@@ -83,7 +82,7 @@
 					<div class="lecture-img">
 						<img class="img-src" src="{{rooms.room_image.url}}" alt="{{rooms.room}}" />
 					</div>
-	
+
 					<div class="lectureinfo_s">
 						<h2 style="align-items:first baseline; color: gray;">{{professors.room}}</h2>
 						<h3>{{ professors.class_name }}</h3>
@@ -98,8 +97,9 @@
 	</div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+	integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="{% static 'js/informtoggle.js' %}"></script>
 <script src="{% static 'js/scroll.js' %}"></script>
 <script src="{% static 'js/accesstoggle.js' %}"></script>
-{% endblock %} 
+{% endblock %}
