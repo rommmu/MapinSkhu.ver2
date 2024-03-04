@@ -412,6 +412,7 @@ a {
   align-items: center;
 }
 .build-title div {
+  display: none;
   height: 5rem;
   width: 10px;
   background: var(--new-sub-color);
@@ -1322,7 +1323,9 @@ textarea {
     margin-left: 12px;
   }
 
-
+  .build-title div {
+    display: block;
+  }
 }
 
 .sub-con {
