@@ -42,6 +42,9 @@ def search(request):
     now_weekday = days[weekday]
 
     q = request.GET.get('q', '')
+    qs_list = q.split(' ') #q='한국 사회' -> qs_list = ['한국','사회']
+    if ' ' not in q:
+        qs2_list = list(q) #q='한국사회' -> qs2_list = ['한','국','사','회']
 
     roomsList = []
     classesList = []
@@ -54,9 +57,45 @@ def search(request):
     rooms_result, classes_result, professors_result = "", "", ""
 
     if q:
-        rooms = roomsAll.filter((Q(room__icontains = q)))
-        classes = classesAll.filter(Q(class_name__icontains = q))
-        professors = professorsAll.filter(Q(prof__icontains = q))
+
+        classes = []
+        for qs in qs_list: #공백 있는 입력인 경우 공백으로 나눠서 데이터 찾기(예시:입력;한국 사회, 데이터;한국사회)
+            classes = classesAll.filter(Q(class_name__icontains = qs)).distinct()
+            #예시:한국사회 -> '한국' 들어간거 다 찾아서 리스트에 저장, '사회' 들어간거 다 저장
+        
+        rooms = roomsAll.filter((Q(room__icontains = q))).distinct()
+        professors = professorsAll.filter(Q(prof__icontains = q)).distinct()
+        
+        if qs2_list: #공백 없는 입력이지만 데이터에는 공백이 있는 경우 데이터 찾기(예시:입력;한국사회, 데이터;한국 사회)
+            spare = []
+            spare_count = {}
+            for qs in qs2_list:
+                spare += classesAll.filter((Q(class_name__icontains = qs))).distinct()
+                # 예시:한국사회 -> '한' 들어간거 다 찾아서 리스트에 저장, '국'들어간거 다 저장, ....
+
+            for i in spare:
+                try: #i가 딕셔너리에 있으면 1추가
+                    spare_count[i] +=1
+                except: #없으면 1 세팅
+                    spare_count[i] = 1
+
+            output = []
+            for i, n in spare_count.items():
+                if n >= len(q)-1: #검색 단어의 길이정도만큼 겹치는 단어가 있는 경우 최종 결과에 담기 
+                    output.append(i)
+
+            classes = output
+
+
+# 중복 결과 제거
+        rooms = set(rooms)
+        rooms = list(rooms)
+        classes = set(classes)
+        classes = list(classes)
+        professors = set(professors)
+        professors = list(professors)
+
+
 
         for r in rooms:
             r.room_type = "사용가능"
@@ -80,13 +119,13 @@ def search(request):
             classes_result = "강의명 검색 결과가 없습니다."
         
         if len(professorsList) == 0:
-            professors_result = "해당 교수님이 진행하는 강의가 없습니다."
+            professors_result = "해당 교수님이 진행하는 강의 검색 결과가 없습니다."
     
     else:
         rooms, classes, professors = "", "", ""
         rooms_result = "강의실 검색 결과가 없습니다."
         classes_result = "강의명 검색 결과가 없습니다."
-        professors_result = "해당 교수님이 진행하는 강의가 없습니다."
+        professors_result = "해당 교수님이 진행하는 강의 검색 결과가 없습니다."
 
     return render(request, 'search.html',
     {'q': q,
