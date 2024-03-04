@@ -42,6 +42,7 @@ def search(request):
     now_weekday = days[weekday]
 
     q = request.GET.get('q', '')
+    qs_list = q.split(' ')
 
     roomsList = []
     classesList = []
@@ -54,9 +55,13 @@ def search(request):
     rooms_result, classes_result, professors_result = "", "", ""
 
     if q:
-        rooms = roomsAll.filter((Q(room__icontains = q)))
-        classes = classesAll.filter(Q(class_name__icontains = q))
-        professors = professorsAll.filter(Q(prof__icontains = q))
+        rooms = []
+        classes = []
+        professors = []
+        for qs in qs_list:
+            rooms += roomsAll.filter((Q(room__icontains = qs))).distinct()
+            classes += classesAll.filter(Q(class_name__icontains = qs)).distinct()
+            professors += professorsAll.filter(Q(prof__icontains = qs)).distinct()
 
         for r in rooms:
             r.room_type = "사용가능"

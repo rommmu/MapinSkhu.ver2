@@ -45,10 +45,8 @@ INSERT INTO "classApp_classes" VALUES (10,'교필','AC00007','인권과평화','
 INSERT INTO "classApp_classes" VALUES (11,'교필','AC00007','인권과평화','정윤수','7309','화',NULL,'10:00','11:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (12,'교필','AC00007','인권과평화','오영숙','7308','화',NULL,'10:00','11:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (13,'교필','AC00007','인권과평화','박경태','3402','화',NULL,'10:00','11:50','월당관');
-INSERT INTO "classApp_classes" VALUES (14,'교필','AC00016','과학기술과 에콜로지','김병수
-신익상','3402','금',NULL,'10:00','11:50','월당관');
-INSERT INTO "classApp_classes" VALUES (15,'교필','AC00016','과학기술과 에콜로지','김병수
-신익상','3402','금',NULL,'13:00','14:50','월당관');
+INSERT INTO "classApp_classes" VALUES (14,'교필','AC00016','과학기술과 에콜로지','김병수신익상','3402','금',NULL,'10:00','11:50','월당관');
+INSERT INTO "classApp_classes" VALUES (15,'교필','AC00016','과학기술과 에콜로지','김병수신익상','3402','금',NULL,'13:00','14:50','월당관');
 INSERT INTO "classApp_classes" VALUES (16,'교필','AC00016','과학기술과 에콜로지','김명진','7208','금',NULL,'10:00','11:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (17,'교필','AC00016','과학기술과 에콜로지','김명진','7208','금',NULL,'13:00','14:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (18,'교필','AC00016','과학기술과 에콜로지','김병수
@@ -359,7 +357,7 @@ INSERT INTO "classApp_classes" VALUES (291,'전선','XC00034','사물인터넷�
 INSERT INTO "classApp_classes" VALUES (292,'전선','XC00035','생활속의보안','이종현','6406','금',NULL,'15:00','17:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (293,'전필','XC00036','정보통신공학캡스톤디자인','박정식','6404','화',NULL,'9:00','11:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (294,'전선','XC00037','디지털통신','정인철','6404','월','수','15:00','16:15','정보과학관');
-INSERT INTO "classApp_classes" VALUES (295,'전선','XE00004','고급머신러닝','홍성준','6405','수',NULL,'9:00','11:50','정보과학관');
+INSERT INTO "classApp_classes" VALUES (295,'전선','XE00004','고급머신러닝','홍성준','6405','화',NULL,'9:00','11:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (296,'전선','XE00005','고급Python프로그래밍','홍성준','6405','화',NULL,'9:00','11:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (297,'전선','XE00006','딥러닝프레임워크','곽승우','6405','목',NULL,'9:00','11:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (298,'전선','XE00007','확률과랜덤변수','이상윤','6405','화','목','13:30','14:45','정보과학관');
@@ -391,6 +389,33 @@ INSERT INTO "classApp_classes" VALUES (318,'평교','AG00001','평생교육방�
 INSERT INTO "classApp_classes" VALUES (319,'평교','AG00002','평생교육개론','이소연','1503','수', NULL,'12:00','14:50','승연관');
 INSERT INTO "classApp_classes" VALUES (320,'평교','AG00003','평생교육실습','임정아','1504','금', NULL,'12:00','14:50','승연관');
 INSERT INTO "classApp_classes" VALUES (321,'평교','AG00006','지역사회교육론','정혜령','3301','목', NULL,'12:00','14:50','월당관');
+
+INSERT INTO "classApp_classes" VALUES (322,'교필','AK00089','대학생활세미나I(인문융합1반)','김혜인','7304','금', NULL,'10:00','11:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (323,'교필','AK00089','대학생활세미나I(인문융합2반)','양기호','7307','금', NULL,'10:00','11:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (324,'교필','AK00089','대학생활세미나I(인문융합3반)','윤영도','7304','금', NULL,'13:00','14:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (325,'교필','AK00089','대학생활세미나I(인문융합4반)','이주엽','7307','금', NULL,'13:00','14:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (326,'교필','AK00089','대학생활세미나I(사회융합1반)','조미혜','7205','금', NULL,'10:00','11:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (327,'교필','AK00089','대학생활세미나I(사회융합2반)','윤석준','7206','금', NULL,'10:00','11:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (328,'교필','AK00089','대학생활세미나I(사회융합3반)','이상철','7205','금', NULL,'13:00','14:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (329,'교필','AK00089','대학생활세미나I(사회융합4반)','남일성','7206','금', NULL,'13:00','14:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (330,'교필','AK00089','대학생활세미나I(미디어융합1반)','김창남','7301','금', NULL,'10:00','11:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (331,'교필','AK00089','대학생활세미나I(미디어융합2반)','이원정','6402','금', NULL,'10:00','11:50','정보과학관');
+INSERT INTO "classApp_classes" VALUES (332,'교필','AK00089','대학생활세미나I(미디어융합3반)','김창남','7301','금', NULL,'13:00','14:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (333,'교필','AK00089','대학생활세미나I(미디어융합4반)','이원정','6402','금', NULL,'13:00','14:50','정보과학관');
+INSERT INTO "classApp_classes" VALUES (334,'교필','AK00089','대학생활세미나I(경영1반)','송재민','7204','금', NULL,'10:00','11:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (335,'교필','AK00089','대학생활세미나I(경영2반)','최우석','7303','금', NULL,'13:00','14:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (336,'교필','AK00089','대학생활세미나I(미래융합1반)','이상윤','7303','금', NULL,'10:00','11:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (337,'교필','AK00089','대학생활세미나I(미래융합2반)','송재민','7204','금', NULL,'13:00','14:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (338,'교필','AK00089','대학생활세미나I(소프트웨어융합1반)','박정식','6404','금', NULL,'10:00','11:50','정보과학관');
+INSERT INTO "classApp_classes" VALUES (339,'교필','AK00089','대학생활세미나I(소프트웨어융합2반)','정연식','6109','금', NULL,'10:00','11:50','정보과학관');
+INSERT INTO "classApp_classes" VALUES (340,'교필','AK00089','대학생활세미나I(소프트웨어융합3반)','김선형','6206','금', NULL,'10:00','11:50','정보과학관');
+INSERT INTO "classApp_classes" VALUES (341,'교필','AK00089','대학생활세미나I(소프트웨어융합4반)','박정식','6404','금', NULL,'13:00','14:50','정보과학관');
+INSERT INTO "classApp_classes" VALUES (342,'교필','AK00089','대학생활세미나I(소프트웨어융합5반)','정연식','6109','금', NULL,'13:00','14:50','정보과학관');
+INSERT INTO "classApp_classes" VALUES (343,'교필','AK00089','대학생활세미나I(소프트웨어융합6반)','김선형','6206','금', NULL,'13:00','14:50','정보과학관');
+
+INSERT INTO "classApp_classes" VALUES (344,'교선','AK00090','콘텐츠세계로미래로','전현택','M301','목', NULL,'12:00','14:50','미가엘관');
+INSERT INTO "classApp_classes" VALUES (345,'전선','XE00003','데이터기초수학2','홍성준','6206','월', '수','16:30','17:45','정보과학관');
+
 
 
 INSERT INTO "classApp_kwan" VALUES (0,'10','구두인관');
