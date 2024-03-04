@@ -411,6 +411,14 @@ a {
   gap: 2rem;
   align-items: center;
 }
+.build-title h1 {
+  text-align: left;
+}
+@media (max-width: 425px) {
+  .visible {
+    display: none;
+  }
+}
 .build-title div {
   height: 5rem;
   width: 10px;
