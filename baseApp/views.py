@@ -42,7 +42,11 @@ def search(request):
     now_weekday = days[weekday]
 
     q = request.GET.get('q', '')
+    q = q.strip()
+    print("i am q:","'", q,"'")
+
     qs_list = q.split(' ') #q='한국 사회' -> qs_list = ['한국','사회']
+    
     if ' ' not in q:
         qs2_list = list(q) #q='한국사회' -> qs2_list = ['한','국','사','회']
 
@@ -66,25 +70,28 @@ def search(request):
         rooms = roomsAll.filter((Q(room__icontains = q))).distinct()
         professors = professorsAll.filter(Q(prof__icontains = q)).distinct()
         
-        if qs2_list: #공백 없는 입력이지만 데이터에는 공백이 있는 경우 데이터 찾기(예시:입력;한국사회, 데이터;한국 사회)
-            spare = []
-            spare_count = {}
-            for qs in qs2_list:
-                spare += classesAll.filter((Q(class_name__icontains = qs))).distinct()
-                # 예시:한국사회 -> '한' 들어간거 다 찾아서 리스트에 저장, '국'들어간거 다 저장, ....
+        try: #공백 없는 입력이지만 데이터에는 공백이 있는 경우 데이터 찾기(예시:입력;한국사회, 데이터;한국 사회)
+            if qs2_list:
+                spare = []
+                spare_count = {}
+                for qs in qs2_list:
+                    spare += classesAll.filter((Q(class_name__icontains = qs))).distinct()
+                    # 예시:한국사회 -> '한' 들어간거 다 찾아서 리스트에 저장, '국'들어간거 다 저장, ....
 
-            for i in spare:
-                try: #i가 딕셔너리에 있으면 1추가
-                    spare_count[i] +=1
-                except: #없으면 1 세팅
-                    spare_count[i] = 1
+                for i in spare:
+                    try: #i가 딕셔너리에 있으면 1추가
+                        spare_count[i] +=1
+                    except: #없으면 1 세팅
+                        spare_count[i] = 1
 
-            output = []
-            for i, n in spare_count.items():
-                if n >= len(q)-1: #검색 단어의 길이정도만큼 겹치는 단어가 있는 경우 최종 결과에 담기 
-                    output.append(i)
+                output = []
+                for i, n in spare_count.items():
+                    if n >= len(q): #검색 단어의 길이정도만큼 겹치는 단어가 있는 경우 최종 결과에 담기 
+                        output.append(i)
 
-            classes = output
+                classes = output
+        except:
+            pass
 
 
 # 중복 결과 제거
