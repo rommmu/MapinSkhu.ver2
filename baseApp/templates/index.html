@@ -98,7 +98,7 @@
 			<div class="main_top" onclick="search_hide();"></div>
 			<form method="GET" action="{% url 'search' %}" class="main_search">
 				{% csrf_token %}
-				<input class="main_input" type="text" spellcheck="false" name="q" placeholder="장소/강의/교수님을 검색해보세요">
+				<input class="main_input" type="text" spellcheck="false" name="q" placeholder="장소나 강의명을 검색해보세요">
 				<input type="submit" id="btnSubmit" style="display:none;" />
 				<label for="btnSubmit">
 					<svg id="search_item" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -248,7 +248,7 @@
 		<div id="event-modal">
 			<div class="event-modal_window">
 				<div class="event-modal_top">
-					<p>보다 나은 서비스 제공을 위해 맵인스쿠에 대한 짧은 <b>설문조사</b>를 진행 중입니다.
+					<p>더 나은 서비스 제공을 위해 맵인스쿠에 대한 짧은 <b>설문조사</b>를 진행 중입니다.
 						설문에 참여하신 분들 중 추첨을 통해 카페 기프티콘을 제공할 예정이니 많은 관심 바랍니다!</p>
 				</div>
 				<div class="event-modal_bottom">
