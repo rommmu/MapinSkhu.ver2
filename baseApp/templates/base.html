@@ -79,7 +79,7 @@
 			<div class="main_top" onclick="search_hide();"></div>
 			<form method="GET" action="{% url 'search' %}" class="main_search">
 				{% csrf_token %}
-				<input class="main_input" type="text" spellcheck="false" name="q" placeholder="장소나 강의명을 검색해보세요">
+				<input class="main_input" type="text" spellcheck="false" name="q" placeholder="장소/강의/교수님을 검색해보세요">
 				<input type="submit" id="btnSubmit" style="display:none;" />
 				<label for="btnSubmit">
 					<svg id="search_item" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

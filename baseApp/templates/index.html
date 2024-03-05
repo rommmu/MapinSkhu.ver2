@@ -248,11 +248,11 @@
 		<div id="event-modal">
 			<div class="event-modal_window">
 				<div class="event-modal_top">
-					<p>보다 나은 서비스 제공을 위해 맵인스쿠에 대한 짧은 <b>설문조사</b>를 진행 중입니다.	
+					<p>보다 나은 서비스 제공을 위해 맵인스쿠에 대한 짧은 <b>설문조사</b>를 진행 중입니다.
 						설문에 참여하신 분들 중 추첨을 통해 카페 기프티콘을 제공할 예정이니 많은 관심 바랍니다!</p>
 				</div>
 				<div class="event-modal_bottom">
-					<button class="btn_event-modal" onclick="location.href='https://forms.gle/fdpiDvqSpi3EFMTX8'";>설문 참여</button>
+					<button class="btn_event-modal" onclick="location.href='https://forms.gle/fdpiDvqSpi3EFMTX8'" ;>설문 참여</button>
 				</div>
 				<button class="event-modal_toggleBtn" onclick="toggleModal()">
 					<img class="event-modal_btnImg" src="{% static 'img/modal_btn.png' %}">
@@ -266,6 +266,7 @@
 	<script src="{% static 'js/index.js' %}" type="text/javascript"></script>
 	<script src="{% static 'js/menutoggle.js' %}" type="text/javascript"></script>
 
+	<!-- 설문 모달창 -->
 	<script>
 		window.onload = function () {
 			$(".container").show();
@@ -275,27 +276,27 @@
 		function toggleModal() {
 			const modal = document.querySelector('.event-modal_window');
 			const img = document.querySelector('.event-modal_btnImg');
-	
+
 			if (modal) {
-					modal.classList.toggle('modal-opened');
-					img.classList.toggle('modal-opened-img');
+				modal.classList.toggle('modal-opened');
+				img.classList.toggle('modal-opened-img');
 			}
 		}
-	
-	
+
+
 	</script>
 
 	<!-- 뷰저블 UX 리서치용 삽입 코드 -->
 	<script type="text/javascript">
-			(function (w, d, a) {
-				w.__beusablerumclient__ = {
-					load: function (src) {
-						var b = d.createElement("script");
-						b.src = src; b.async = true; b.type = "text/javascript";
-						d.getElementsByTagName("head")[0].appendChild(b);
-					}
-				}; w.__beusablerumclient__.load(a + "?url=" + encodeURIComponent(d.URL));
-			})(window, document, "//rum.beusable.net/load/b240303e114324u517");
+		(function (w, d, a) {
+			w.__beusablerumclient__ = {
+				load: function (src) {
+					var b = d.createElement("script");
+					b.src = src; b.async = true; b.type = "text/javascript";
+					d.getElementsByTagName("head")[0].appendChild(b);
+				}
+			}; w.__beusablerumclient__.load(a + "?url=" + encodeURIComponent(d.URL));
+		})(window, document, "//rum.beusable.net/load/b240303e114324u517");
 	</script>
 </body>
 
