@@ -456,12 +456,13 @@ a {
   margin-top: 12rem;
   gap: 30px;
   justify-content: space-between;
+  height: 350px;
 }
 .build-titleqna {
   display: flex;
   flex-direction: column;
   width: 50%;
-  gap: 40px;
+  justify-content: space-between;
 }
 .build-image {
   display: flex;
