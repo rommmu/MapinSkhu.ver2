@@ -456,12 +456,13 @@ a {
   margin-top: 12rem;
   gap: 30px;
   justify-content: space-between;
+  height: 350px;
 }
 .build-titleqna {
   display: flex;
   flex-direction: column;
   width: 50%;
-  gap: 40px;
+  justify-content: space-between;
 }
 .build-image {
   display: flex;
@@ -1438,16 +1439,14 @@ textarea {
   font-size: 2rem;
 }
 .footer-con {
+  margin: 20rem auto 20rem auto;
   width: 90%;
-  margin-right: auto;
-  margin-left: auto;
   /* height: 90vh; */
   display: flex;
   gap: 5%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5rem;
 }
 .js-scroll {
   opacity: 0;
