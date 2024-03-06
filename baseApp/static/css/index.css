@@ -519,12 +519,12 @@ body {
 }
 
 .M_back {
-	display: none;
-	user-select: none;
-	/* 모바일 하단 잘림 현상 해결 시도 */
-	background-size: cover;
-	height: 100vh;
-	margin: 25% 0 0 0;
+  display: none;
+  user-select: none;
+  /* 모바일 하단 잘림 현상 해결 시도 */
+  background-size: cover;
+  height: 100vh;
+  margin: 25% 0 0 0;
 }
 
 /* 고친부분 */
@@ -2577,125 +2577,125 @@ input:focus {
   .modal-opened {
     display: none;
   }
-	@keyframes gohigh_11 {
-		from {
-			top: 90%;
-		}
-		to {
-			top: 20%;
-		}
-	}
-	
-	.modal-overlay_11 .modal-window_11 {
-		background: rgba(0, 0, 0, 0.55);
-		box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.664);
-		border-radius: 0px;
-		animation-name: gohigh_11;
-		animation-duration: 0.5s;
-		animation-iteration-count: 1;
-		position: absolute;
-		display: none;
-		width: 100%;
-		left: 0%;
-		top: 20%;
-		height: 90vh;
-		justify-content: center;
-	}
+  @keyframes gohigh_11 {
+    from {
+      top: 90%;
+    }
+    to {
+      top: 20%;
+    }
+  }
 
-	#modal_11 .close-area_11 {
-		width : 6vw;
-		height: 6vh;
-		text-align: center;
-		color : var(--new-sub-color);
-		float : right;
-		font-size: 10vw;
-		cursor: pointer;
-		font-weight: bold;
-		animation: none;
-		display: flex;
-		justify-content: center;
-		margin-left: 85%;
-	}
-	
-	.modal_content_11 {
-		top: 17%;
-		position: absolute;
-		display: grid;
-		grid-template-columns: 10.7fr;
-		grid-template-rows: 1.5fr 1fr;
-		place-items: center;
-	}
-	
-	.modal_img_11 {
-		grid-column: 1;
-		grid-row: 1;
-		display: block;
-		width: 80vw;
-		height: 40vh;
-		margin-bottom: 5%;
-	}
-
-	.qwan_button_11 {
-		grid-column: 1;
-		grid-row: 2;
-		background-color: var(--new-sub-color);
-		box-shadow: 0.5vw 0.5vh 0 0 var(--new-main-color);
-		color : var(--new-main-color);
-		border-radius: 50vw;
-		width: 60vw;
-		height: 6vh;
-		font-size: 1.7rem;
-		font-weight: bold;
-		text-align: center;
-		animation: none;
-		align-items: center;
-		justify-content: center;
-		margin-bottom: 20vh;
-	}
-
-	.event-modal_window {
-		max-width: 325px;
-		height: 120px;
-		border-radius: 10px;
-		top: 10%;
-		z-index: -1;
-	}
-
-	.event-modal_top p {
-		color: #000;
-		font-size: 12px;
-		font-weight: 400;
-		line-height: normal;
-		padding: 15px 18px 10px 18px;
-	}
-	
-	.btn_event-modal {
-		color: #000;
-		text-align: center;
-		font-size: 14px;
-		font-weight: 600;
-		line-height: normal;
-		width: 96px;
-		height: 27px;
-	}
-
-	.event-modal_bottom {
-		padding: 0 18px 12px 0;
-	}
-
-	.event-modal_btnImg {
-		width: 25px;
-		height: 25px;
-	}
-
-	.event-modal_toggleBtn {
-		bottom: 100%;
-    left: 90%;
-	}
-
-	.modal-opened {
+  .modal-overlay_11 .modal-window_11 {
+    background: rgba(0, 0, 0, 0.55);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.664);
+    border-radius: 0px;
+    animation-name: gohigh_11;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    position: absolute;
     display: none;
-	}
+    width: 100%;
+    left: 0%;
+    top: 20%;
+    height: 90vh;
+    justify-content: center;
+  }
+
+  #modal_11 .close-area_11 {
+    width: 6vw;
+    height: 6vh;
+    text-align: center;
+    color: var(--new-sub-color);
+    float: right;
+    font-size: 10vw;
+    cursor: pointer;
+    font-weight: bold;
+    animation: none;
+    display: flex;
+    justify-content: center;
+    margin-left: 85%;
+  }
+
+  .modal_content_11 {
+    top: 17%;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 10.7fr;
+    grid-template-rows: 1.5fr 1fr;
+    place-items: center;
+  }
+
+  .modal_img_11 {
+    grid-column: 1;
+    grid-row: 1;
+    display: block;
+    width: 80vw;
+    height: 40vh;
+    margin-bottom: 5%;
+  }
+
+  .qwan_button_11 {
+    grid-column: 1;
+    grid-row: 2;
+    background-color: var(--new-sub-color);
+    box-shadow: 0.5vw 0.5vh 0 0 var(--new-main-color);
+    color: var(--new-main-color);
+    border-radius: 50vw;
+    width: 60vw;
+    height: 6vh;
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-align: center;
+    animation: none;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20vh;
+  }
+
+  .event-modal_window {
+    max-width: 325px;
+    height: 120px;
+    border-radius: 10px;
+    top: 10%;
+    z-index: -1;
+  }
+
+  .event-modal_top p {
+    color: #000;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    padding: 15px 18px 10px 18px;
+  }
+
+  .btn_event-modal {
+    color: #000;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: normal;
+    width: 96px;
+    height: 27px;
+  }
+
+  .event-modal_bottom {
+    padding: 0 18px 12px 0;
+  }
+
+  .event-modal_btnImg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .event-modal_toggleBtn {
+    bottom: 100%;
+    left: 90%;
+  }
+
+  .modal-opened {
+    display: none;
+  }
 }
 
 /* ---------------- 디바이스 크기별 물방울 배치 ---------------- */
@@ -2780,62 +2780,61 @@ input:focus {
     width: 7vw;
   }
 
-	#leo_1 {
-		top: 43%;
-		right: 39%;
-		position: absolute;
-	}
+  #leo_1 {
+    top: 43%;
+    right: 39%;
+    position: absolute;
+  }
 
-	#leo_2 {
-		top: 43%;
-		left: 30%;
-		position: absolute;
-	}
+  #leo_2 {
+    top: 43%;
+    left: 30%;
+    position: absolute;
+  }
 
-	#leo_3 {
-		top: 33%;
-		right: 42%;
-		position: absolute;
-	}
+  #leo_3 {
+    top: 33%;
+    right: 42%;
+    position: absolute;
+  }
 
-	#leo_5 {
-		top: 68%;
-		left: 80%;
-		position: absolute;
-	}
+  #leo_5 {
+    top: 68%;
+    left: 80%;
+    position: absolute;
+  }
 
-	#leo_6 {
-		top: 25%;
-		left: 37%;
-		cursor: pointer;
-		position: absolute;
-	}
+  #leo_6 {
+    top: 25%;
+    left: 37%;
+    cursor: pointer;
+    position: absolute;
+  }
 
-	#leo_7 {
-		top: 85%;
-		left: 13%;
-		cursor: pointer;
-		position: absolute;
-	}
-	
-	#leo_8 {
-		top: 73%;
-		left: 16%;
-		position: absolute;
-	}
+  #leo_7 {
+    top: 85%;
+    left: 13%;
+    cursor: pointer;
+    position: absolute;
+  }
 
-	#leo_9 {
-		top: 63%;
-		left: 23%;
-		position: absolute;
-	}	
+  #leo_8 {
+    top: 73%;
+    left: 16%;
+    position: absolute;
+  }
 
-	#leo_11 {
-		top: 33%;
-		left: 20%;
-		position: absolute;
-	}
-	
+  #leo_9 {
+    top: 63%;
+    left: 23%;
+    position: absolute;
+  }
+
+  #leo_11 {
+    top: 33%;
+    left: 20%;
+    position: absolute;
+  }
 }
 
 /* 다크모드 시에 배경색 바뀌는 문제 해결 */
