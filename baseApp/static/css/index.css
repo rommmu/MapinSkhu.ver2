@@ -268,34 +268,25 @@ a {
 /* ---------- 기본 상태 끝 ---------- */
 
 /* nav 수정하고 새로만든 것 */
-.nav {
-  top: 0;
-  display: flex;
-  padding-right: 1vw;
-  /* padding: 0 1vw 0 1vw; */
-  background-color: var(#eee);
-  position: fixed;
-  height: 60px;
-  width: 100%;
-  z-index: 1;
-}
 .nav1 {
   display: inline-flex;
   align-items: center;
   position: relative;
+  z-index: 3;
 }
 #checkbox {
   display: none;
   z-index: 5;
 }
 .hbmenu {
+  top: 17px;
+  left: 7px;
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
   cursor: pointer;
-  float: left;
 }
 .line {
   position: absolute;
@@ -383,7 +374,15 @@ a {
 }
 
 .nav2 {
+  top: 9px;
+  left: 32px;
+  display: flex;
+  padding-right: 1vw;
+  background-color: var(#eee);
+  position: fixed;
+  height: 60px;
   width: 100%;
+  z-index: 1;
 }
 .nav2 a {
   display: block;
@@ -391,15 +390,16 @@ a {
   height: 60px;
 }
 .nav-img {
-  position: absolute;
   width: 220px;
-  top: 5%;
 }
 
 /* 메뉴사이드바 */
-.menu_img {
-  top: 1%;
-  left: 13%;
+.nav-toggle {
+  position: absolute;
+  top: 14px;
+  left: 40px;
+}
+.nav-img-toggle {
   width: 180px;
 }
 .menu_header {
@@ -516,6 +516,7 @@ body {
   display: flex;
   justify-content: center;
   user-select: none;
+  z-index: -1;
 }
 
 .M_back {
@@ -525,6 +526,7 @@ body {
   background-size: cover;
   height: 100vh;
   margin: 25% 0 0 0;
+  z-index: -1;
 }
 
 /* 고친부분 */
@@ -600,7 +602,7 @@ input:focus {
   fill: var(--new-main-color);
   position: absolute;
   width: 21px;
-  top: 22px;
+  top: 27px;
   right: 25px;
   z-index: 999;
   cursor: pointer;
@@ -746,6 +748,82 @@ input:focus {
 
 /* ---------------- modal ---------------- */
 
+/* 설문 모달 */
+#event-modal {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.event-modal_window {
+  width: 600px;
+  height: 150px;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0 0 30px 30px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0px 3px 12.2px 0px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  transition: top 0.25s linear;
+}
+
+.event-modal_top p {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  padding: 25px 30px 20px 30px;
+}
+
+.event-modal_bottom {
+  float: right;
+  padding: 0 30px 24px 0;
+}
+
+.btn_event-modal {
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 15px;
+  font-weight: 600;
+  width: 120px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #97e49f;
+  background: #c5f1c9;
+  cursor: pointer;
+}
+
+.event-modal_toggleBtn {
+  background: none;
+  border: none;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.event-modal_btnImg {
+  width: 40px;
+  height: 40px;
+  transform: rotate(0);
+  transition: transform 0.25s linear;
+}
+
+.modal-opened {
+  top: -120px;
+}
+
+.modal-opened-img {
+  transform: rotate(-45deg);
+}
+
 /* 승연관 PC 모달 */
 
 #modal_1 .modal-overlay_1 {
@@ -864,7 +942,7 @@ input:focus {
       top: 90%;
     }
     to {
-      top: 20%;
+      top: 30%;
     }
   }
 
@@ -879,7 +957,7 @@ input:focus {
     display: none;
     width: 100%;
     left: 0%;
-    top: 20%;
+    top: 30%;
     height: 90vh;
     justify-content: center;
   }
@@ -900,7 +978,7 @@ input:focus {
   }
 
   .modal_content_1 {
-    top: 17%;
+    top: 10%;
     position: absolute;
     display: grid;
     grid-template-columns: 1fr;
@@ -1053,7 +1131,7 @@ input:focus {
       top: 90%;
     }
     to {
-      top: 20%;
+      top: 30%;
     }
   }
 
@@ -1068,7 +1146,7 @@ input:focus {
     display: none;
     width: 100%;
     left: 0%;
-    top: 20%;
+    top: 30%;
     height: 90vh;
     justify-content: center;
   }
@@ -1089,7 +1167,7 @@ input:focus {
   }
 
   .modal_content_2 {
-    top: 17%;
+    top: 10%;
     position: absolute;
     display: grid;
     grid-template-columns: 1fr;
@@ -1242,7 +1320,7 @@ input:focus {
       top: 90%;
     }
     to {
-      top: 20%;
+      top: 30%;
     }
   }
 
@@ -1257,7 +1335,7 @@ input:focus {
     display: none;
     width: 100%;
     left: 0%;
-    top: 20%;
+    top: 30%;
     height: 90vh;
     justify-content: center;
   }
@@ -1278,7 +1356,7 @@ input:focus {
   }
 
   .modal_content_3 {
-    top: 17%;
+    top: 10%;
     position: absolute;
     display: grid;
     grid-template-columns: 1fr;
@@ -1431,7 +1509,7 @@ input:focus {
       top: 90%;
     }
     to {
-      top: 20%;
+      top: 30%;
     }
   }
 
@@ -1446,7 +1524,7 @@ input:focus {
     display: none;
     width: 100%;
     left: 0%;
-    top: 20%;
+    top: 30%;
     height: 90vh;
     justify-content: center;
     padding-right: 5vw;
@@ -1468,7 +1546,7 @@ input:focus {
   }
 
   .modal_content_5 {
-    top: 17%;
+    top: 10%;
     position: absolute;
     display: grid;
     grid-template-columns: 1fr;
@@ -1622,7 +1700,7 @@ input:focus {
       top: 90%;
     }
     to {
-      top: 20%;
+      top: 30%;
     }
   }
 
@@ -1637,7 +1715,7 @@ input:focus {
     display: none;
     width: 100%;
     left: 0%;
-    top: 20%;
+    top: 30%;
     height: 90vh;
     justify-content: center;
     padding-left: 8%;
@@ -1659,7 +1737,7 @@ input:focus {
   }
 
   .modal_content_6 {
-    top: 17%;
+    top: 10%;
     position: absolute;
     display: grid;
     grid-template-columns: 1fr;
@@ -1813,7 +1891,7 @@ input:focus {
       top: 90%;
     }
     to {
-      top: 20%;
+      top: 30%;
     }
   }
 
@@ -1828,7 +1906,7 @@ input:focus {
     display: none;
     width: 100%;
     left: 0%;
-    top: 20%;
+    top: 30%;
     height: 90vh;
     justify-content: center;
     padding-right: 5vw;
@@ -1850,7 +1928,7 @@ input:focus {
   }
 
   .modal_content_7 {
-    top: 17%;
+    top: 10%;
     position: absolute;
     display: grid;
     grid-template-columns: 1fr;
@@ -2004,7 +2082,7 @@ input:focus {
       top: 90%;
     }
     to {
-      top: 20%;
+      top: 30%;
     }
   }
 
@@ -2019,7 +2097,7 @@ input:focus {
     display: none;
     width: 100%;
     left: 0%;
-    top: 20%;
+    top: 30%;
     height: 90vh;
     justify-content: center;
     padding-right: 5vw;
@@ -2041,7 +2119,7 @@ input:focus {
   }
 
   .modal_content_8 {
-    top: 17%;
+    top: 10%;
     position: absolute;
     display: grid;
     grid-template-columns: 1fr;
@@ -2197,7 +2275,7 @@ input:focus {
       top: 90%;
     }
     to {
-      top: 20%;
+      top: 30%;
     }
   }
 
@@ -2212,7 +2290,7 @@ input:focus {
     display: none;
     width: 100%;
     left: 0%;
-    top: 20%;
+    top: 30%;
     height: 90vh;
     justify-content: center;
     padding-right: 5vw;
@@ -2234,7 +2312,7 @@ input:focus {
   }
 
   .modal_content_9 {
-    top: 17%;
+    top: 10%;
     position: absolute;
     display: grid;
     grid-template-columns: 1fr;
@@ -2381,81 +2459,6 @@ input:focus {
   animation-iteration-count: 1;
 }
 
-/* 설문 모달 */
-#event-modal {
-  position: absolute;
-  top: 0;
-}
-
-.event-modal_window {
-  width: 600px;
-  height: 150px;
-  position: fixed;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 0 0 30px 30px;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0px 3px 12.2px 0px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  transition: top 0.25s linear;
-}
-
-.event-modal_top p {
-  color: #000;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: normal;
-  padding: 25px 30px 20px 30px;
-}
-
-.event-modal_bottom {
-  float: right;
-  padding: 0 30px 24px 0;
-}
-
-.btn_event-modal {
-  color: #000;
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 15px;
-  font-weight: 600;
-  width: 120px;
-  height: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  border: 1px solid #97e49f;
-  background: #c5f1c9;
-  cursor: pointer;
-}
-
-.event-modal_toggleBtn {
-  background: none;
-  border: none;
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  cursor: pointer;
-}
-
-.event-modal_btnImg {
-  width: 40px;
-  height: 40px;
-  transform: rotate(0);
-  transition: transform 0.25s linear;
-}
-
-.modal-opened {
-  top: -120px;
-}
-
-.modal-opened-img {
-  transform: rotate(-45deg);
-}
-
 /* 미가엘관 모바일 + 작은 PC창 모달 */
 
 @media (max-width: 700px) {
@@ -2464,7 +2467,7 @@ input:focus {
       top: 90%;
     }
     to {
-      top: 20%;
+      top: 30%;
     }
   }
 
@@ -2479,7 +2482,7 @@ input:focus {
     display: none;
     width: 100%;
     left: 0%;
-    top: 20%;
+    top: 30%;
     height: 90vh;
     justify-content: center;
   }
@@ -2500,7 +2503,7 @@ input:focus {
   }
 
   .modal_content_11 {
-    top: 17%;
+    top: 10%;
     position: absolute;
     display: grid;
     grid-template-columns: 10.7fr;
@@ -2533,6 +2536,77 @@ input:focus {
     align-items: center;
     justify-content: center;
     margin-bottom: 20vh;
+  }
+
+  /* 설문 모달 */
+  #event-modal {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+
+  .event-modal_window {
+    width: 600px;
+    height: 150px;
+    position: fixed;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 0 0 30px 30px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 3px 12.2px 0px rgba(0, 0, 0, 0.1);
+    transition: top 0.25s linear;
+  }
+
+  .event-modal_top p {
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    padding: 25px 30px 20px 30px;
+  }
+
+  .event-modal_bottom {
+    float: right;
+    padding: 0 30px 24px 0;
+  }
+
+  .btn_event-modal {
+    color: #000;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-weight: 600;
+    width: 120px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid #97e49f;
+    background: #c5f1c9;
+    cursor: pointer;
+  }
+
+  .event-modal_toggleBtn {
+    background: none;
+    border: none;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+  }
+
+  .event-modal_btnImg {
+    width: 40px;
+    height: 40px;
+    transform: rotate(0);
+    transition: transform 0.25s linear;
+  }
+
+  .modal-opened-img {
+    transform: rotate(-45deg);
   }
 
   .event-modal_window {
@@ -2571,126 +2645,7 @@ input:focus {
 
   .event-modal_toggleBtn {
     bottom: 100%;
-    left: 90%;
-  }
-
-  .modal-opened {
-    display: none;
-  }
-  @keyframes gohigh_11 {
-    from {
-      top: 90%;
-    }
-    to {
-      top: 20%;
-    }
-  }
-
-  .modal-overlay_11 .modal-window_11 {
-    background: rgba(0, 0, 0, 0.55);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.664);
-    border-radius: 0px;
-    animation-name: gohigh_11;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    position: absolute;
-    display: none;
-    width: 100%;
-    left: 0%;
-    top: 20%;
-    height: 90vh;
-    justify-content: center;
-  }
-
-  #modal_11 .close-area_11 {
-    width: 6vw;
-    height: 6vh;
-    text-align: center;
-    color: var(--new-sub-color);
-    float: right;
-    font-size: 10vw;
-    cursor: pointer;
-    font-weight: bold;
-    animation: none;
-    display: flex;
-    justify-content: center;
-    margin-left: 85%;
-  }
-
-  .modal_content_11 {
-    top: 17%;
-    position: absolute;
-    display: grid;
-    grid-template-columns: 10.7fr;
-    grid-template-rows: 1.5fr 1fr;
-    place-items: center;
-  }
-
-  .modal_img_11 {
-    grid-column: 1;
-    grid-row: 1;
-    display: block;
-    width: 80vw;
-    height: 40vh;
-    margin-bottom: 5%;
-  }
-
-  .qwan_button_11 {
-    grid-column: 1;
-    grid-row: 2;
-    background-color: var(--new-sub-color);
-    box-shadow: 0.5vw 0.5vh 0 0 var(--new-main-color);
-    color: var(--new-main-color);
-    border-radius: 50vw;
-    width: 60vw;
-    height: 6vh;
-    font-size: 1.7rem;
-    font-weight: bold;
-    text-align: center;
-    animation: none;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20vh;
-  }
-
-  .event-modal_window {
-    max-width: 325px;
-    height: 120px;
-    border-radius: 10px;
-    top: 10%;
-    z-index: -1;
-  }
-
-  .event-modal_top p {
-    color: #000;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: normal;
-    padding: 15px 18px 10px 18px;
-  }
-
-  .btn_event-modal {
-    color: #000;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: normal;
-    width: 96px;
-    height: 27px;
-  }
-
-  .event-modal_bottom {
-    padding: 0 18px 12px 0;
-  }
-
-  .event-modal_btnImg {
-    width: 25px;
-    height: 25px;
-  }
-
-  .event-modal_toggleBtn {
-    bottom: 100%;
-    left: 90%;
+    left: 95%;
   }
 
   .modal-opened {
@@ -2776,62 +2731,73 @@ input:focus {
     justify-content: center;
   }
 
+  .nav2 {
+    top: 12px;
+    left: 33px;
+  }
+  .nav2 a {
+    width: 195px;
+  }
+  .nav-img {
+    width: 195px;
+  }
+
   .leo_class img {
     width: 7vw;
   }
 
   #leo_1 {
-    top: 43%;
-    right: 39%;
+    top: 51%;
+    right: 41%;
     position: absolute;
   }
 
   #leo_2 {
-    top: 42%;
-    left: 30%;
+    top: 48%;
+    left: 32%;
     position: absolute;
   }
 
   #leo_3 {
-    top: 33%;
-    right: 42%;
+    top: 41%;
+    right: 44%;
     position: absolute;
   }
 
   #leo_5 {
-    top: 64%;
+    top: 72%;
     left: 80%;
     position: absolute;
   }
 
   #leo_6 {
-    top: 27%;
+    top: 34%;
     left: 37%;
     cursor: pointer;
     position: absolute;
   }
 
   #leo_7 {
-    top: 83%;
-    left: 13%;
+    top: 87%;
+    left: 12%;
     cursor: pointer;
     position: absolute;
   }
 
   #leo_8 {
-    top: 73%;
-    left: 15%;
+    top: 77%;
+    left: 14%;
     position: absolute;
   }
 
   #leo_9 {
-    top: 62%;
+    top: 68%;
     left: 23%;
     position: absolute;
   }
 
   #leo_11 {
-    top: 33%;
+    top: 40%;
     left: 20%;
     position: absolute;
   }
