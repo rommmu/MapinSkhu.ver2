@@ -217,8 +217,8 @@ INSERT INTO "classApp_classes" VALUES (152,'전선','LD00017','중국어회화II
 INSERT INTO "classApp_classes" VALUES (153,'전선','LD00019','HSK연습','장엽','7306','화',NULL,'9:00','11:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (154,'전필','MA00002','지역사회복지론','남일성','7304','월',NULL,'9:00','11:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (155,'전필','MA00003','사회복지조사론','정원오','7204','화','목','13:30','14:45','새천년관');
-INSERT INTO "classApp_classes" VALUES (156,'전필','MA00004','사회복지실천론','미지정','M407','월','수','12:00','13:15','미가엘관');
-INSERT INTO "classApp_classes" VALUES (157,'전필','MA00005','사회복지실천기술론','미지정','M407','월','수','13:30','14:45','미가엘관');
+INSERT INTO "classApp_classes" VALUES (156,'전필','MA00004','사회복지실천론','미지정','7205','월','수','12:00','13:15','새천년관');
+INSERT INTO "classApp_classes" VALUES (157,'전필','MA00005','사회복지실천기술론','미지정','7205','월','수','13:30','14:45','새천년관');
 INSERT INTO "classApp_classes" VALUES (158,'전필','MA00006','사회복지정책론','정원오','7304','목',NULL,'9:00','11:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (159,'전필','MA00007','사회복지행정론','황인매','M404','화',NULL,'9:00','11:50','미가엘관');
 INSERT INTO "classApp_classes" VALUES (160,'전필','MA00008','사회복지법제와실천','이호종','M402','목',NULL,'15:00','17:50','미가엘관');
