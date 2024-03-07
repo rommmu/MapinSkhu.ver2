@@ -1,13 +1,3 @@
-// 삼성인터넷 & 사파리 아래 주소창 때문에 화면 깨지는거
-
-window.addEventListener("DOMContentLoaded", function (ev) {
-  const { innerHeight } = window;
-  document.documentElement.style.setProperty(
-    "--app-height",
-    `${innerHeight}px`
-  );
-});
-
 // 각 건물 이벤트
 
 // 승연관
@@ -528,7 +518,8 @@ function mgellmodal_c() {
 
 function search_show() {
   document.getElementById("search").style.display = "block";
-  document.getElementsByClassName("container")[0].style.position = "fixed";
+  // 얘 하니까 nav1이랑 충돌해서 없앰
+  // document.getElementsByClassName("container")[0].style.position = "fixed";
   document.getElementsByClassName("container")[0].style.overflow = "hidden";
   document.getElementsByClassName("container")[0].style.width = "100vw";
   document.getElementsByClassName("container")[0].style.height = "100vh";
@@ -536,7 +527,7 @@ function search_show() {
 
 function search_hide() {
   document.getElementById("search").style.display = "none";
-  document.getElementsByClassName("container")[0].style.position = "";
+  // document.getElementsByClassName("container")[0].style.position = "";
   document.getElementsByClassName("container")[0].style.overflow = "";
   document.getElementsByClassName("container")[0].style.width = "";
   document.getElementsByClassName("container")[0].style.height = "";
