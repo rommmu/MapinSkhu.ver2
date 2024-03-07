@@ -502,6 +502,7 @@ body {
   height: -webkit-fill-available;
   height: fill-available;
   position: fixed;
+  overflow: hidden;
 }
 .nav3 {
   position: absolute;
