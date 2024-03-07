@@ -501,7 +501,7 @@ body {
   height: 100vh;
   height: -webkit-fill-available;
   height: fill-available;
-  overflow: hidden;
+  position: fixed;
 }
 .nav3 {
   position: absolute;
@@ -959,7 +959,7 @@ input:focus {
     width: 100%;
     left: 0%;
     top: 30%;
-    height: 90vh;
+    height: 70vh;
     justify-content: center;
   }
 
@@ -1148,7 +1148,7 @@ input:focus {
     width: 100%;
     left: 0%;
     top: 30%;
-    height: 90vh;
+    height: 70vh;
     justify-content: center;
   }
 
@@ -1337,7 +1337,7 @@ input:focus {
     width: 100%;
     left: 0%;
     top: 30%;
-    height: 90vh;
+    height: 70vh;
     justify-content: center;
   }
 
@@ -1526,7 +1526,7 @@ input:focus {
     width: 100%;
     left: 0%;
     top: 30%;
-    height: 90vh;
+    height: 70vh;
     justify-content: center;
     padding-right: 5vw;
   }
@@ -1717,7 +1717,7 @@ input:focus {
     width: 100%;
     left: 0%;
     top: 30%;
-    height: 90vh;
+    height: 70vh;
     justify-content: center;
     padding-left: 8%;
   }
@@ -1908,7 +1908,7 @@ input:focus {
     width: 100%;
     left: 0%;
     top: 30%;
-    height: 90vh;
+    height: 70vh;
     justify-content: center;
     padding-right: 5vw;
   }
@@ -2099,7 +2099,7 @@ input:focus {
     width: 100%;
     left: 0%;
     top: 30%;
-    height: 90vh;
+    height: 70vh;
     justify-content: center;
     padding-right: 5vw;
   }
@@ -2292,7 +2292,7 @@ input:focus {
     width: 100%;
     left: 0%;
     top: 30%;
-    height: 90vh;
+    height: 70vh;
     justify-content: center;
     padding-right: 5vw;
   }
@@ -2484,7 +2484,7 @@ input:focus {
     width: 100%;
     left: 0%;
     top: 30%;
-    height: 90vh;
+    height: 70vh;
     justify-content: center;
   }
 
