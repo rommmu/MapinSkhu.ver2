@@ -415,7 +415,7 @@ INSERT INTO "classApp_classes" VALUES (343,'교필','AK00089','대학생활세�
 
 INSERT INTO "classApp_classes" VALUES (344,'교선','AK00090','콘텐츠세계로미래로','전현택','M301','목', NULL,'12:00','14:50','미가엘관');
 INSERT INTO "classApp_classes" VALUES (345,'전선','XE00003','데이터기초수학2','홍성준','6206','월', '수','16:30','17:45','정보과학관');
-
+INSERT INTO "classApp_classes" VALUES (346, '전선', 'PC00023', '문화콘텐츠유통과마케팅', '미지정','3501','화','목','15:00','16:15','월당관')
 
 
 INSERT INTO "classApp_kwan" VALUES (0,'10','구두인관');
