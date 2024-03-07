@@ -37,6 +37,11 @@
 		</div>
 	</div>
 
+	<!--container 안에 들어가 있으니 cover로 안되고 위에 좀 남아서 밖으로 빼버림-->
+	<img class="P_back" src="{% static 'img/main/P_back_new.png' %}" alt="P_back">
+	<img class="M_back" src="{% static 'img/main/M_back.png' %}" alt="M_back">
+
+
 	<div class="container">
 
 		<!--main nav bar-->
@@ -85,10 +90,6 @@
 				</div>
 			</div>
 		</div>
-
-
-		<img class="P_back" src="{% static 'img/main/P_back_new.png' %}" alt="P_back">
-		<img class="M_back" src="{% static 'img/main/M_back.png' %}" alt="M_back">
 
 		<!--검색창-->
 		<div id="search">
@@ -240,21 +241,21 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<!-- 설문 모달 -->
-		<div id="event-modal">
-			<div class="event-modal_window">
-				<div class="event-modal_top">
-					<p>더 나은 서비스 제공을 위해 맵인스쿠에 대한 짧은 <b>설문조사</b>를 진행 중입니다.
-						설문에 참여하신 분들 중 추첨을 통해 카페 기프티콘을 제공할 예정이니 많은 관심 바랍니다!</p>
-				</div>
-				<div class="event-modal_bottom">
-					<button class="btn_event-modal" onclick="location.href='https://forms.gle/fdpiDvqSpi3EFMTX8'" ;>설문 참여</button>
-				</div>
-				<button class="event-modal_toggleBtn" onclick="toggleModal()">
-					<img class="event-modal_btnImg" src="{% static 'img/modal_btn.png' %}">
-				</button>
+	<!-- 설문 모달 -->
+	<div id="event-modal">
+		<div class="event-modal_window">
+			<div class="event-modal_top">
+				<p>더 나은 서비스 제공을 위해 맵인스쿠에 대한 짧은 <b>설문조사</b>를 진행 중입니다.
+					설문에 참여하신 분들 중 추첨을 통해 카페 기프티콘을 제공할 예정이니 많은 관심 바랍니다!</p>
 			</div>
+			<div class="event-modal_bottom">
+				<button class="btn_event-modal" onclick="location.href='https://forms.gle/fdpiDvqSpi3EFMTX8'" ;>설문 참여</button>
+			</div>
+			<button class="event-modal_toggleBtn" onclick="toggleModal()">
+				<img class="event-modal_btnImg" src="{% static 'img/modal_btn.png' %}">
+			</button>
 		</div>
 	</div>
 
