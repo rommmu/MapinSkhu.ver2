@@ -1,3 +1,13 @@
+// 삼성인터넷 & 사파리 아래 주소창 때문에 화면 깨지는거
+
+window.addEventListener("DOMContentLoaded", function (ev) {
+  const { innerHeight } = window;
+  document.documentElement.style.setProperty(
+    "--app-height",
+    `${innerHeight}px`
+  );
+});
+
 // 각 건물 이벤트
 
 // 승연관
