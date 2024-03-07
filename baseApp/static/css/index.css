@@ -227,7 +227,6 @@ section {
 body {
   line-height: 1;
   user-select: none;
-  height: var(--app-height);
 }
 ol,
 ul {
@@ -272,8 +271,10 @@ a {
 .nav1 {
   display: inline-flex;
   align-items: center;
-  position: relative;
+  position: fixed;
   z-index: 3;
+  top: 0;
+  left: 0;
 }
 #checkbox {
   display: none;
@@ -526,7 +527,6 @@ body {
   /* 모바일 하단 잘림 현상 해결 시도 */
   background-size: cover;
   height: 100vh;
-  margin: 25% 0 0 0;
   z-index: -1;
 }
 
@@ -2516,8 +2516,8 @@ input:focus {
     grid-column: 1;
     grid-row: 1;
     display: block;
-    width: 80vw;
-    height: 40vh;
+    width: 60vw;
+    height: 30vh;
     margin-bottom: 5%;
   }
 
@@ -2748,57 +2748,57 @@ input:focus {
   }
 
   #leo_1 {
-    top: 51%;
-    right: 41%;
+    top: 47%;
+    right: 39%;
     position: absolute;
   }
 
   #leo_2 {
-    top: 48%;
-    left: 32%;
+    top: 43%;
+    left: 33%;
     position: absolute;
   }
 
   #leo_3 {
-    top: 41%;
-    right: 44%;
+    top: 36%;
+    right: 41%;
     position: absolute;
   }
 
   #leo_5 {
-    top: 72%;
+    top: 70%;
     left: 80%;
     position: absolute;
   }
 
   #leo_6 {
-    top: 34%;
-    left: 37%;
+    top: 29%;
+    left: 38%;
     cursor: pointer;
     position: absolute;
   }
 
   #leo_7 {
-    top: 87%;
-    left: 12%;
+    top: 85%;
+    left: 10%;
     cursor: pointer;
     position: absolute;
   }
 
   #leo_8 {
-    top: 77%;
-    left: 14%;
+    top: 75%;
+    left: 13%;
     position: absolute;
   }
 
   #leo_9 {
-    top: 68%;
-    left: 23%;
+    top: 65%;
+    left: 21%;
     position: absolute;
   }
 
   #leo_11 {
-    top: 40%;
+    top: 35%;
     left: 20%;
     position: absolute;
   }
