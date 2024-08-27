@@ -695,15 +695,15 @@ input:focus {
 }
 
 #leo_2 {
-  top: 31%;
-  right: 33%;
+  top: 30%;
+  right: 36%;
   cursor: pointer;
   position: absolute;
 }
 
 #leo_3 {
   top: 39%;
-  right: 18%;
+  right: 22%;
   cursor: pointer;
   position: absolute;
 }
@@ -717,7 +717,7 @@ input:focus {
 
 #leo_6 {
   top: 33%;
-  right: 4%;
+  right: 6%;
   cursor: pointer;
   position: absolute;
 }
@@ -730,15 +730,15 @@ input:focus {
 }
 
 #leo_8 {
-  top: 34%;
-  left: 26%;
+  top: 33%;
+  left: 25%;
   cursor: pointer;
   position: absolute;
 }
 
 #leo_9 {
   top: 36%;
-  left: 40%;
+  left: 37%;
   cursor: pointer;
   position: absolute;
 }
@@ -2665,14 +2665,14 @@ input:focus {
   }
 
   #leo_1 {
-    top: 45%;
+    top: 46%;
     right: 35%;
     position: absolute;
   }
 
   #leo_2 {
-    top: 32%;
-    right: 32%;
+    top: 33%;
+    right: 36%;
     position: absolute;
   }
 
@@ -2690,13 +2690,13 @@ input:focus {
 
   #leo_6 {
     top: 37%;
-    right: 4%;
+    right: 6%;
     cursor: pointer;
     position: absolute;
   }
 
   #leo_7 {
-    top: 27%;
+    top: 28%;
     left: 10%;
     cursor: pointer;
     position: absolute;
@@ -2709,13 +2709,13 @@ input:focus {
   }
 
   #leo_9 {
-    top: 38%;
-    left: 38%;
+    top: 39%;
+    left: 37%;
     position: absolute;
   }
 
   #leo_11 {
-    top: 29%;
+    top: 30%;
     right: 20%;
     position: absolute;
   }
@@ -2753,58 +2753,58 @@ input:focus {
   }
 
   #leo_1 {
-    top: 47%;
-    right: 39%;
-    position: absolute;
-  }
-
-  #leo_2 {
-    top: 43%;
-    left: 33%;
-    position: absolute;
-  }
-
-  #leo_3 {
-    top: 36%;
+    top: 30%;
     right: 41%;
     position: absolute;
   }
 
+  #leo_2 {
+    top: 27%;
+    left: 32%;
+    position: absolute;
+  }
+
+  #leo_3 {
+    top: 20%;
+    right: 43%;
+    position: absolute;
+  }
+
   #leo_5 {
-    top: 70%;
+    top: 55%;
     left: 80%;
     position: absolute;
   }
 
   #leo_6 {
-    top: 29%;
+    top: 12%;
     left: 38%;
     cursor: pointer;
     position: absolute;
   }
 
   #leo_7 {
-    top: 85%;
-    left: 10%;
+    top: 70%;
+    left: 12%;
     cursor: pointer;
     position: absolute;
   }
 
   #leo_8 {
-    top: 75%;
-    left: 13%;
+    top: 60%;
+    left: 14%;
     position: absolute;
   }
 
   #leo_9 {
-    top: 65%;
-    left: 21%;
+    top: 48%;
+    left: 23%;
     position: absolute;
   }
 
   #leo_11 {
-    top: 35%;
-    left: 20%;
+    top: 20%;
+    left: 18%;
     position: absolute;
   }
 }
