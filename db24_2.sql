@@ -296,7 +296,7 @@ INSERT INTO "classApp_classes" VALUES (251,'전선','MD00028','유럽정치론',
 INSERT INTO "classApp_classes" VALUES (252,'전선','MD00035','국제정치경제','이율빈','1506','수',NULL,'15:00','17:50','승연관');
 INSERT INTO "classApp_classes" VALUES (253,'전선','ME00002','글로벌비지니스의 이해','장승권','7304','월',NULL,'9:00','11:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (254,'전필','ME00003','경영정보시스템','송재민','7208','금',NULL,'12:00','14:50','새천년관');
-INSERT INTO "classApp_classes" VALUES (255,'전선','ME00005','인적자원관리','윤숙희','M402','수',NULL,'9:00','11:50','미가엘관');
+INSERT INTO "classApp_classes" VALUES (255,'전선','ME00005','인적자원관리','윤숙희','7207','수',NULL,'9:00','11:50','미가엘관');
 INSERT INTO "classApp_classes" VALUES (256,'전선','ME00006','기업과 사회','윤길순','M403','수',NULL,'12:00','14:50','미가엘관');
 INSERT INTO "classApp_classes" VALUES (257,'전필','ME00007','기업재무관리','최우석','7309','화','목','16:30','17:45','새천년관');
 INSERT INTO "classApp_classes" VALUES (258,'전필','ME00009','경영전략','이선희','3402','화','목','13:30','14:45','월당관');
