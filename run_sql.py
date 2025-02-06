@@ -12,7 +12,7 @@ def custom_sql(sql_file_name):
         sql_as_string = sql_file.read()
         cursor.executescript(sql_as_string)
 
-custom_sql("db24_2.sql")
+custom_sql("db25_1-blank.ver.sql")
 
 '''
 python manage.py sqlmigrate 앱이름 0001
