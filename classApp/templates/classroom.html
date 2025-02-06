@@ -17,10 +17,10 @@
 		<!--얘도 강의실 이미지 나오면 최종 수정을 거쳐야할듯-->
 		<span class="closebtn" onclick="history.back();">&times;</span>
 
-		{% if now_class != 'empty' %}
+		{% if now_class_name != 'empty' %}
 		<div class="detail-status">
 			<p><i class="fa-solid fa-ban"></i></p>
-			<p></i>현재 <strong>{{now_class}}</strong> 강의 중입니다.</p>
+			<p></i>현재 <strong>{{now_class_name}}</strong> 강의 중입니다.</p>
 		</div>
 		{% endif %}
 	</div>

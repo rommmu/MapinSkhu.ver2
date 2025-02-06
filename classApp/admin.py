@@ -3,9 +3,9 @@ from .models import Classes, Kwan, Room
 
 @admin.register(Classes)
 class ClassesAdmin(admin.ModelAdmin):
-    list_display = ['id', 'kind', 'code', 'class_name', 'prof', 'room']
-    ordering = ['class_name', 'room']
-    search_fields = ['class_name', 'room']
+    list_display = ['id', 'kind', 'code', 'class_name', 'prof', 'room1']
+    ordering = ['class_name', 'room1']
+    search_fields = ['class_name', 'room1']
 
 @admin.register(Kwan)
 class KwanAdmin(admin.ModelAdmin):

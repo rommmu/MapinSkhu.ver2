@@ -46,8 +46,8 @@ def search(request):
 
     qs_list = q.split(' ') # case2 : 입력 중간에 공백 있는 경우 -> q='한국 사회' -> qs_list = ['한국','사회']
     
-    if ' ' not in q:
-        qs2_list = list(q) #case3 : 입력에 공백 없는 경우 -> q='한국사회' -> qs2_list = ['한','국','사','회']
+    # if ' ' not in q:
+    #     qs2_list = list(q) #case3 : 입력에 공백 없는 경우 -> q='한국사회' -> qs2_list = ['한','국','사','회']
 
     roomsList = []
     classesList = []
@@ -62,26 +62,30 @@ def search(request):
     if q:
 
         classes = []
-        spare1 = []
-        spare_count1 = {}
-        for qs in qs_list: #공백 있는 입력인 경우 공백으로 나눠서 데이터 찾기(예시:입력;한국 사회, 데이터;한국사회)
-            spare1 += classesAll.filter(Q(class_name__icontains = qs)).distinct()
-            #예시:한국사회 -> '한국' 들어간거 다 찾아서 리스트에 저장, '사회' 들어간거 다 저장
-        for i in spare1:
-            try:
-                spare_count1[i] +=1 
-            except:
-                spare_count1[i] = 1
-        output1 = []
-        for i, n in spare_count1.items():
-            if n >= len(q)-1: #검색 단어의 길이정도만큼 겹치는 단어가 있는 경우 최종 결과에 담기 
-                output1.append(i)
-        classes = output1
+        # spare1 = []
+        # spare_count1 = {}
+        for qs in qs_list: 
+            classes += classesAll.filter(Q(class_name__icontains = qs)).distinct()
+            #예시:한국사회 -> '한국' 들어간거 다 찾아서 리스트에 저장, '사회' 들어간거 다 저장 but 중복 제거 
+
+        print(classes)
+        # for i in spare1: #뭘하고 잇는거지?
+        #     try:
+        #         spare_count1[i] +=1 
+        #     except:
+        #         spare_count1[i] = 1
+        # output1 = []
+        # for i, n in spare_count1.items():
+        #     if n >= len(q)-1: #검색 단어의 길이정도만큼 겹치는 단어가 있는 경우 최종 결과에 담기 
+        #         output1.append(i)
+        # print("spare_count1는 도대체 뭔가?",spare_count1)
+        # classes = output1
         
         
         rooms = roomsAll.filter((Q(room__icontains = q))).distinct()
         professors = professorsAll.filter(Q(prof__icontains = q)).distinct()
         
+        '''
         try: #공백 없는 입력이지만 데이터에는 공백이 있는 경우 데이터 찾기(예시:입력;한국사회, 데이터;한국 사회)
             if qs2_list:
                 spare = []
@@ -104,9 +108,10 @@ def search(request):
                 classes = output
         except:
             pass
+            
+        '''
 
-
-# 중복 결과 제거
+        # 중복 결과 제거
         rooms = set(rooms)
         rooms = list(rooms)
         classes = set(classes)
@@ -119,10 +124,17 @@ def search(request):
         for r in rooms:
             r.room_type = "사용가능"
 
-            for c in classesAll.filter(Q(date1 = now_weekday) | Q(date2 = now_weekday)):
+            #date1에 대해
+            for c in classesAll.filter(Q(date1 = now_weekday)):
                 if c.start <= now_time and now_time <= c.end:
-                    if r.room == c.room:
-                        r.room_type = "사용불가"
+                    if (r.room == c.room1):
+                        r.room_type = "사용불가" 
+            roomsList.append(r)
+            #date2에 대해
+            for c in classesAll.filter(Q(date2 = now_weekday)):
+                if c.start <= now_time and now_time <= c.end:
+                    if (r.room == c.room2):
+                        r.room_type = "사용불가" 
             roomsList.append(r)
         
         for c in classes:

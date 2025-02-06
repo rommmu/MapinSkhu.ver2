@@ -51,16 +51,16 @@
 			</div>
 			<div class="lectureinfo-container">
 				{% for rooms in roomsAll %}
-				{% for classes in classesList %}
-				{% if rooms.room == classes.room %}
+				{% for classname in classesList %}
+				{% if rooms.room == classname.room1 or rooms.room == classname.room2 %}
 				<a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
 					<div class="lecture-img">
 						<img class="img-src" src="{{rooms.room_image.url}}" alt="{{rooms.room}}" />
 					</div>
 
 					<div class="lectureinfo_s">
-						<h2 style="align-items:first baseline; color: gray;">{{classes.room}}</h2>
-						<h3>{{ classes.class_name }}</h3>
+						<h2 style="align-items:first baseline; color: gray;">{{classname.room1}}, {{classname.room2}}</h2>
+						<h3>{{ classname.class_name }}</h3>
 					</div>
 				</a>
 				{% endif %}
