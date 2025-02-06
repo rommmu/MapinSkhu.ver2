@@ -22,20 +22,20 @@
 			</div>
 
 			<div class="lectureinfo-container">
-				{% for rooms in roomsList %}
-				<a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
+				{% for room in roomsList %}
+				<a href="{% url 'classroom' room.room %}" class="lectureinfo-box">
 					<div class="lecture-img">
-						<img class="img-src" src="{{rooms.room_image.url}}" alt="{{rooms.room}}" />
+						<img class="img-src" src="{{room.room_image.url}}" alt="{{room.room}}" />
 					</div>
 					<div class="lectureinfo">
-						<h1>{{ rooms.room }}</h1>
-						{% if rooms.room_type == '사용가능' %}
+						<h1>{{ room.room }}</h1>
+						{% if room.room_type == '사용가능' %}
 						<div class="lecturecon poss">
-							<span>{{ rooms.room_type }}</span>
+							<span>{{ room.room_type }}</span>
 						</div>
 						{% else %}
 						<div class="lecturecon imposs">
-							<span>{{ rooms.room_type }}</span>
+							<span>{{ room.room_type }}</span>
 						</div>
 						{% endif %}
 					</div>
@@ -45,47 +45,73 @@
 			</div>
 		</div>
 
+
+
 		<div class="build-floor-container">
 			<div class="floorinfo" id="floorinfo_s">
 				<h2>강의명 검색결과</h2>
 			</div>
 			<div class="lectureinfo-container">
-				{% for rooms in roomsAll %}
-				{% for classname in classesList %}
-				{% if rooms.room == classname.room1 or rooms.room == classname.room2 %}
-				<a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
+				{% for classname in classes %}	
+				{% for room in roomsAll %}
+				
+				{% if room.room == classname.room1 %}
+				<a href="{% url 'classroom' room.room %}" class="lectureinfo-box">
 					<div class="lecture-img">
-						<img class="img-src" src="{{rooms.room_image.url}}" alt="{{rooms.room}}" />
+						<img class="img-src" src="{{room.room_image.url}}" alt="{{room.room}}" />
 					</div>
-
 					<div class="lectureinfo_s">
-						<h2 style="align-items:first baseline; color: gray;">{{classname.room1}}, {{classname.room2}}</h2>
-						<h3>{{ classname.class_name }}</h3>
+						<h2 style="align-items:first baseline; color: gray;">{{classname.room1}}</h2>
+						<h3>{{ classname.class_name }} | {{classname.prof}}</h3>
 					</div>
-				</a>
+				{% elif room.room == classname.room2 %}
+				<a href="{% url 'classroom' room.room %}" class="lectureinfo-box">
+					<div class="lecture-img">
+						<img class="img-src" src="{{room.room_image.url}}" alt="{{room.room}}" />
+					</div>
+					<div class="lectureinfo_s">
+						<h2 style="align-items:first baseline; color: gray;">{{classname.room2}}</h2>
+						<h3>{{ classname.class_name }} | {{classname.prof}}</h3>
+					</div>
 				{% endif %}
+				</a>
+
 				{% endfor %}
 				{% endfor %}
 				<h1 style="font-size: 1.7rem;">{{classes_result}}</h1>
 			</div>
 		</div>
 
+
+
 		<div class="build-floor-container">
 			<div class="floorinfo" id="floorinfo_s">
 				<h2>교수님 강의 검색결과</h2>
 			</div>
 			<div class="lectureinfo-container">
-				{% for rooms in roomsAll %}
-				{% for professors in professorsList %}
-				{% if rooms.room == professors.room %}
-				<a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
+				{% for professor_class in professors %}
+				{% for room in roomsAll %}
+				
+				{% if room.room == professor_class.room1 %}
+				<a href="{% url 'classroom' room.room %}" class="lectureinfo-box">
 					<div class="lecture-img">
-						<img class="img-src" src="{{rooms.room_image.url}}" alt="{{rooms.room}}" />
+						<img class="img-src" src="{{room.room_image.url}}" alt="{{room.room}}" />
 					</div>
 
 					<div class="lectureinfo_s">
-						<h2 style="align-items:first baseline; color: gray;">{{professors.room}}</h2>
-						<h3>{{ professors.class_name }}</h3>
+						<h2 style="align-items:first baseline; color: gray;">{{professor_class.room1}}</h2>
+						<h3>{{ professor_class.class_name }} | {{professor_class.prof}}</h3>
+					</div>
+				</a>
+				{% elif room.room == professor_class.room2 %}
+				<a href="{% url 'classroom' room.room %}" class="lectureinfo-box">
+					<div class="lecture-img">
+						<img class="img-src" src="{{room.room_image.url}}" alt="{{room.room}}" />
+					</div>
+
+					<div class="lectureinfo_s">
+						<h2 style="align-items:first baseline; color: gray;">{{professor_class.room2}}</h2>
+						<h3>{{ professor_class.class_name }} | {{professor_class.prof}}</h3>
 					</div>
 				</a>
 				{% endif %}

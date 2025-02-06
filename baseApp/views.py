@@ -68,7 +68,7 @@ def search(request):
             classes += classesAll.filter(Q(class_name__icontains = qs)).distinct()
             #예시:한국사회 -> '한국' 들어간거 다 찾아서 리스트에 저장, '사회' 들어간거 다 저장 but 중복 제거 
 
-        print(classes)
+        
         # for i in spare1: #뭘하고 잇는거지?
         #     try:
         #         spare_count1[i] +=1 
@@ -120,7 +120,6 @@ def search(request):
         professors = list(professors)
 
 
-
         for r in rooms:
             r.room_type = "사용가능"
 
@@ -136,20 +135,27 @@ def search(request):
                     if (r.room == c.room2):
                         r.room_type = "사용불가" 
             roomsList.append(r)
-        
+
+        '''
         for c in classes:
             classesList.append(c)
         
         for p in professors:
             professorsList.append(p)
-        
-        if len(roomsList) == 0:
+        '''
+           
+        # 중복 결과 제거
+        roomsList = set(roomsList)
+        roomsList = list(roomsList)
+
+
+        if len(rooms) == 0:
             rooms_result = "강의실 검색 결과가 없습니다."
         
-        if len(classesList) == 0:
+        if len(classes) == 0:
             classes_result = "강의명 검색 결과가 없습니다."
         
-        if len(professorsList) == 0:
+        if len(professors) == 0:
             professors_result = "해당 교수님이 진행하는 강의 검색 결과가 없습니다."
     
     else:
@@ -157,6 +163,7 @@ def search(request):
         rooms_result = "강의실 검색 결과가 없습니다."
         classes_result = "강의명 검색 결과가 없습니다."
         professors_result = "해당 교수님이 진행하는 강의 검색 결과가 없습니다."
+    
 
     return render(request, 'search.html',
     {'q': q,

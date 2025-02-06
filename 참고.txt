@@ -62,9 +62,8 @@ open(sql_file_name, encoding='UTF-8')로 수정하기
 2. 모델 형식에 맞게 데이터프레임 정리 후 id포함하여 csv 저장
 3. db 만들기 
 4. run sql 실행
+5. 이후 sql이 변경되면 db 삭제후 python run_sql.py만 해주면됨. 
 
 검토---------------------------------------------
 - 이전 sql은 data 레포에 올려두고 모두 삭제 하기 
 - settings에 debug =False
-- 사봉 등 없앤 강의 다시 추가 
-- 아 ㅏ전선전탐 공통개설........반영안함. 
