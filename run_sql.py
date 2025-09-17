@@ -1,10 +1,14 @@
-from django.db import connection
 import os
+import django
+from django.db import connection
+import subprocess
 
 os.environ.setdefault(
     'DJANGO_SETTINGS_MODULE',
     'mapinskhu.settings'
 )
+
+django.setup()  # ★ 추가
 
 def custom_sql(sql_file_name):
     with connection.cursor() as cursor:

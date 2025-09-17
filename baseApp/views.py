@@ -9,25 +9,25 @@ def base(request):
     return render(request, 'base.html')
 
 def index(request):
-    fs = FileSystemStorage(location=settings.BASE_DIR)
+    # fs = FileSystemStorage(location=settings.BASE_DIR)
     
-    rooms = Room.objects.all()
+    # rooms = Room.objects.all()
 
-    for r in rooms:
-        if r.room_image == None:
-            static_file_jpg = f'classApp/static/images/classroom/{r.room}.jpg'
-            if fs.exists(static_file_jpg):
-                with fs.open(static_file_jpg) as static_file:
-                    r.room_image.save(f'{r.room}.jpg', static_file, save=True)
-            if not fs.exists(static_file_jpg):
-                static_file_png = f'classApp/static/images/classroom/{r.room}.png'
-                if fs.exists(static_file_png):
-                    with fs.open(static_file_png) as static_file:
-                        r.room_image.save(f'{r.room}.png', static_file, save=True)
-                if not fs.exists(static_file_png):
-                    static_file_wait = f'classApp/static/images/classroom/imagewait.png'
-                    with fs.open(static_file_wait) as static_file:
-                        r.room_image.save(f'imagewait_{r.room}.JPG', static_file, save=True)
+    # for r in rooms:
+    #     if r.room_image == None:
+    #         static_file_jpg = f'classApp/static/images/classroom/{r.room}.jpg'
+    #         if fs.exists(static_file_jpg):
+    #             with fs.open(static_file_jpg) as static_file:
+    #                 r.room_image.save(f'{r.room}.jpg', static_file, save=True)
+    #         if not fs.exists(static_file_jpg):
+    #             static_file_png = f'classApp/static/images/classroom/{r.room}.png'
+    #             if fs.exists(static_file_png):
+    #                 with fs.open(static_file_png) as static_file:
+    #                     r.room_image.save(f'{r.room}.png', static_file, save=True)
+    #             if not fs.exists(static_file_png):
+    #                 static_file_wait = f'classApp/static/images/classroom/imagewait.png'
+    #                 with fs.open(static_file_wait) as static_file:
+    #                     r.room_image.save(f'imagewait_{r.room}.JPG', static_file, save=True)
 
     return render(request, 'index.html')
 
