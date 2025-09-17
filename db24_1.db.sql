@@ -61,7 +61,7 @@ INSERT INTO "classApp_classes" VALUES (24,'교필','AC00015','데이터 활용 �
 INSERT INTO "classApp_classes" VALUES (25,'교필','AC00015','데이터 활용 및 분석','이해신','B105','금',NULL,'13:00','14:50','일만관');
 INSERT INTO "classApp_classes" VALUES (26,'교선','AD00177','고전문학 톺아 읽기','신동옥','3301','수',NULL,'9:00','11:50','월당관');
 INSERT INTO "classApp_classes" VALUES (27,'교선','AE00014','한국사회와 노동문제','하종강','3402','목',NULL,'15:00','17:50','월당관');
-INSERT INTO "classApp_classes" VALUES (28,'교선','AE00038','정치경제학','김진업','7304','수',NULL,'12:00','14:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (28,'교선','AE00038','정치경제학','김진업','M402','수',NULL,'12:00','14:50','미가엘관');
 INSERT INTO "classApp_classes" VALUES (29,'교선','AK00025','현대사회와법1','이기덕','3402','화',NULL,'15:00','17:50','월당관');
 INSERT INTO "classApp_classes" VALUES (30,'교선','AK00041','정치의대결','이광일','7304','목',NULL,'12:00','14:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (31,'교선','AD00021','군대와사회','김엘리','1505','수',NULL,'15:00','17:50','승연관');
@@ -195,7 +195,7 @@ INSERT INTO "classApp_classes" VALUES (132,'전선','LB00020','영어학개론',
 INSERT INTO "classApp_classes" VALUES (133,'전선','LB00021','영어교수법및학습법1','김성찬','7202','화','목','16:30','17:45','새천년관');
 INSERT INTO "classApp_classes" VALUES (134,'전필','LB00022','영작문I','김혜인','7204','화','목','12:00','13:15','새천년관');
 INSERT INTO "classApp_classes" VALUES (135,'전선','LB00023','현대문명과문학','조병은','7202','화',NULL,'12:00','14:50','새천년관');
-INSERT INTO "classApp_classes" VALUES (136,'전선','LB00024','환타지와문학','진영종','7308','목',NULL,'9:00','11:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (136,'전선','LB00024','환타지와문학','진영종','7206','목',NULL,'9:00','11:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (137,'전선','LB00025','Speech & Presentations','김혜인','7305','화','목','13:30','14:45','새천년관');
 INSERT INTO "classApp_classes" VALUES (138,'전필','LB00028','영어다의어1:알맹이와껍데기','이원석','7208','월',NULL,'9:00','11:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (139,'전필','LC00011','일본학입문','양기호','7302','금',NULL,'12:00','14:50','새천년관');
@@ -223,7 +223,7 @@ INSERT INTO "classApp_classes" VALUES (158,'전필','MA00006','사회복지정�
 INSERT INTO "classApp_classes" VALUES (159,'전필','MA00007','사회복지행정론','황인매','M404','화',NULL,'9:00','11:50','미가엘관');
 INSERT INTO "classApp_classes" VALUES (160,'전필','MA00008','사회복지법제와실천','이호종','M402','목',NULL,'15:00','17:50','미가엘관');
 INSERT INTO "classApp_classes" VALUES (161,'전선','MA00013','의료사회복지론','김예진','1503','수',NULL,'9:00','11:50','승연관');
-INSERT INTO "classApp_classes" VALUES (162,'전선','MA00017','사회복지윤리와철학','조남경','7307','화','목','16:30','17:45','새천년관');
+INSERT INTO "classApp_classes" VALUES (162,'','','','','','','','','','');
 INSERT INTO "classApp_classes" VALUES (163,'전선','MA00020','학교사회복지','최경옥','M404','목',NULL,'15:00','17:50','미가엘관');
 INSERT INTO "classApp_classes" VALUES (164,'전선','MA00021','가족복지론','정종운','M406','목',NULL,'9:00','11:50','미가엘관');
 INSERT INTO "classApp_classes" VALUES (165,'전선','MA00022','프로그램개발과 평가','남일성','7104','금',NULL,'9:00','11:50','새천년관');
@@ -239,9 +239,9 @@ INSERT INTO "classApp_classes" VALUES (173,'전선','MB00023','현대사회와 �
 INSERT INTO "classApp_classes" VALUES (174,'전선','MB00024','한국사회의 구조와 변동','강성현','7204','월','수','13:30','14:45','새천년관');
 INSERT INTO "classApp_classes" VALUES (175,'전선','MB00025','사회학 연습','미지정','1504','화','목','13:30','14:45','승연관');
 INSERT INTO "classApp_classes" VALUES (176,'전선','MB00027','공간과사회','조미혜','M407','목',NULL,'9:00','11:50','미가엘관');
-INSERT INTO "classApp_classes" VALUES (177,'전선','MB00031','과학기술의사회학','박진영','M406','월',NULL,'12:00','14:50','미가엘관');
+INSERT INTO "classApp_classes" VALUES (177,'','','','','','',NULL,'','','');
 INSERT INTO "classApp_classes" VALUES (178,'전선','MB00034','젠더와역사','김상숙','M402','수',NULL,'9:00','11:50','미가엘관');
-INSERT INTO "classApp_classes" VALUES (179,'전선','MB00040','21세기한국사회에서살아가기','장상철','M406','목',NULL,'15:00','17:50','미가엘관');
+INSERT INTO "classApp_classes" VALUES (179,'','','','','','',NULL,'','','');
 INSERT INTO "classApp_classes" VALUES (180,'전선','MB00041','동물과인간의사회학','주설아','1503','화',NULL,'15:00','17:50','승연관');
 INSERT INTO "classApp_classes" VALUES (181,'전선','MB00042','아동청년가족사회','김희진','M403','수',NULL,'15:00','17:50','미가엘관');
 INSERT INTO "classApp_classes" VALUES (182,'전선','MB00043','청년의일과삶','권자옥','1505','금',NULL,'9:00','11:50','승연관');
@@ -255,14 +255,13 @@ INSERT INTO "classApp_classes" VALUES (189,'전필','MC00019','경제학세미�
 INSERT INTO "classApp_classes" VALUES (190,'전선','MD00014','민주주의론','김형철','M404','월',NULL,'12:00','14:50','미가엘관');
 INSERT INTO "classApp_classes" VALUES (191,'전필','MD00016','국가론','박은홍','7305','월','수','15:00','16:15','새천년관');
 INSERT INTO "classApp_classes" VALUES (192,'전선','MD00024','공공외교론','윤석준','M406','화',NULL,'9:00','11:50','미가엘관');
-INSERT INTO "classApp_classes" VALUES (193,'전선','MD00031','신학과정치학의만남','박은홍
-박태식','1506','목',NULL,'12:00','14:50','승연관');
+INSERT INTO "classApp_classes" VALUES (193,'','','','','','',NULL,'','','');
 INSERT INTO "classApp_classes" VALUES (194,'전선','MD00032','인권의국제정치학','박은홍','7305','월','수','16:30','17:45','새천년관');
 INSERT INTO "classApp_classes" VALUES (195,'전선','MD00033','개발협력의정치경제','윤석준','M402','화','목','13:30','14:45','미가엘관');
 INSERT INTO "classApp_classes" VALUES (196,'전선','ME00002','글로벌비지니스의 이해','장승권','7204','월',NULL,'9:00','11:50','새천년관');
 INSERT INTO "classApp_classes" VALUES (197,'전필','ME00003','경영정보시스템','박윤규','7204','월','수','12:00','13:15','새천년관');
 INSERT INTO "classApp_classes" VALUES (198,'전선','ME00005','인적자원관리','윤숙희','M407','수',NULL,'9:00','11:50','미가엘관');
-INSERT INTO "classApp_classes" VALUES (199,'전선','ME00006','기업과 사회','윤길순','1503','목',NULL,'12:00','14:50','승연관');
+INSERT INTO "classApp_classes" VALUES (199,'','','','','','',NULL,'','','');
 INSERT INTO "classApp_classes" VALUES (200,'전필','ME00007','기업재무관리','최우석','7304','화','목','16:30','17:45','새천년관');
 INSERT INTO "classApp_classes" VALUES (201,'전필','ME00009','경영전략','이선희','M403','화','목','13:30','14:45','미가엘관');
 INSERT INTO "classApp_classes" VALUES (202,'전필','ME00012','마케팅','이유빈','M407','월','수','16:30','17:45','미가엘관');
@@ -307,7 +306,7 @@ INSERT INTO "classApp_classes" VALUES (241,'전선','PA00038','고급영상합�
 INSERT INTO "classApp_classes" VALUES (242,'전선','PA00042','방송그래픽','박은석','6403','금',NULL,'9:00','11:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (243,'전선','PC00001','작품제작','미지정','6402','목',NULL,'15:00','17:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (244,'전선','PC00003','디자인레이아웃과캐릭터','박인평','M401','수',NULL,'12:00','14:50','미가엘관');
-INSERT INTO "classApp_classes" VALUES (245,'전선','PC00004','스톱모션애니메이션제작실습','전승배','M401','월',NULL,'12:00','14:50','미가엘관');
+INSERT INTO "classApp_classes" VALUES (245,'','','','','','',NULL,'','','');
 INSERT INTO "classApp_classes" VALUES (246,'전선','PC00005','영상콘텐츠와서사','미지정','M301','월',NULL,'12:00','14:50','미가엘관');
 INSERT INTO "classApp_classes" VALUES (247,'전필','PC00010','3D모델링','이원정','6403','화',NULL,'9:00','11:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (248,'전선','PC00017','디지털콘텐츠기획','미지정','M205','화',NULL,'15:00','17:50','미가엘관');
@@ -328,7 +327,7 @@ INSERT INTO "classApp_classes" VALUES (262,'전선','XA00037','Node.js프로그�
 INSERT INTO "classApp_classes" VALUES (263,'전선','XA00038','크로스플랫폼모바일프로그래밍','정연식','6201','화',NULL,'9:00','11:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (264,'전선','XA00039','임베디드리눅스','정연식','6201','목',NULL,'9:00','11:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (265,'전필','XB00002','자료구조','노은하','6201','금',NULL,'15:00','17:50','정보과학관');
-INSERT INTO "classApp_classes" VALUES (266,'전선','XB00005','데이터베이스','홍은지','6206','월','수','15:00','16:15','정보과학관');
+INSERT INTO "classApp_classes" VALUES (266,'전탐,전선','XB00005','데이터베이스','홍은지','6206','월','수','15:00','16:15','정보과학관');
 INSERT INTO "classApp_classes" VALUES (267,'전필','XB00007','알고리즘','노은하','6201','화','목','12:00','13:15','정보과학관');
 INSERT INTO "classApp_classes" VALUES (268,'전필','XB00007','알고리즘','노은하','6201','화','목','13:30','14:45','정보과학관');
 INSERT INTO "classApp_classes" VALUES (269,'전선','XB00008','웹프로그래밍','김선형','6202','화','목','13:30','14:45','정보과학관');
@@ -347,7 +346,7 @@ INSERT INTO "classApp_classes" VALUES (281,'전선','XB00033','소프트웨어�
 INSERT INTO "classApp_classes" VALUES (282,'전선','XB00037','Java프로그래밍','김선형','6202','화','목','16:30','17:45','정보과학관');
 INSERT INTO "classApp_classes" VALUES (283,'전선','XB00037','Java프로그래밍','문성현','6202','금',NULL,'9:00','11:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (284,'전선','XB00038','프론트엔드프레임워크','이승진','6202','월','수','15:00','16:15','정보과학관');
-INSERT INTO "classApp_classes" VALUES (285,'전선','XB00039','사물인터넷캡스톤디자인','유상신','6406','화',NULL,'9:00','11:50','정보과학관');
+INSERT INTO "classApp_classes" VALUES (285,'','','','','','',NULL,'','','');
 INSERT INTO "classApp_classes" VALUES (286,'전선','XC00013','컴퓨터네트워크','박정식','6404','화','목','15:00','16:15','정보과학관');
 INSERT INTO "classApp_classes" VALUES (287,'전선','XC00015','모바일프로그래밍','이종현','6406','금',NULL,'9:00','11:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (288,'전선','XC00018','보안시스템','이종현','6406','금',NULL,'12:00','14:50','정보과학관');
@@ -358,7 +357,7 @@ INSERT INTO "classApp_classes" VALUES (292,'전선','XC00035','생활속의보�
 INSERT INTO "classApp_classes" VALUES (293,'전필','XC00036','정보통신공학캡스톤디자인','박정식','6404','화',NULL,'9:00','11:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (294,'전선','XC00037','디지털통신','정인철','6404','월','수','15:00','16:15','정보과학관');
 INSERT INTO "classApp_classes" VALUES (295,'전선','XE00004','고급머신러닝','홍성준','6405','화',NULL,'9:00','11:50','정보과학관');
-INSERT INTO "classApp_classes" VALUES (296,'전선','XE00005','고급Python프로그래밍','홍성준','6405','화',NULL,'9:00','11:50','정보과학관');
+INSERT INTO "classApp_classes" VALUES (296,'','','','','','',NULL,'','','');
 INSERT INTO "classApp_classes" VALUES (297,'전선','XE00006','딥러닝프레임워크','곽승우','6405','목',NULL,'9:00','11:50','정보과학관');
 INSERT INTO "classApp_classes" VALUES (298,'전선','XE00007','확률과랜덤변수','이상윤','6405','화','목','13:30','14:45','정보과학관');
 INSERT INTO "classApp_classes" VALUES (299,'전선','XE00013','Python프로그래밍','홍성준','B105','월','수','15:00','16:15','일만관');
@@ -414,10 +413,17 @@ INSERT INTO "classApp_classes" VALUES (342,'교필','AK00089','대학생활세�
 INSERT INTO "classApp_classes" VALUES (343,'교필','AK00089','대학생활세미나I(소프트웨어융합6반)','김선형','6206','금', NULL,'13:00','14:50','정보과학관');
 
 INSERT INTO "classApp_classes" VALUES (344,'교선','AK00090','콘텐츠세계로미래로','전현택','M301','목', NULL,'12:00','14:50','미가엘관');
-INSERT INTO "classApp_classes" VALUES (345,'전선','XE00003','데이터기초수학2','홍성준','6206','월', '수','16:30','17:45','정보과학관');
+INSERT INTO "classApp_classes" VALUES (345,'전선','XE00003','데이터기초수학2','홍성준','6405','월', '수','16:30','17:45','정보과학관');
 INSERT INTO "classApp_classes" VALUES (346, '전선', 'PC00023', '문화콘텐츠유통과마케팅', '전현택','3501','화','목','15:00','16:15','월당관');
-INSERT INTO "classApp_classes" VALUES (347, '전탐, 전선', '과학카페에서본종교','김기석','7303','목',NULL,'09:00','11:50','새천년관');
-INSERT INTO "classApp_classes" VALUES (348, '전탐','문화코드로본현대중국','윤영도','7306','월','수','15:00','16:15','새천년관');
+INSERT INTO "classApp_classes" VALUES (347, '전탐, 전선','LA00028', '과학카페에서읽는종교','김기석','7303','목',NULL,'09:00','11:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (348, '전탐','BH00001','문화코드로본현대중국','윤영도','7306','월','수','15:00','16:15','새천년관');
+
+INSERT INTO "classApp_classes" VALUES (249,'전탐','VI00006','데이터베이스','홍은지','6206','월','수','13:30','14:45','정보과학관');
+INSERT INTO "classApp_classes" VALUES (250,'','','종교로보는세계의역사','이주엽','7307','화','목','15:00','16:15','새천년관');
+INSERT INTO "classApp_classes" VALUES (251,'전탐','VH00025','한걸음더중국어','장엽','7205','월','수','13:30','14:45','새천년관');
+INSERT INTO "classApp_classes" VALUES (251,'전탐','VH00021','전공탐색세미나(기독교문화전공)','이주엽','7205','월','','12:00','12:50','새천년관');
+INSERT INTO "classApp_classes" VALUES (252,'전탐','','기초통계','김수림','7309','화','목','16:30','17:45','새천년관');
+
 
 
 INSERT INTO "classApp_kwan" VALUES (0,'10','구두인관');

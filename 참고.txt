@@ -1,0 +1,69 @@
+<참고>
+https://shiningyouandme.tistory.com/16
+-------------------------------------------
+⇨ db browser for sqlite 프로그램 설치
+⇨ models.py에 class 만들기
+⇨ 마이그레이션, 마이그레이트
+⇨ '''$python manage.py sqlmigrate 앱이름 0001''' 해서 나오는 sql문 복사 (begin, commit 은 제외)
+⇨ db browser for sqlite 접속 후 
+[새 데이터베이스]-db파일 생성될 위치 선택&파일이름 설정 후 [저장]-뜨는 창은 [취소] 누르기
+그럼 설정한 이름으로 파일이 열려있을것
+[sql 실행]-붙여넣기(begin;은 제외시키기)-[▶(실행)]
+⇨ 엑셀 파일을 csv로 내보내기-다른이름으로 저장시 인코딩 타입을 'utf-8'로 변경(안그럼 DB BROWSER 프로그램에서 한글깨짐)
+⇨ [파일]-[가져오기]-[csv에서 가져오기]
+⇨ 테이블이름에 sqlmigrate해서 생성된 이름이랑 똑같이 작성하기(create table "" 에서 큰따옴표 부분, 첫행유지)->그럼 덮어쓸거냐 물어봄 yes하면됨. 다른 이름으로 하면 테이블이 하나 더 만들어지는데 외래키처럼 모델의 자세한 부분?이 잘 안적혀있음)-[ok]
+-> 이외 설정 : 첫행에 필드명 포함, 필드 앞뒤 공백 제거
+** 23-2는 기존 테이블 유지가 아닌 삭제후 다시 생성으로 만듦.
+-> 똑같은 이름의 기존 테이블이 존재한다고 여기로 가져올까요 물어보면 yes
+
+⇨ [파일]-[내보내기]-[sql로 내보내기]
+-> 설정: 추가적으로 변경한 테이블만 선택 후 
+옵션은 insert into문에 필드명 넣기 x, 하나의 insert문에 여러줄 사용 x,
+스키마와 데이터 모두 내보내기 ok, 이전 스키마 덮어쓰기 ok
+⇨ sql을 프로젝트 폴더 manage.py 와 같은 위치로 이동
+
+>>여기까지 하면 .sql 파일 생성됨 이제 sql 내용을 db로 옮기자
+
+<참고>
+https://eunjin3786.tistory.com/395
+--------------------------------------
+⇨ manage.py와 같은 위치에 run_sql.py 만들고 안에 아래 코드 작성
+<==
+from django.db import connection
+import os
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', '프로젝트이름.settings')
+
+def my_custom_sql(sql_file_name):
+    with connection.cursor() as cursor:
+        sql_file = open(sql_file_name)
+        sql_as_string = sql_file.read()
+        cursor.executescript(sql_as_string)
+
+my_custom_sql("디비 브라우저 프로그램으로 만든 sql 파일이름.sql")
+==>
+
+'''UnicodeDecodeError: 'cp949' codec can't decode byte 0xec in position 496: illegal multibyte sequence''' 에러뜨면 
+open(sql_file_name, encoding='UTF-8')로 수정하기
+⇨ '''$python run_sql.py'''해서 에러 안뜨면 db로 옮기기 성공
+⇨ admin에 모델 등록
+⇨ 런서버 해서 어드민 확인
+
+
+
+---요약---
+1. skhu_model에 모델 작업하기
+2. model 만든 순서대로 엑셀 열 순서 정리하기
+3. csv만들기
+4. db만들기
+5. run sql하기
+(요약)25-1부터---------------------------------------------------
+1. classes 모델 형식 작성
+2. 모델 형식에 맞게 데이터프레임 정리 후 id포함하여 csv 저장
+3. db 만들기 
+4. run sql 실행
+5. 이후 sql이 변경되면 db 삭제후 python run_sql.py만 해주면됨. 
+
+검토---------------------------------------------
+- 이전 sql은 data 레포에 올려두고 모두 삭제 하기 
+- settings에 debug =False
