@@ -1,5 +1,5 @@
-{% extends 'base.html' %} {% load static %} {% block title %} 정보과학관 {%
-endblock %}
+{% extends 'base.html' %} {% load static %} {% block title %} 정보과학관
+{%endblock %} {% block content %}
 <div class="build-container">
   <!-- 건물이름이랑 층 정보 나오는 곳 -->
   <div class="build-informwrap">
@@ -108,11 +108,11 @@ endblock %}
         {% for rooms in rooms_list %} {% if rooms.floor == 1 %}
         <a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
           <div class="lecture-img">
-            {% if rooms.room_image %}
-            <img src="{{ rooms.room_image.url }}" alt="{{ rooms.room }}" />
-            {% else %}
-            <div class="no-image">이미지 준비 중</div>
-            {% endif %}
+            <img
+              class="img-src"
+              src="{{rooms.room_image.url}}"
+              alt="{{rooms.room}}"
+            />
           </div>
           <div class="lectureinfo">
             <h1>{{ rooms.room }}</h1>
@@ -141,15 +141,11 @@ endblock %}
         {% for rooms in rooms_list %} {% if rooms.floor == 2 %}
         <a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
           <div class="lecture-img">
-            {% if rooms.room_image %}
             <img
               class="img-src"
               src="{{rooms.room_image.url}}"
               alt="{{rooms.room}}"
             />
-            {% else %}
-            <div class="no-image">이미지 준비 중</div>
-            {% endif %}
           </div>
           <div class="lectureinfo">
             <h1>{{ rooms.room }}</h1>
@@ -188,15 +184,11 @@ endblock %}
         {% for rooms in rooms_list %} {% if rooms.floor == 4 %}
         <a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
           <div class="lecture-img">
-            {% if rooms.room_image %}
             <img
               class="img-src"
               src="{{rooms.room_image.url}}"
               alt="{{rooms.room}}"
             />
-            {% else %}
-            <div class="no-image">이미지 준비 중</div>
-            {% endif %}
           </div>
           <div class="lectureinfo">
             <h1>{{ rooms.room }}</h1>
@@ -228,15 +220,11 @@ endblock %}
         {% for rooms in rooms_access %} {% if rooms.floor == 1 %}
         <a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
           <div class="lecture-img">
-            {% if rooms.room_image %}
             <img
               class="img-src"
               src="{{rooms.room_image.url}}"
               alt="{{rooms.room}}"
             />
-            {% else %}
-            <div class="no-image">이미지 준비 중</div>
-            {% endif %}
           </div>
           <div class="lectureinfo">
             <h1>{{ rooms.room }}</h1>
@@ -265,15 +253,11 @@ endblock %}
         {% for rooms in rooms_access %} {% if rooms.floor == 2 %}
         <a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
           <div class="lecture-img">
-            {% if rooms.room_image %}
             <img
               class="img-src"
               src="{{rooms.room_image.url}}"
               alt="{{rooms.room}}"
             />
-            {% else %}
-            <div class="no-image">이미지 준비 중</div>
-            {% endif %}
           </div>
           <div class="lectureinfo">
             <h1>{{ rooms.room }}</h1>
@@ -302,15 +286,11 @@ endblock %}
         {% for rooms in rooms_access %} {% if rooms.floor == 3 %}
         <a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
           <div class="lecture-img">
-            {% if rooms.room_image %}
             <img
               class="img-src"
               src="{{rooms.room_image.url}}"
               alt="{{rooms.room}}"
             />
-            {% else %}
-            <div class="no-image">이미지 준비 중</div>
-            {% endif %}
           </div>
           <div class="lectureinfo">
             <h1>{{ rooms.room }}</h1>
@@ -339,15 +319,11 @@ endblock %}
         {% for rooms in rooms_access %} {% if rooms.floor == 4 %}
         <a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
           <div class="lecture-img">
-            {% if rooms.room_image %}
             <img
               class="img-src"
               src="{{rooms.room_image.url}}"
               alt="{{rooms.room}}"
             />
-            {% else %}
-            <div class="no-image">이미지 준비 중</div>
-            {% endif %}
           </div>
           <div class="lectureinfo">
             <h1>{{ rooms.room }}</h1>
