@@ -1,0 +1,71 @@
+### 강의실 리스트 테스트 
+GET http://127.0.0.1:8000/api/classrooms/
+?building_name=정보과학관&floor=4&isEmptyRoom=false
+Content-Type: application/json
+
+# 요청 예시
+{
+    "building_name": "정보과학관",
+    "floor": 4,
+    "isEmptyRoom": false
+}
+
+# 응답 예시
+{
+  "classroom_list": [
+    {
+      "id": "29",
+      "floor": 4,
+      "classroom_number": "6404",
+      "isAvaliable": true,
+      "imageUrl": "http://127.0.0.1:8000/media/images/room/6404_6404_Vh9R8xX.png"
+    },
+    {
+      "id": "49",
+      "floor": 4,
+      "classroom_number": "6406",
+      "isAvaliable": true,
+      "imageUrl": "http://127.0.0.1:8000/media/images/room/6406_6406_HmqX5VI.png"
+    },
+    ...
+  ]
+}
+
+### 강의실 상세 테스트
+GET http://127.0.0.1:8000/api/classroom/50/
+Content-Type: application/json
+
+# 요청 예시
+{
+    "classroom_id": 50
+}
+
+# 응답 예시
+{
+  "course_list": [
+    {
+      "id": "BI00001",
+      "professor": "김선형",
+      "course_name": "C프로그래밍",
+      "start_time": "13:30",
+      "end_time": "14:45",
+      "dayOfWeek": [
+        "TUE",
+        "THU"
+      ],
+      "room": "6202"
+    },
+    {
+      "id": "XB00033",
+      "professor": "이승진",
+      "course_name": "소프트웨어캡스톤디자인",
+      "start_time": "09:00",
+      "end_time": "11:50",
+      "dayOfWeek": [
+        "MON"
+      ],
+      "room": "6202"
+    },
+    ...
+  ]
+}

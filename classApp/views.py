@@ -72,16 +72,12 @@ def kwan_fn(my_kwan):
     now_time = now.time()
     weekday = now.weekday() #월:0 ~ 일:6
     now_weekday = days[weekday]
-    
-    rooms = Room.objects.all().filter(Q(kwan_name = my_kwan)).order_by('room')
-    classes = Classes.objects.all().filter(Q(kwan_name = my_kwan))
-    classes = classes.filter((Q(date1 = now_weekday) | Q(date2 = now_weekday)))
-    # kwan_img_url = get_object_or_404(Kwan, kwan_image = my_kwan)
 
-    # print("rooms 길이: ", len(rooms))
+    rooms = Room.objects.all().filter(Q(kwan_name = my_kwan)).order_by('room')
+    
+    classes = Classes.objects.filter((Q(date1 = now_weekday) | Q(date2 = now_weekday)))
 
     rooms_list = []
-
     rooms_access = []
     rooms_unaccess = []
 
@@ -89,15 +85,19 @@ def kwan_fn(my_kwan):
         r.room_type = "사용가능"
 
         for c in classes:
+            # 3. 시간 비교
             if c.start <= now_time and now_time <= c.end:
-                if (r.room == c.room1 or r.room == c.room2):
+                # 4. 방 번호 비교 (여기서 일치하면 어차피 이 건물 수업임)
+                if (str(r.room) == str(c.room1) or str(r.room) == str(c.room2)):
                     r.room_type = "사용불가"
                     rooms_unaccess.append(r)
+                    break # 수업이 1개라도 있으면 사용불가 처리하고 검사 중지
+                    
         if r.room_type == "사용가능":
             rooms_access.append(r)
+            
         rooms_list.append(r)
 
-    # print("rooms_list 길이: ", len(rooms_list))
     return {
         'now_date' : now_date, 
         'now_time' : now_time, 
@@ -107,10 +107,7 @@ def kwan_fn(my_kwan):
         'rooms_list' : rooms_list, 
         'rooms_access': rooms_access,
         'rooms_unaccess': rooms_unaccess,
-        # 'kwan_img_url' : kwan_img_url,
     }
-
-
 
 # 1관 승연관
 def sy_gwan(request):
