@@ -67,3 +67,10 @@ open(sql_file_name, encoding='UTF-8')로 수정하기
 검토---------------------------------------------
 - 이전 sql은 data 레포에 올려두고 모두 삭제 하기 
 - settings에 debug =False
+
+
+--가상환경 활성화
+- 인터프리터 지정해두기 
+shift+command+p -> python select interpreter
+- 가상환경 활성화
+source venv(가상환경이름)/bin/activate

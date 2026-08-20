@@ -1,0 +1,5 @@
+makemigrations & migrate
+python manage.py import_data Classes csv/csv26_1.csv
+python manage.py import_data Kwan csv/all_kwan.csv
+python manage.py import_data Room csv/all_room.csv
+python run_backfill_image.py

@@ -19,6 +19,7 @@ def custom_sql(sql_file_name):
 custom_sql("db25_2.sql")
 
 '''
+26-1 부터 사용하지 않음. 
 python manage.py sqlmigrate 앱이름 0001
 python run_sql.py
 '''
