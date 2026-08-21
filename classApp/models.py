@@ -35,6 +35,7 @@ class Kwan(models.Model):
         return f'{self.kwan_name}'
 
 class Room(models.Model):
+    # url에 사용할 pk 만들기...
     kwan_name = models.CharField(max_length=50, db_index=True)
     room = models.CharField(max_length=100, db_index=True)
     floor = models.SmallIntegerField(
