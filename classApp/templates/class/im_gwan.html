@@ -1,5 +1,5 @@
-{% extends 'base.html' %} {% load static %} {% block title %} 일만관 {% endblock
-%} {% block content %}
+{% extends 'base.html' %} {% load static %} {% block title %} 일만관
+{%endblock%} {% block content %}
 <div class="build-container">
   <!-- 건물이름이랑 층 정보 나오는 곳 -->
   <div class="build-informwrap">
@@ -106,7 +106,7 @@
 
       <div class="lectureinfo-container">
         {% for rooms in rooms_list %} {% if rooms.floor == 1 %}
-        <a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
+        <a href="{% url 'classroom' rooms.id %}" class="lectureinfo-box">
           <div class="lecture-img">
             <img
               class="img-src"
@@ -116,6 +116,7 @@
           </div>
           <div class="lectureinfo">
             <h1>{{ rooms.room }}</h1>
+            <p>{{ rooms.details }}</p>
 
             {% if rooms.room_type == '사용가능' %}
             <div class="lecturecon poss">
@@ -142,7 +143,7 @@
 
       <div class="lectureinfo-container">
         {% for rooms in rooms_access %} {% if rooms.floor == 1 %}
-        <a href="{% url 'classroom' rooms.room %}" class="lectureinfo-box">
+        <a href="{% url 'classroom' rooms.id %}" class="lectureinfo-box">
           <div class="lecture-img">
             <img
               class="img-src"
@@ -152,6 +153,7 @@
           </div>
           <div class="lectureinfo">
             <h1>{{ rooms.room }}</h1>
+            <p>{{ rooms.details }}</p>
 
             {% if rooms.room_type == '사용가능' %}
             <div class="lecturecon poss">

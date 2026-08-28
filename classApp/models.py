@@ -35,9 +35,11 @@ class Kwan(models.Model):
         return f'{self.kwan_name}'
 
 class Room(models.Model):
-    # url에 사용할 pk 만들기...
+    # url에 사용할 pk 만들기는 자동 생성되는 Id로 사용
+    
     kwan_name = models.CharField(max_length=50, db_index=True)
     room = models.CharField(max_length=100, db_index=True)
+    details = models.CharField(max_length=500,  blank=True) #강의실 설명
     floor = models.SmallIntegerField(
         validators=[
             MinValueValidator(1), MaxValueValidator(10)
