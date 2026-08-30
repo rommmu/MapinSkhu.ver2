@@ -51,7 +51,7 @@ class Command(BaseCommand):
                         date2=row['date2'],
                         start=row['start'] if row['start'] else None,
                         end=row['end'] if row['end'] else None,
-                        kwan_name=row.get('kwan_name', None)
+                        kwan_name=row.get('kwan_name') or row.get('kwan')
                     ))
                 elif target == 'Kwan':
                     objs.append(active_model(

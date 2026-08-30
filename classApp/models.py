@@ -39,7 +39,7 @@ class Room(models.Model):
     
     kwan_name = models.CharField(max_length=50, db_index=True)
     room = models.CharField(max_length=100, db_index=True)
-    details = models.CharField(max_length=500,  blank=True) #강의실 설명
+    details = models.CharField(max_length=500, blank=True)
     floor = models.SmallIntegerField(
         validators=[
             MinValueValidator(1), MaxValueValidator(10)

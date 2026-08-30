@@ -76,24 +76,42 @@ def kwan_fn(my_kwan):
     rooms = Room.objects.all().filter(Q(kwan_name = my_kwan)).order_by('room')
     
     classes = Classes.objects.filter((Q(date1 = now_weekday) | Q(date2 = now_weekday)))
+    classroom_rooms = set(Classes.objects.values_list('room1', flat=True)) | set(
+        Classes.objects.values_list('room2', flat=True)
+    )
 
     rooms_list = []
     rooms_access = []
     rooms_unaccess = []
 
     for r in rooms:
-        r.room_type = "사용가능"
+        r.has_class = r.room in classroom_rooms
+        is_numbered_classroom = (
+            bool(r.room.strip())
+            and not r.details.strip()
+            and '(' not in r.room
+        )
+        is_im_gwan_fifth_floor_classroom = (
+            r.kwan_name == "일만관"
+            and r.floor == 5
+            and "(강의실)" in r.room
+        )
+        r.is_classroom = (
+            is_numbered_classroom or is_im_gwan_fifth_floor_classroom
+        )
+        r.is_image_missing = not r.room_image.name or r.room_image.name.endswith('imagewait.png')
+        r.room_type = "미개방" if r.is_classroom and not r.has_class else "사용가능"
 
         for c in classes:
             # 3. 시간 비교
             if c.start <= now_time and now_time <= c.end:
                 # 4. 방 번호 비교 (여기서 일치하면 어차피 이 건물 수업임)
                 if (str(r.room) == str(c.room1) or str(r.room) == str(c.room2)):
-                    r.room_type = "사용불가"
+                    r.room_type = "수업중"
                     rooms_unaccess.append(r)
                     break # 수업이 1개라도 있으면 사용불가 처리하고 검사 중지
                     
-        if r.room_type == "사용가능":
+        if r.is_classroom and r.room_type == "사용가능":
             rooms_access.append(r)
             
         rooms_list.append(r)

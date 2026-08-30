@@ -1,19 +1,25 @@
-$("input[type=radio]").on("click", function () {
-  var chkValue = $("input[type=radio]:checked").val();
+const readToggle = document.getElementById("howto_read");
+const statusToggle = document.getElementById("howto_notav");
+const readPanel = document.getElementById("read");
+const statusPanel = document.getElementById("noav");
+const readTab = document.getElementById("con_read");
+const statusTab = document.getElementById("con_notav");
 
-  if (chkValue == "강의실 읽는 법") {
-    $("#read").css("display", "block");
-    $("#con_read").css("box-shadow", "5px -5px 7px 0px rgba(0, 0, 0, 0.08)");
-    $("#con_read").css("z-index", 2);
-    $("#noav").css("display", "none");
-    $("#con_notav").css("box-shadow", "none");
-    $("#con_notav").css("z-index", 1);
-  } else if (chkValue == "사용불가란") {
-    $("#read").css("display", "none");
-    $("#con_read").css("box-shadow", "none");
-    $("#con_read").css("z-index", 1);
-    $("#noav").css("display", "block");
-    $("#con_notav").css("box-shadow", "5px -5px 7px 0px rgba(0, 0, 0, 0.08)");
-    $("#con_notav").css("z-index", 2);
-  }
-});
+function updateInformPanel() {
+  const showReadPanel = readToggle.checked;
+
+  readPanel.style.display = showReadPanel ? "block" : "none";
+  statusPanel.style.display = showReadPanel ? "none" : "block";
+  readTab.style.boxShadow = showReadPanel
+    ? "5px -5px 7px 0px rgba(0, 0, 0, 0.08)"
+    : "none";
+  readTab.style.zIndex = showReadPanel ? 2 : 1;
+  statusTab.style.boxShadow = showReadPanel
+    ? "none"
+    : "5px -5px 7px 0px rgba(0, 0, 0, 0.08)";
+  statusTab.style.zIndex = showReadPanel ? 1 : 2;
+}
+
+readToggle.addEventListener("change", updateInformPanel);
+statusToggle.addEventListener("change", updateInformPanel);
+updateInformPanel();
