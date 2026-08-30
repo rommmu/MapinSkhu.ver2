@@ -38,6 +38,7 @@ class Room(models.Model):
     # url에 사용할 pk 만들기...
     kwan_name = models.CharField(max_length=50, db_index=True)
     room = models.CharField(max_length=100, db_index=True)
+    details = models.CharField(max_length=500, blank=True)
     floor = models.SmallIntegerField(
         validators=[
             MinValueValidator(1), MaxValueValidator(10)

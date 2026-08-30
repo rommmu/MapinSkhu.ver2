@@ -51,7 +51,7 @@ class Command(BaseCommand):
                         date2=row['date2'],
                         start=row['start'] if row['start'] else None,
                         end=row['end'] if row['end'] else None,
-                        kwan_name=row.get('kwan_name', None)
+                        kwan_name=row.get('kwan_name') or row.get('kwan')
                     ))
                 elif target == 'Kwan':
                     objs.append(active_model(
@@ -100,6 +100,7 @@ class Command(BaseCommand):
                     objs.append(active_model(
                         kwan_name=row['kwan_name'],
                         room=row['room'],
+                        details=row.get('details', ''),
                         floor=int(row['floor']),
                         room_image=row.get('room_image', None),
                         room_type=row.get('room_type', None)
