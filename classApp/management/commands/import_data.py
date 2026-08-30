@@ -100,7 +100,7 @@ class Command(BaseCommand):
                     objs.append(active_model(
                         kwan_name=row['kwan_name'],
                         room=row['room'],
-                        details=row.get('details', ''),
+                        details=row.get('details', ''),  # details 필드 추가
                         floor=int(row['floor']),
                         room_image=row.get('room_image', None),
                         room_type=row.get('room_type', None)
