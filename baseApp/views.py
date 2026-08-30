@@ -82,7 +82,9 @@ def search(request):
         # classes = output1
         
         
-        rooms = roomsAll.filter((Q(room__icontains = q))).distinct()
+        rooms = roomsAll.filter(
+            Q(room__icontains=q) | Q(details__icontains=q)
+        ).distinct()
         professors = professorsAll.filter(Q(prof__icontains = q)).distinct()
         
         '''

@@ -113,7 +113,7 @@
       <div class="lectureinfo-container">
         {% for rooms in rooms_list %} {% if rooms.floor == 1 %}
         <a
-          {% if rooms.is_classroom and rooms.room_type != '미개방' %}href="{% url 'classroom' rooms.room %}"{% endif %}
+          {% if rooms.is_classroom and rooms.room_type != '미개방' %}href="{% url 'classroom' rooms.id %}"{% endif %}
           data-room="{{ rooms.room }}"
           class="lectureinfo-box{% if not rooms.is_classroom %} lectureinfo-box--non-classroom{% endif %}{% if rooms.room_type == '미개방' %} lectureinfo-box--unopened{% endif %}{% if rooms.is_image_missing %} lectureinfo-box--missing-image{% endif %}"
         >
@@ -158,7 +158,7 @@
       <div class="lectureinfo-container">
         {% for rooms in rooms_list %} {% if rooms.floor == 2 %}
         <a
-          {% if rooms.is_classroom and rooms.room_type != '미개방' %}href="{% url 'classroom' rooms.room %}"{% endif %}
+          {% if rooms.is_classroom and rooms.room_type != '미개방' %}href="{% url 'classroom' rooms.id %}"{% endif %}
           data-room="{{ rooms.room }}"
           class="lectureinfo-box{% if not rooms.is_classroom %} lectureinfo-box--non-classroom{% endif %}{% if rooms.room_type == '미개방' %} lectureinfo-box--unopened{% endif %}{% if rooms.is_image_missing %} lectureinfo-box--missing-image{% endif %}"
         >
@@ -203,7 +203,7 @@
       <div class="lectureinfo-container">
         {% for rooms in rooms_list %} {% if rooms.floor == 3 %}
         <a
-          {% if rooms.is_classroom and rooms.room_type != '미개방' %}href="{% url 'classroom' rooms.room %}"{% endif %}
+          {% if rooms.is_classroom and rooms.room_type != '미개방' %}href="{% url 'classroom' rooms.id %}"{% endif %}
           data-room="{{ rooms.room }}"
           class="lectureinfo-box{% if not rooms.is_classroom %} lectureinfo-box--non-classroom{% endif %}{% if rooms.room_type == '미개방' %} lectureinfo-box--unopened{% endif %}{% if rooms.is_image_missing %} lectureinfo-box--missing-image{% endif %}"
         >

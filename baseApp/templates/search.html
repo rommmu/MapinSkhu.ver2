@@ -23,17 +23,18 @@
 
 			<div class="lectureinfo-container">
 				{% for room in roomsList %}
-				<a href="{% url 'classroom' room.room %}" class="lectureinfo-box">
-					<div class="lecture-img">
-						<img class="img-src" src="{{room.room_image.url}}" alt="{{room.room}}" />
+				<a {% if not room.details %}href="{% url 'classroom' room.id %}"{% endif %} class="lectureinfo-box{% if room.details %} lectureinfo-box--non-classroom{% endif %}">
+					<div class="lecture-img" data-room="{{ room.room }}">
+						<img class="img-src" src="{% if room.details %}{% static 'images/classroom/nonImage.png' %}{% else %}{{ room.room_image.url }}{% endif %}" alt="{{room.room}}" />
+						{% if room.details %}<span class="non-classroom-name">{{ room.details }}</span>{% endif %}
 					</div>
 					<div class="lectureinfo">
 						<h1>{{ room.room }}</h1>
-						{% if room.room_type == '사용가능' %}
+						{% if not room.details and room.room_type == '사용가능' %}
 						<div class="lecturecon poss">
 							<span>{{ room.room_type }}</span>
 						</div>
-						{% else %}
+						{% elif not room.details %}
 						<div class="lecturecon imposs">
 							<span>{{ room.room_type }}</span>
 						</div>
@@ -56,7 +57,7 @@
 				{% for room in roomsAll %}
 				
 				{% if room.room == classname.room1 %}
-				<a href="{% url 'classroom' room.room %}" class="lectureinfo-box">
+				<a href="{% url 'classroom' room.id %}" class="lectureinfo-box">
 					<div class="lecture-img">
 						<img class="img-src" src="{{room.room_image.url}}" alt="{{room.room}}" />
 					</div>
@@ -65,7 +66,7 @@
 						<h3>{{ classname.class_name }} | {{classname.prof}}</h3>
 					</div>
 				{% elif room.room == classname.room2 %}
-				<a href="{% url 'classroom' room.room %}" class="lectureinfo-box">
+				<a href="{% url 'classroom' room.id %}" class="lectureinfo-box">
 					<div class="lecture-img">
 						<img class="img-src" src="{{room.room_image.url}}" alt="{{room.room}}" />
 					</div>
@@ -93,7 +94,7 @@
 				{% for room in roomsAll %}
 				
 				{% if room.room == professor_class.room1 %}
-				<a href="{% url 'classroom' room.room %}" class="lectureinfo-box">
+				<a href="{% url 'classroom' room.id %}" class="lectureinfo-box">
 					<div class="lecture-img">
 						<img class="img-src" src="{{room.room_image.url}}" alt="{{room.room}}" />
 					</div>
@@ -104,7 +105,7 @@
 					</div>
 				</a>
 				{% elif room.room == professor_class.room2 %}
-				<a href="{% url 'classroom' room.room %}" class="lectureinfo-box">
+				<a href="{% url 'classroom' room.id %}" class="lectureinfo-box">
 					<div class="lecture-img">
 						<img class="img-src" src="{{room.room_image.url}}" alt="{{room.room}}" />
 					</div>
