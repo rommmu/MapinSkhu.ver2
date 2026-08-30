@@ -1,0 +1,2 @@
+# Prettier does not parse Django template tags reliably.
+**/templates/**/*.html
